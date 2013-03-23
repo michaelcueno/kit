@@ -34,4 +34,31 @@ Rectangle {
             onClicked: main.move_to(cabinets);
         }
     }
+
+    states: [
+    State { name: "center"
+            PropertyChanges {
+                target: mainWindow; x: 0; y:0
+            }
+    },
+    State { name: "cabinet"
+            PropertyChanges {
+                target: mainWindow; x: 0; y:-1080
+            }
+    },
+    State { name: "fridge"
+            PropertyChanges {
+                target: mainWindow; x: -1920; y:0
+            }
+    },
+    State { name: "cooking"
+            PropertyChanges {
+                target: mainWindow; x: 1920; y:0
+            }
+    }
+    ]
+
+    transitions: Transition {
+        PropertyAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
+    }
 }

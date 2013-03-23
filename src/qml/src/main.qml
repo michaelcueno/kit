@@ -25,16 +25,16 @@ Item {
     {
         switch (screen){
         case fridge:
-            mainWindow.x = -1920; mainWindow.y = 0;
+        mainWindow.state = "fridge"
             break;
         case cabinets:
-        mainWindow.x = 0; mainWindow.y = -1080;
+        mainWindow.state = "cabinet"
             break;
         case cooking:
-        mainWindow.x = 1920; mainWindow.y = 0;
+        mainWindow.state = "cooking"
             break;
         case mainWindow:
-        mainWindow.x = 0; mainWindow.y = 0;
+        mainWindow.state = "centered"
             break;
 
         }
