@@ -4,5 +4,6 @@
 /** Place for common includes and *possibly* global variables (but thats baaad ok) */
 #include <QObject>
 #include <QDebug>
+#include <QString>
 
 #endif // GLOBALS_H

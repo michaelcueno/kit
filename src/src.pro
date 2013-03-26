@@ -1,6 +1,8 @@
 # Add more folders to ship with the application, here
 folder_01.source = qml/src
 folder_01.target = qml
+folder_02.source = qml/src/main
+folder_02.target = mainsrr
 DEPLOYMENTFOLDERS = folder_01
 
 # Additional import path used to resolve QML modules in Creator's code model
@@ -24,3 +26,6 @@ HEADERS += \
     backend.h \
     homeautomation.h \
     globals.h
+
+RESOURCES += \
+    resources.qrc

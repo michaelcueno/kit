@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/main/wood_plank.png</file>
+    </qresource>
+    <qresource prefix="/weather">
+        <file>images/weather/clear_blue_sky.jpg</file>
+    </qresource>
+</RCC>
