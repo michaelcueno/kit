@@ -14,4 +14,5 @@ Rectangle {
             onClicked: main.move_to(mainWindow);
         }
     }
+
 }

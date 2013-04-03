@@ -1,8 +1,36 @@
 <RCC>
     <qresource prefix="/">
         <file>images/main/wood_plank.png</file>
+        <file>images/main/icons/weather.png</file>
+        <file>images/main/pullstring.png</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
+        <file>images/weather/black_lozenge.png</file>
+        <file>images/weather/blue-sky.jpg</file>
+        <file>images/weather/cancel_down.png</file>
+        <file>images/weather/cancel_up.png</file>
+        <file>images/weather/clear.png</file>
+        <file>images/weather/Cloudy.png</file>
+        <file>images/weather/delete_down.png</file>
+        <file>images/weather/delete_up.png</file>
+        <file>images/weather/dragger.png</file>
+        <file>images/weather/lineedit-bg.png</file>
+        <file>images/weather/lineedit-bg-focus.png</file>
+        <file>images/weather/metric_c.png</file>
+        <file>images/weather/metric_f.png</file>
+        <file>images/weather/moonunit.png</file>
+        <file>images/weather/moon_unit.png</file>
+        <file>images/weather/nightsky.png</file>
+        <file>images/weather/PartlyCloudy.png</file>
+        <file>images/weather/Rain.png</file>
+        <file>images/weather/settings_bg.png</file>
+        <file>images/weather/Snow.png</file>
+        <file>images/weather/Storm.png</file>
+        <file>images/weather/sun.png</file>
+        <file>images/weather/Sunny.png</file>
+        <file>images/weather/swipe_bg.png</file>
+        <file>images/weather/swipe_bg2.png</file>
+        <file>images/weather/bgs/night-sky.png</file>
     </qresource>
 </RCC>

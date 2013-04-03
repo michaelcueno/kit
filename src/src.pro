@@ -16,7 +16,10 @@ QML_IMPORT_PATH =
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     backend.cpp \
-    homeautomation.cpp
+    homeautomation.cpp \
+    clock.cpp \
+    user.cpp \
+    calendar.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -25,7 +28,10 @@ qtcAddDeployment()
 HEADERS += \
     backend.h \
     homeautomation.h \
-    globals.h
+    globals.h \
+    clock.h \
+    user.h \
+    calendar.h
 
 RESOURCES += \
     resources.qrc

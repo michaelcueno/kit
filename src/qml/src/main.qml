@@ -1,3 +1,10 @@
+/** Main QML file for the project.
+    ToDo: Figure out how to implement users.
+        - User class, instantiate a new user for each user
+            + Would need all user specific data to be conatined inside the user class?
+            +
+*/
+
 import QtQuick 2.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
@@ -6,6 +13,16 @@ Item {
     id: main
     width: 1920
     height: 1080
+
+
+    // This is the backround depicting the current weather, it is changed by
+    // the weather app
+    Image { id: weather_bg
+        source: "qrc:/weather/images/weather/clear_blue_sky.jpg"
+    }
+
+    // Initialize apps
+    WeatherApp { id: weatherApp }
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -18,6 +35,7 @@ Item {
 
     // Swipe from down to up
     Cooking {id: cooking; anchors {right: mainWindow.left; top: mainWindow.top } }
+
 
 
     // Animation Function (Switching between the four different kitchen views
@@ -38,5 +56,28 @@ Item {
             break;
 
         }
+    }
+
+    // Use this function to open a focused view of a widget, pass in the widget id in string form
+    function open( app ){
+        move_to(mainWindow)
+        mainWindow.pull_blinds("up");
+        switch( app ){
+        case "weatherApp":
+            weatherApp.state = "focused";
+            break;
+        }
+    }
+
+    // Function that is called when pull string is clicked
+    function logout(){
+        close_apps();
+        mainWindow.pull_blinds("down");
+    }
+
+    // Closes view of app in the mainwindow,
+    function close_apps(){
+        weatherApp.state = "hidden"
+        // add apps in here as you add them to the project
     }
 }
