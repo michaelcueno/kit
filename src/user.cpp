@@ -9,6 +9,7 @@ QString User::getName(){
     return this->name;
 }
 
-void User::setName(QString name){
-    this->name = name;
+
+void User::login(QString username){
+
 }

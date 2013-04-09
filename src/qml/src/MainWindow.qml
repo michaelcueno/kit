@@ -62,6 +62,11 @@ Item {
         delegate: UserDelegate{}
         clip: true
 
+        MouseArea {
+            anchors.fill: parent
+
+        }
+
         states: [
         State { name: "down"
                 PropertyChanges {

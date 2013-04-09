@@ -5,5 +5,6 @@
 #include <QObject>
 #include <QDebug>
 #include <QString>
+#include <QSettings>
 
 #endif // GLOBALS_H

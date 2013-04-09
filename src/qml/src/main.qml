@@ -69,6 +69,11 @@ Item {
         }
     }
 
+    // Login a user, calls a c++ method that loads users settings from a QSettings object
+    function login(user){
+        user.login(user);
+    }
+
     // Function that is called when pull string is clicked
     function logout(){
         close_apps();

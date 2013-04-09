@@ -13,6 +13,7 @@ Rectangle {
             anchors.fill: parent
             onClicked: main.move_to(mainWindow);
         }
+
     }
 
 }
