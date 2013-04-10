@@ -6,6 +6,7 @@
 */
 
 import QtQuick 2.0
+import "clock"
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
         this file. Then you can change the screen in any other file by calling main.move_to( <whatever> ); */
@@ -23,6 +24,7 @@ Item {
 
     // Initialize apps
     WeatherApp { id: weatherApp }
+    ClockApp { id: clockApp;}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -60,13 +62,10 @@ Item {
 
     // Use this function to open a focused view of a widget, pass in the widget id in string form
     function open( app ){
+        close_apps();
         move_to(mainWindow)
         mainWindow.pull_blinds("up");
-        switch( app ){
-        case "weatherApp":
-            weatherApp.state = "focused";
-            break;
-        }
+        app.state = "focused";
     }
 
     // Login a user, calls a c++ method that loads users settings from a QSettings object
@@ -83,6 +82,7 @@ Item {
     // Closes view of app in the mainwindow,
     function close_apps(){
         weatherApp.state = "hidden"
+        clockApp.state = "hidden"
         // add apps in here as you add them to the project
     }
 }

@@ -33,4 +33,14 @@
         <file>images/weather/swipe_bg2.png</file>
         <file>images/weather/bgs/night-sky.png</file>
     </qresource>
+    <qresource prefix="/clock">
+        <file>qml/src/clock/images/second.png</file>
+        <file>qml/src/clock/images/quit.png</file>
+        <file>qml/src/clock/images/minute.png</file>
+        <file>qml/src/clock/images/hour.png</file>
+        <file>qml/src/clock/images/clock-night.png</file>
+        <file>qml/src/clock/images/clock.png</file>
+        <file>qml/src/clock/images/center.png</file>
+        <file>qml/src/clock/images/background.png</file>
+    </qresource>
 </RCC>

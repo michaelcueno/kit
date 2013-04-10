@@ -37,35 +37,14 @@ Item {
         }
     }
 
-    // Data for the blinds
-    ListModel { id: users_model
-        ListElement {
-            name: "Mike Cueno"
-        }
-        ListElement {
-            name: "Matt Pfister"
-        }
-        ListElement {
-            name: "Nisarg"
-        }
-        ListElement {
-            name: "Avinash"
-        }
-    }
-
     // The blinds
     ListView { id: users_list_view
 
         width: 1890
         height: 1000
-        model: users_model
+        model: UserModel{}
         delegate: UserDelegate{}
         clip: true
-
-        MouseArea {
-            anchors.fill: parent
-
-        }
 
         states: [
         State { name: "down"
@@ -81,7 +60,6 @@ Item {
         transitions: Transition {
             PropertyAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
         }
-
     }
 
     // Icons
@@ -91,7 +69,16 @@ Item {
         anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 100; }
         MouseArea {
             anchors.fill: parent
-            onClicked: open("weatherApp")   // Function defined in main.qml
+            onClicked: open(weatherApp)   // Function defined in main.qml
+        }
+    }
+    Rectangle { id: clock_icon
+        color: "black"
+        width: 100; height: 100;
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 300; }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: open(clockApp)   // Function defined in main.qml
         }
     }
 
@@ -104,7 +91,6 @@ Item {
             onClicked: main.logout();
         }
     }
-
 
     // The states the app can be in
     // Note: these states should be locked unless a user has been selected.
@@ -142,6 +128,4 @@ Item {
     function pull_blinds(state){
         users_list_view.state = state;
     }
-
-
 }

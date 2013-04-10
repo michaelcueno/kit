@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("calendar", &calendar);
 
     viewer.showFullScreen();
+    //viewer.showExpanded();
 
     return app.exec();
 }

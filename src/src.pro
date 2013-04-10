@@ -35,3 +35,6 @@ HEADERS += \
 
 RESOURCES += \
     resources.qrc
+
+OTHER_FILES += \
+    qml/src/clock/ClockApp.qml
