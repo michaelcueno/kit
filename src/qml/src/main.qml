@@ -23,8 +23,8 @@ Item {
     }
 
     // Initialize apps
-    WeatherApp { id: weatherApp }
-    ClockApp { id: clockApp;}
+    WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
+    ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}

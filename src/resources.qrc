@@ -3,6 +3,7 @@
         <file>images/main/wood_plank.png</file>
         <file>images/main/icons/weather.png</file>
         <file>images/main/pullstring.png</file>
+        <file>images/main/window-sill.png</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
@@ -42,5 +43,9 @@
         <file>qml/src/clock/images/clock.png</file>
         <file>qml/src/clock/images/center.png</file>
         <file>qml/src/clock/images/background.png</file>
+        <file>images/clock/Timer.gif</file>
+        <file>images/clock/Stopwatch.gif</file>
+        <file>images/clock/Countdown.gif</file>
+        <file>images/clock/Alarms.gif</file>
     </qresource>
 </RCC>

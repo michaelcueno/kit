@@ -42,9 +42,8 @@ import QtQuick 2.0
 
 Item {
     id: clock
-    width: 200; height: 230
+    width: 400; height: 400
 
-    property alias city: cityLabel.text
     property int hours
     property int minutes
     property int seconds 
@@ -112,13 +111,5 @@ Item {
 
     Image {
         anchors.centerIn: background; source: "qrc:/clock/qml/src/clock/images/center.png"
-    }
-
-    Text {
-        id: cityLabel
-        y: 200; anchors.horizontalCenter: parent.horizontalCenter
-        color: "white"
-        font.bold: true; font.pixelSize: 14
-        style: Text.Raised; styleColor: "black"
     }
 }

@@ -27,7 +27,7 @@ Item { id: container
 
     Stopwatch { id: stopwatch }
 
-    Clock { id: clock; city: "Chicago"}
+    Clock { id: clock;}
 
 
     states: [
@@ -37,13 +37,13 @@ Item { id: container
                 target: myTimer; x: 100; y: 0
             }
             PropertyChanges {
-                target: countdown; x:1000; y: 0
+                target: countdown; x: 965; y: 0
             }
             PropertyChanges {
-                target: alarms; x: 100; y: 620
+                target: alarms; x: 100; y: 485
             }
             PropertyChanges {
-                target: stopwatch; x: 1000; y:620
+                target: stopwatch; x: 965; y:485
             }
             PropertyChanges {
                 target: clock; x: 700; y: 400; visible: true

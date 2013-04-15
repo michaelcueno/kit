@@ -1,9 +1,9 @@
 import QtQuick 2.0
 
-Rectangle {
-    width: 700
-    height: 400
-    color: "black"
+Image {
+    width: 855
+    height: 475
+    source: "qrc:/clock/images/clock/Countdown.gif"
 
     Text {
         text: "Countdown"

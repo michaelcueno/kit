@@ -5,35 +5,30 @@ Item {
     width: 1920
     height: 1080
 
+
     // Temporary navigation panels until we get swipe action to work...
-    Rectangle{ id: move_to_fridge_btn
-        width: 100
-        height: parent.height
-        color: "tan"
-        anchors.right: parent.right
+
+    Image { id: window_sill
+        x:0; y:0;
+        source: "qrc:/images/main/window-sill.png"
         MouseArea{
-            anchors.fill: parent
-            onClicked: main.move_to(fridge);
-        }
-    }
-    Rectangle{ id: move_to_cooking_btn
-        width: 100
-        height: parent.height
-        color: "tan"
-        anchors.left: parent.left
-        MouseArea{
-            anchors.fill: parent
+            width: 100; height: 1080;
+            x: 0; y: 0;
             onClicked: main.move_to(cooking);
         }
-    }
-    Rectangle{ id: move_to_cabinets_btn
-        width: parent.width
-        height: 100
-        color: "tan"
-        anchors.bottom: parent.bottom
+
+
         MouseArea{
-            anchors.fill: parent
+            width: 1800; height: 120;
+            x: 10; y: 960;
             onClicked: main.move_to(cabinets);
+        }
+
+
+        MouseArea{
+            width: 100; height: 1080;
+            x: 1820; y: 0;
+            onClicked: main.move_to(fridge);
         }
     }
 
