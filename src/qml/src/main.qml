@@ -25,6 +25,7 @@ Item {
     // Initialize apps
     WeatherApp { id: weatherApp }
     ClockApp { id: clockApp;}
+    Calculator{id: calc;}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}

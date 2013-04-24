@@ -37,4 +37,5 @@ RESOURCES += \
     resources.qrc
 
 OTHER_FILES += \
-    qml/src/clock/ClockApp.qml
+    qml/src/clock/ClockApp.qml \
+    qml/src/Commuting.qml
