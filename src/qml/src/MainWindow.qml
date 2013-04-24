@@ -76,6 +76,15 @@ Item {
             onClicked: open(clockApp)   // Function defined in main.qml
         }
     }
+    Rectangle { id: calc_icon
+        color: "black"
+        width: 100; height: 100;
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 500; }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: open(calc)   // Function defined in main.qml
+        }
+    }
 
     // Pull string (logout thingy)
     Image { id: pullstring
