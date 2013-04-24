@@ -18,15 +18,13 @@ Item { id: container
 
     Component.onCompleted: container.state = "hidden"
 
-    Alarms { id: alarms }
+    Garage { id: alarms }
 
-    MyTimer { id: myTimer;}
+    FrontDoor { id: myTimer;}
 
-    Countdown { id: countdown }
+    Webcams { id: countdown }
 
-    Stopwatch { id: stopwatch }
-
-    Clock { id: clock; x: 685; y: 207;}
+    Thermostat { id: clock; x: 685; y: 207;}
 
 
     states: [

@@ -124,6 +124,7 @@ Item {
             }
         }
     }
+
     Text { id: sunday
         text: (container.language==1)?"Sunday":"Söndag"
         font.pixelSize: 25;
@@ -173,7 +174,6 @@ Item {
     // Update main stats
     function resetHour(x){
         main_stats.setVars(x)
-
     }
 
     function clear(){

@@ -8,7 +8,9 @@ Image {
     Text {
         text: "Alarms"
         color: "white"
-        font.pixelSize: 80
-        anchors.centerIn: parent
+        font.pixelSize: 40
+        anchors {left: parent.left; top: parent.top; topMargin: 10; leftMargin: 20 }
     }
+
+
 }

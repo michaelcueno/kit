@@ -55,7 +55,6 @@ Item { id: container
             return ((mainWindow.height/11)*offset) - 200
         }
         x: mainWindow.width * (5/7)
-
     }
 
     /* Settings/Dashboard accessor

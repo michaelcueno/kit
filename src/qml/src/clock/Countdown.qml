@@ -8,7 +8,7 @@ Image {
     Text {
         text: "Countdown"
         color: "white"
-        font.pixelSize: 80
-        anchors.centerIn: parent
+        font.pixelSize: 40
+        anchors {right: parent.right; top: parent.top; topMargin: 10; rightMargin: 20 }
     }
 }

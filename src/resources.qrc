@@ -39,13 +39,11 @@
         <file>qml/src/clock/images/quit.png</file>
         <file>qml/src/clock/images/minute.png</file>
         <file>qml/src/clock/images/hour.png</file>
-        <file>qml/src/clock/images/clock-night.png</file>
-        <file>qml/src/clock/images/clock.png</file>
         <file>qml/src/clock/images/center.png</file>
-        <file>qml/src/clock/images/background.png</file>
         <file>images/clock/Timer.gif</file>
         <file>images/clock/Stopwatch.gif</file>
         <file>images/clock/Countdown.gif</file>
         <file>images/clock/Alarms.gif</file>
+        <file>images/clock/clock-face.png</file>
     </qresource>
 </RCC>

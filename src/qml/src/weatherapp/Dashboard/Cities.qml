@@ -18,7 +18,6 @@ Rectangle {
         cellHeight: 370
         cellWidth: 295
         clip: true
-
     }
 
     ListModel {

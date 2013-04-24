@@ -63,12 +63,12 @@ Item {
         onTriggered: clock.timeChanged()
     }
 
-    Image { id: background; source: "qrc:/clock/qml/src/clock/images/clock.png"; visible: clock.night == false }
-    Image { source: "qrc:/clock/qml/src/clock/images/clock-night.png"; visible: clock.night == true }
+    Image { id: background; source: "qrc:/clock/images/clock/clock-face.png"; }
+
 
 
     Image {
-        x: 92.5; y: 27
+        x: 273; y: 197
         source: "qrc:/clock/qml/src/clock/images/hour.png"
         smooth: true
         transform: Rotation {
@@ -82,7 +82,7 @@ Item {
     }
 
     Image {
-        x: 93.5; y: 17
+        x: 273; y: 197
         source: "qrc:/clock/qml/src/clock/images/minute.png"
         smooth: true
         transform: Rotation {
@@ -96,7 +96,7 @@ Item {
     }
 
     Image {
-        x: 97.5; y: 20
+        x: 273; y: 197
         source: "qrc:/clock/qml/src/clock/images/second.png"
         smooth: true
         transform: Rotation {
