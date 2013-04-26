@@ -46,4 +46,11 @@
         <file>images/clock/Alarms.gif</file>
         <file>images/clock/clock-face.png</file>
     </qresource>
+    <qresource prefix="/music">
+        <file>images/music/stop.png</file>
+        <file>images/music/play.png</file>
+        <file>images/music/pause.png</file>
+        <file>images/music/next_track.png</file>
+        <file>images/music/back_track.png</file>
+    </qresource>
 </RCC>
