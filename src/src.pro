@@ -38,4 +38,5 @@ RESOURCES += \
 
 OTHER_FILES += \
     qml/src/clock/ClockApp.qml \
-    qml/src/Commuting.qml
+    qml/src/Commuting.qml \
+    qml/src/UserScreen.qml

@@ -26,6 +26,7 @@ Item {
     WeatherApp { id: weatherApp }
     ClockApp { id: clockApp;}
     Calculator{id: calc;}
+    UserScreen{id: userScreen;}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -38,7 +39,6 @@ Item {
 
     // Swipe from down to up
     Cooking {id: cooking; anchors {right: mainWindow.left; top: mainWindow.top } }
-
 
 
     // Animation Function (Switching between the four different kitchen views

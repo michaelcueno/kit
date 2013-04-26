@@ -287,7 +287,7 @@ Rectangle
             id: sprite
             width: parent.width
             height: parent.height
-            source: "../src/Cook/potSprite.png"
+            source: "qrc:/images/Cook/potSprite.png"
             frameCount: 6
             frameSync: true
             frameWidth: parent.width
