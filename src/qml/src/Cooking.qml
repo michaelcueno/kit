@@ -8,7 +8,7 @@ Rectangle
     id: cookingMain
     width: 1920
     height: 1080
-    color: "#463B2A"
+    color: "#C0C0C0"
 
     Rectangle
     {
@@ -287,7 +287,7 @@ Rectangle
             id: sprite
             width: parent.width
             height: parent.height
-            source: "../src/Cook/potSprite.png"
+            source: "qrc:/images/Cook/potSprite.png"
             frameCount: 6
             frameSync: true
             frameWidth: parent.width

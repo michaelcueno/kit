@@ -7,6 +7,10 @@ Item {
 
     Image { id: bg
         source: "qrc:/images/main/wood_plank.png"
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {open(userScreen)}
+        }
     }
 
     Text { id: name_text

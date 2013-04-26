@@ -34,6 +34,7 @@ Item {
     User { id: cur_user; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
     Calculator{ id: calc; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
+    UserScreen{id: userScreen;}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
