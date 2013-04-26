@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include "backend.h"
 #include "calendar.h"
+#include "music.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +12,7 @@ int main(int argc, char *argv[])
     BackEnd backend;
     HomeAutomation homeAuto;
     Calendar calendar;
+    Music music;
 
     QtQuick2ApplicationViewer viewer;
     viewer.setMainQmlFile(QStringLiteral("qml/src/main.qml"));
@@ -19,6 +21,7 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("backEnd", &backend);
     viewer.rootContext()->setContextProperty("homeAuto", &homeAuto);
     viewer.rootContext()->setContextProperty("calendar", &calendar);
+    viewer.rootContext()->setContextProperty("music", &music);
 
     //viewer.showFullScreen();
     viewer.showExpanded();

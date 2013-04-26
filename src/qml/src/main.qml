@@ -9,6 +9,8 @@ import QtQuick 2.0
 import "clock"
 import "user"
 import "main"
+import "music"
+import QtMultimedia 5.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
         this file. Then you can change the screen in any other file by calling main.move_to( <whatever> ); */
@@ -30,6 +32,8 @@ Item {
     Shade {id: shade }  // not really an app, but must be placed under weather for layering reasons
     ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
     User { id: cur_user; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
+    Calculator{ id: calc; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
+    MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -91,6 +95,8 @@ Item {
         weatherApp.state = "hidden"
         clockApp.state = "hidden"
         cur_user.state = "hidden"
+        calc.state = "hidden"
+        music.state = "hidden"
         // add apps in here as you add them to the project
     }
 

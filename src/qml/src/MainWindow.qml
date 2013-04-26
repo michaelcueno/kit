@@ -85,6 +85,15 @@ Item {
             onClicked: open(calc)   // Function defined in main.qml
         }
     }
+    Rectangle { id: music_icon
+        color: "black"
+        width: 100; height: 100;
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 700; }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: open(music)   // Function defined in main.qml
+        }
+    }
 
     // Pull string (logout thingy)
     Image { id: pullstring

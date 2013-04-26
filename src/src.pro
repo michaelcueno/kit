@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     homeautomation.cpp \
     clock.cpp \
     user.cpp \
-    calendar.cpp
+    calendar.cpp \
+    music.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
@@ -31,7 +32,8 @@ HEADERS += \
     globals.h \
     clock.h \
     user.h \
-    calendar.h
+    calendar.h \
+    music.h
 
 RESOURCES += \
     resources.qrc
