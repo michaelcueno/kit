@@ -1,8 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <file>images/main/wood_plank.png</file>
-        <file>images/main/icons/weather.png</file>
         <file>images/main/pullstring.png</file>
+        <file>images/main/icons/weatherIcon.png</file>
+        <file>images/main/icons/calcIcon.png</file>
+        <file>images/main/icons/clockIcon.png</file>
+        <file>images/main/icons/cookingIcon.png</file>
+        <file>images/main/icons/musicIcon.png</file>
+        <file>images/main/icons/rssIcon.png</file>
+        <file>images/main/icons/settingsIcon.png</file>
+        <file>images/main/icons/automationIcon.png</file>
+        <file>images/main/icons/homeIcon.png</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
@@ -32,6 +40,10 @@
         <file>images/weather/swipe_bg.png</file>
         <file>images/weather/swipe_bg2.png</file>
         <file>images/weather/bgs/night-sky.png</file>
+    </qresource>
+    <qresource>
+            <file>images/calc/button.png</file>
+            <file>images/calc/buttonPushed.png</file>
     </qresource>
     <qresource prefix="/clock">
         <file>qml/src/clock/images/second.png</file>

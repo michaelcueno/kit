@@ -64,30 +64,199 @@ Item {
 
     // Icons
     // Weather Icon
-    Image { id: weather_icon
-        source: "qrc:/images/main/icons/weather.png"
+    Image { id: home_icon
+        source: "qrc:/images/main/icons/homeIcon.png"
         anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 100; }
         MouseArea {
             anchors.fill: parent
-            onClicked: open(weatherApp)   // Function defined in main.qml
+            onPressed: {homePressed.start()}
+            onReleased: {homeUnpressed.start(); move_to(mainWindow) }  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: homePressed
+            PropertyAnimation{target: home_icon; properties: "width"; to: home_icon.width - 10; duration:0}
+            PropertyAnimation{target: home_icon; properties: "height"; to: home_icon.height - 10; duration:0}
+            PropertyAnimation{target: home_icon; properties: "x"; to: home_icon.x + 20; duration:0}
+            PropertyAnimation{target: home_icon; properties: "y"; to: home_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: homeUnpressed
+            PropertyAnimation{target: home_icon; properties: "width"; to: home_icon.width + 10; duration:0}
+            PropertyAnimation{target: home_icon; properties: "height"; to: home_icon.height + 10; duration:0}
+            PropertyAnimation{target: home_icon; properties: "x"; to: home_icon.x - 20; duration:0}
+            PropertyAnimation{target: home_icon; properties: "y"; to: home_icon.y - 20; duration:0}
         }
     }
-    Rectangle { id: clock_icon
-        color: "black"
-        width: 100; height: 100;
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 300; }
+
+    Image { id: weather_icon
+        source: "qrc:/images/main/icons/weatherIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 345; }
         MouseArea {
             anchors.fill: parent
-            onClicked: open(clockApp)   // Function defined in main.qml
+            onPressed: {weatherPressed.start()}
+            onReleased: {weatherUnpressed.start(); open(weatherApp) }  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: weatherPressed
+            PropertyAnimation{target: weather_icon; properties: "width"; to: weather_icon.width - 10; duration:0}
+            PropertyAnimation{target: weather_icon; properties: "height"; to: weather_icon.height - 10; duration:0}
+            PropertyAnimation{target: weather_icon; properties: "x"; to: weather_icon.x + 20; duration:0}
+            PropertyAnimation{target: weather_icon; properties: "y"; to: weather_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: weatherUnpressed
+            PropertyAnimation{target: weather_icon; properties: "width"; to: weather_icon.width + 10; duration:0}
+            PropertyAnimation{target: weather_icon; properties: "height"; to: weather_icon.height + 10; duration:0}
+            PropertyAnimation{target: weather_icon; properties: "x"; to: weather_icon.x - 20; duration:0}
+            PropertyAnimation{target: weather_icon; properties: "y"; to: weather_icon.y - 20; duration:0}
         }
     }
-    Rectangle { id: calc_icon
-        color: "black"
-        width: 100; height: 100;
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 500; }
+    Image { id: clock_icon
+        source: "qrc:/images/main/icons/clockIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:5; left: parent.left; leftMargin: 525; }
         MouseArea {
             anchors.fill: parent
-            onClicked: open(calc)   // Function defined in main.qml
+            MouseArea {
+                anchors.fill: parent
+                onPressed: {clockPressed.start()}
+                onReleased: {clockUnpressed.start(); open(clockApp) }  // Function defined in main.qml
+            }
+            ParallelAnimation{
+                id: clockPressed
+                PropertyAnimation{target: clock_icon; properties: "width"; to: clock_icon.width - 10; duration:0}
+                PropertyAnimation{target: clock_icon; properties: "height"; to: clock_icon.height - 10; duration:0}
+                PropertyAnimation{target: clock_icon; properties: "x"; to: clock_icon.x + 20; duration:0}
+                PropertyAnimation{target: clock_icon; properties: "y"; to: clock_icon.y + 20; duration:0}
+            }
+            ParallelAnimation{
+                id: clockUnpressed
+                PropertyAnimation{target: clock_icon; properties: "width"; to: clock_icon.width + 10; duration:0}
+                PropertyAnimation{target: clock_icon; properties: "height"; to: clock_icon.height + 10; duration:0}
+                PropertyAnimation{target: clock_icon; properties: "x"; to: clock_icon.x - 20; duration:0}
+                PropertyAnimation{target: clock_icon; properties: "y"; to: clock_icon.y - 20; duration:0}
+            }
+        }
+    }
+    Image { id: calc_icon
+        source: "qrc:/images/main/icons/calcIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 800; }
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {calcPressed.start()}
+
+            onReleased: {calcUnpressed.start(); open(calc) }  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: calcPressed
+            PropertyAnimation{target: calc_icon; properties: "width"; to: calc_icon.width - 10; duration:0}
+            PropertyAnimation{target: calc_icon; properties: "height"; to: calc_icon.height - 10; duration:0}
+            PropertyAnimation{target: calc_icon; properties: "x"; to: calc_icon.x + 20; duration:0}
+            PropertyAnimation{target: calc_icon; properties: "y"; to: calc_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: calcUnpressed
+            PropertyAnimation{target: calc_icon; properties: "width"; to: calc_icon.width + 10; duration:0}
+            PropertyAnimation{target: calc_icon; properties: "height"; to: calc_icon.height + 10; duration:0}
+            PropertyAnimation{target: calc_icon; properties: "x"; to: calc_icon.x - 20; duration:0}
+            PropertyAnimation{target: calc_icon; properties: "y"; to: calc_icon.y - 20; duration:0}
+        }
+    }
+    Image { id: cooking_icon
+        source: "qrc:/images/main/icons/cookingIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 1000; }
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {cookingPressed.start()}
+
+            onReleased: {cookingUnpressed.start(); move_to(cooking)}  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: cookingPressed
+            PropertyAnimation{target: cooking_icon; properties: "width"; to: cooking_icon.width - 10; duration:0}
+            PropertyAnimation{target: cooking_icon; properties: "height"; to: cooking_icon.height - 10; duration:0}
+            PropertyAnimation{target: cooking_icon; properties: "x"; to: cooking_icon.x + 20; duration:0}
+            PropertyAnimation{target: cooking_icon; properties: "y"; to: cooking_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: cookingUnpressed
+            PropertyAnimation{target: cooking_icon; properties: "width"; to: cooking_icon.width + 10; duration:0}
+            PropertyAnimation{target: cooking_icon; properties: "height"; to: cooking_icon.height + 10; duration:0}
+            PropertyAnimation{target: cooking_icon; properties: "x"; to: cooking_icon.x - 20; duration:0}
+            PropertyAnimation{target: cooking_icon; properties: "y"; to: cooking_icon.y - 20; duration:0}
+        }
+    }
+    Image { id: music_icon
+        source: "qrc:/images/main/icons/musicIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 1200; }
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {musicPressed.start()}
+
+            onReleased: {musicUnpressed.start(); }  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: musicPressed
+            PropertyAnimation{target: music_icon; properties: "width"; to: music_icon.width - 10; duration:0}
+            PropertyAnimation{target: music_icon; properties: "height"; to: music_icon.height - 10; duration:0}
+            PropertyAnimation{target: music_icon; properties: "x"; to: music_icon.x + 20; duration:0}
+            PropertyAnimation{target: music_icon; properties: "y"; to: music_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: musicUnpressed
+            PropertyAnimation{target: music_icon; properties: "width"; to: music_icon.width + 10; duration:0}
+            PropertyAnimation{target: music_icon; properties: "height"; to: music_icon.height + 10; duration:0}
+            PropertyAnimation{target: music_icon; properties: "x"; to: music_icon.x - 20; duration:0}
+            PropertyAnimation{target: music_icon; properties: "y"; to: music_icon.y - 20; duration:0}
+        }
+    }
+
+    Image { id: homeAuto_icon
+        source: "qrc:/images/main/icons/automationIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 1450; }
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {homeAutoPressed.start()}
+
+            onReleased: {homeAutoUnpressed.start();}  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: homeAutoPressed
+            PropertyAnimation{target: homeAuto_icon; properties: "width"; to: homeAuto_icon.width - 10; duration:0}
+            PropertyAnimation{target: homeAuto_icon; properties: "height"; to: homeAuto_icon.height - 10; duration:0}
+            PropertyAnimation{target: homeAuto_icon; properties: "x"; to: homeAuto_icon.x + 20; duration:0}
+            PropertyAnimation{target: homeAuto_icon; properties: "y"; to: homeAuto_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: homeAutoUnpressed
+            PropertyAnimation{target: homeAuto_icon; properties: "width"; to: homeAuto_icon.width + 10; duration:0}
+            PropertyAnimation{target: homeAuto_icon; properties: "height"; to: homeAuto_icon.height + 10; duration:0}
+            PropertyAnimation{target: homeAuto_icon; properties: "x"; to: homeAuto_icon.x - 20; duration:0}
+            PropertyAnimation{target: homeAuto_icon; properties: "y"; to: homeAuto_icon.y - 20; duration:0}
+        }
+    }
+
+    Image { id: settings_icon
+        source: "qrc:/images/main/icons/settingsIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 1650; }
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {settingsPressed.start()}
+
+            onReleased: {settingsUnpressed.start(); }  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: settingsPressed
+            PropertyAnimation{target: settings_icon; properties: "width"; to: settings_icon.width - 10; duration:0}
+            PropertyAnimation{target: settings_icon; properties: "height"; to: settings_icon.height - 10; duration:0}
+            PropertyAnimation{target: settings_icon; properties: "x"; to: settings_icon.x + 20; duration:0}
+            PropertyAnimation{target: settings_icon; properties: "y"; to: settings_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: settingsUnpressed
+            PropertyAnimation{target: settings_icon; properties: "width"; to: settings_icon.width + 10; duration:0}
+            PropertyAnimation{target: settings_icon; properties: "height"; to: settings_icon.height + 10; duration:0}
+            PropertyAnimation{target: settings_icon; properties: "x"; to: settings_icon.x - 20; duration:0}
+            PropertyAnimation{target: settings_icon; properties: "y"; to: settings_icon.y - 20; duration:0}
         }
     }
 
