@@ -6,6 +6,8 @@ Rectangle {
     height: 1280
     color:"transparent"
 
+    Component.onCompleted: init()
+
     Flickable
     {
         anchors.fill: parent

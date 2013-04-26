@@ -1,9 +1,9 @@
 import QtQuick 2.0
+import "recipes.js" as Rps
 
 Rectangle
 {
-    property int index: 0;
-    property string alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    property string ltr: ""
 
     id: cookingMain
     width: 1920
@@ -23,8 +23,146 @@ Rectangle
             onClicked: main.move_to(mainWindow);
         }
     }
-
-   Rectangle
+    Rectangle
+    {
+        id: itemList
+        width: 0
+        height: 1080
+        anchors.top: parent.top
+        anchors.topMargin: 50
+        anchors.left: parent.left
+        anchors.leftMargin: 150
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+        ListView
+        {
+            id: items
+            width: parent.width
+            height: parent.height
+            model:ListModel
+            {
+             //   ListElement{name: (Rps.getRec(ltr, items.currentIndex))}
+              //  ListElement{name: (Rps.getRec(ltr, items.currentIndex))}
+               // ListElement{name: (Rps.getRec(ltr, items.currentIndex))}
+            }
+            delegate: Component{
+                Rectangle
+                {
+                    width:parent.width
+                    height: 50
+                    color: "white"
+                    border.color: "grey"
+                    border.width: 5
+                    Text
+                    {
+                        text: name
+                        font.pixelSize: 20
+                        font.bold: true
+                    }
+                }
+            }
+        }
+    }
+    Rectangle
+    {
+        id:recentItem
+        width: 300
+        height: 50
+        anchors.left: parent.left
+        anchors.leftMargin: 150
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+    }
+    ListView
+    {
+        width: 150
+        height: 1080
+        model:ListModel
+        {
+            ListElement{letter: "~"}
+            ListElement{letter: "A"}
+            ListElement{letter: "B"}
+            ListElement{letter: "C"}
+            ListElement{letter: "D"}
+            ListElement{letter: "E"}
+            ListElement{letter: "F"}
+            ListElement{letter: "G"}
+            ListElement{letter: "H"}
+            ListElement{letter: "I"}
+            ListElement{letter: "J"}
+            ListElement{letter: "K"}
+            ListElement{letter: "L"}
+            ListElement{letter: "M"}
+            ListElement{letter: "N"}
+            ListElement{letter: "O"}
+            ListElement{letter: "P"}
+            ListElement{letter: "Q"}
+            ListElement{letter: "R"}
+            ListElement{letter: "S"}
+            ListElement{letter: "T"}
+            ListElement{letter: "U"}
+            ListElement{letter: "V"}
+            ListElement{letter: "W"}
+            ListElement{letter: "X"}
+            ListElement{letter: "Y"}
+            ListElement{letter: "Z"}
+        }
+        delegate:Component
+        {
+            Rectangle
+            {
+                id: alphabetRect
+                width: 150
+                height:75
+                color: "black"
+                Text
+                {
+                    text: letter
+                    color: "white"
+                    font.pixelSize: 50
+                    font.bold: true
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked:{grow.start()}
+                }
+                SequentialAnimation
+                {
+                    id: grow
+                    ParallelAnimation
+                    {
+                        PropertyAnimation
+                        {
+                            target: alphabetRect
+                            properties: "width"
+                            to: 200
+                            duration: 100
+                        }
+                        PropertyAnimation
+                        {
+                            target:alphabetRect
+                            properties: "height"
+                            to: 100
+                            duration: 100
+                        }
+                    }
+                    PropertyAnimation
+                    {
+                        target: itemList
+                        properties: "width"
+                        to: 300
+                        duration: 150
+                    }
+                }
+            }
+        }
+    }
+  /* Rectangle
    {
        x: 0;
        y: 0;
@@ -438,6 +576,6 @@ Rectangle
         }
         index--
         ingredientList.itemAt(index).text = hIng
-    }
+    }*/
 }
 
