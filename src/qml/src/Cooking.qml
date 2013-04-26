@@ -8,7 +8,7 @@ Rectangle
     id: cookingMain
     width: 1920
     height: 1080
-    color: "#463B2A"
+    color: "#C0C0C0"
 
     Rectangle
     {

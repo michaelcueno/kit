@@ -81,12 +81,10 @@ Rectangle
                                                 output.text = "";
                                                 clearBit = 0
                                             }
-                                            if(output.text.length < 1){
-                                               if(number != 0){
+                                            if(output.text.length > 1){
                                                    output.text += number;
-                                               }
                                             }
-                                            else{
+                                            else if(number != 0){
                                                 output.text += number;
                                             }
                                             parent.source = "qrc:/images/calc/button.png"}
@@ -146,38 +144,23 @@ Rectangle
                                 onExited: parent.opacity = 1
                                 onPressed:{parent.source = "qrc:/images/calc/buttonPushed.png"}
                                 onReleased:{parent.source = "qrc:/images/calc/button.png";
-                                            if(currOp == 1){
-                                                operand1 = parseInt(output.text);
-                                                opr = operator; currOp = 2;
+                                            if(accum == 0)
+                                            {
+                                                accum = parseInt(output.text)
+                                                opr = operator
                                             }
-                                            else if(currOp == 2){
-                                                operand2 = parseInt(output.text);
-                                                if(operator != "="){
-                                                    operation();
-                                                    opr = operator;
-                                                    currOp = 3;
-                                                }
-                                                else{
-                                                    operation();
-                                                    currOp = 1;
-                                                    output.text = accum;
-                                                    accum = 0;
-                                                }
+                                            else if(operator != "=")
+                                            {
+                                                operation(parseInt(output.text))
+                                                opr = operator
                                             }
-                                            else if(currOp == 3){
-                                                operand1 = accum;
-                                                operand2 = parseInt(output.text);
-                                                if(operator != "="){
-                                                    operation();
-                                                    opr = operator;
-                                                }
-                                                else{
-                                                    operation();
-                                                    currOp = 1;
-                                                    output.text = accum;
-                                                    accum = 0;
-                                                }
+                                            else
+                                            {
+                                                operation(parseInt(output.text))
+                                                output.text = accum
+                                                accum = 0
                                             }
+
                                             clearBit = 1;}
                             }
                         }
@@ -221,40 +204,36 @@ Rectangle
     }
     ]
 
-    property int currOp: 1;
     property int clearBit: 0;
-    property int operand1: 0;
-    property int operand2: 0;
     property int accum: 0;
     property string opr: "";
-
 
     function init()
     {
         container.state = "hidden"
     }
-    function operation()
+    function operation(operand2)
     {
-        var result
+        console.log(accum)
         switch(opr)
         {
             case "-":
-                result = operand1 - operand2;
+                accum = accum - operand2;
                 break;
             case "+":
-                result = operand1 + operand2;
+                accum = accum + operand2;
                 break;
             case "*":
-                result = operand1 * operand2;
+                accum = accum * operand2;
                 break;
             case "/":
-                if(operand2 != 0)
-                    result = operand1/operand2;
+                if(operand2 !== 0)
+                    accum = accum/operand2;
                 break;
             default:
                 break;
         }
-        accum += result;
+        console.log(accum, opr, operand2)
     }
 
     function conversion()
@@ -263,16 +242,16 @@ Rectangle
         switch(type)
         {
             case "lbs -> oz":
-                result = operand1 * 16;
+                result = accum * 16;
                 break;
             case "oz -> lbs":
-                result = operand1 * (0.0625);
+                result = accum * (0.0625);
                 break;
             case "l -> gal":
-                result = operand1 * (0.264)
+                result = accum * (0.264)
                 break;
             case "gal -> l":
-                result = operand1 * (3.785)
+                result = accum * (3.785)
                 break;
         }
     }
