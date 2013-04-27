@@ -1,5 +1,4 @@
-import QtQuick 2.0
-import "recipes.js" as Rps
+    import QtQuick 2.0
 
 Rectangle
 {
@@ -10,12 +9,240 @@ Rectangle
     height: 1080
     color: "#C0C0C0"
 
+    function shrinkLetters()
+    {
+        var a_x = alphabetList.x
+        var a_y = alphabetList.y
+        var max = alphabetList.count
+        for(var i = 0, j = 0; i < max; i++, j = j + 75)
+        {
+            if(alphabetList.itemAt(a_x, a_y+j) != null)
+                alphabetList.itemAt(a_x, a_y+j).width = 150
+        }
+    }
+    Component
+    {
+        id: ingDelegate
+        Rectangle
+        {
+            width:parent.width
+            height: 50
+            color: "white"
+            border.color: "grey"
+            border.width: 5
+            Text
+            {
+                id: ingNameText
+                text: name
+                font.pixelSize: 20
+                font.bold: true
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Text
+            {
+                id: ingAmountText
+                text: amount
+                font.pixelSize: 20
+                font.bold: true
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked:{
+
+                }
+            }
+        }
+    }
+    Component
+    {
+        id: instructionDelegate
+        Rectangle
+        {
+            width:parent.width
+            height: 50
+            color: "white"
+            border.color: "grey"
+            border.width: 5
+            Text
+            {
+                id: delegateText
+                text: name
+                font.pixelSize: 20
+                font.bold: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            MouseArea{
+                anchors.fill: parent
+            }
+        }
+    }
+    Component
+    {
+        id: itemListDelegate
+        Rectangle
+        {
+            width:parent.width
+            height: 50
+            color: "white"
+            border.color: "grey"
+            border.width: 5
+            Text
+            {
+                id: delegateText
+                text: name
+                font.pixelSize: 20
+                font.bold: true
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked:{
+                    infoBars.start()
+
+                    if(recipeTitle.opacity == 0)
+                        fadeInRecipe.start()
+
+                    recipeTitleText.text = delegateText.text
+                    almondCookieHave.opacity = 0
+                    almondCookieHave.z = 0
+                    almondCookieNeed.opacity = 0
+                    almondCookieNeed.z = 0
+                    almondInstructions.opacity = 0
+                    almondInstructions.z = 0
+                    applePieHave.opacity = 0
+                    applePieHave.z = 0
+                    applePieNeed.opacity = 0
+                    applePieNeed.z = 0
+                    applePieInstructions.opacity = 0
+                    applePieInstructions.z = 0
+                    granolaCookieHave.opacity = 0
+                    granolaCookieHave.z = 0
+                    granolaCookieNeed.opacity = 0
+                    granolaCookieNeed.z = 0
+                    granolaCookieInstructions.opacity = 0
+                    granolaCookieInstructions.z = 0
+                    if(delegateText.text == "Almond Cookie")
+                    {
+                        almondCookieHave.opacity = 1
+                        almondCookieHave.z = 1
+
+                        almondCookieNeed.opacity = 1
+                        almondCookieNeed.z = 1
+
+                        almondInstructions.opacity = 1
+                        almondInstructions.z = 1
+                    }
+                    else if(delegateText.text == "Apple Pie")
+                    {
+                        applePieHave.opacity = 1
+                        applePieHave.z = 1
+
+                        applePieNeed.opacity = 1
+                        applePieNeed.z = 1
+
+                        applePieInstructions.opacity = 1
+                        applePieInstructions.z = 1
+                    }
+                    else if(delegateText.text == "Granola Cookie")
+                    {
+                        granolaCookieHave.opacity = 1
+                        granolaCookieHave.z = 1
+
+                        granolaCookieNeed.opacity = 1
+                        granolaCookieNeed.z = 1
+
+                        granolaCookieInstructions.opacity = 1
+                        granolaCookieInstructions.z = 1
+                    }
+                }
+                SequentialAnimation
+                {
+                    id:fadeInRecipe
+                    PropertyAnimation
+                    {
+                        target: recipeIngrediantsHave
+                        properties: "opacity"
+                        to: 1
+                        duration: 150
+                    }
+                    PropertyAnimation
+                    {
+                        target: recipeIngrediantsNeed
+                        properties: "opacity"
+                        to: 1
+                        duration: 150
+                    }
+                    PropertyAnimation
+                    {
+                        target: recipeInstructions
+                        properties: "opacity"
+                        to: 1
+                        duration: 150
+                    }
+                    PropertyAnimation
+                    {
+                        target: recipeTitle
+                        properties: "opacity"
+                        to: 1
+                        duration: 150
+                    }
+                    PropertyAnimation
+                    {
+                        target: nutritionalGraph
+                        properties: "opacity"
+                        to: 1
+                        duration: 150
+                    }
+                }
+
+                ParallelAnimation
+                {
+                    id:infoBars
+                    PropertyAnimation
+                    {
+                        target: caloriesBar
+                        properties: "height"
+                        to: cal
+                        duration: 300
+                    }
+                    PropertyAnimation
+                    {
+                        target: proteinBar
+                        properties: "height"
+                        to: pro
+                        duration: 300
+                    }
+                    PropertyAnimation
+                    {
+                        target: fatBar
+                        properties: "height"
+                        to: f
+                        duration: 300
+                    }
+                    PropertyAnimation
+                    {
+                        target: carbsBar
+                        properties: "height"
+                        to: c
+                        duration: 300
+                    }
+                }
+            }
+        }
+    }
     Rectangle
     {
         id:switchpane
         width: 100
         height: parent.height
-        color: "tan"
+        color: "transparent"
         anchors.right: parent.right
         MouseArea
         {
@@ -28,8 +255,6 @@ Rectangle
         id: itemList
         width: 0
         height: 1080
-        anchors.top: parent.top
-        anchors.topMargin: 50
         anchors.left: parent.left
         anchors.leftMargin: 150
         color: "#D0D0D0"
@@ -37,77 +262,143 @@ Rectangle
         border.width: 5
         ListView
         {
-            id: items
+            id: aItems
             width: parent.width
             height: parent.height
+            opacity: 0
+            z: 0
             model:ListModel
             {
-             //   ListElement{name: (Rps.getRec(ltr, items.currentIndex))}
-              //  ListElement{name: (Rps.getRec(ltr, items.currentIndex))}
-               // ListElement{name: (Rps.getRec(ltr, items.currentIndex))}
+                ListElement{
+                    name: "Almond Cookie"
+                    cal: 100
+                    pro: 100
+                    f: 200
+                    c: 100
+                }
+                ListElement{
+                    name: "Apple Pie"
+                    cal: 350
+                    pro: 200
+                    f: 350
+                    c: 250
+                }
             }
-            delegate: Component{
-                Rectangle
+            delegate: itemListDelegate
+        }
+        ListView
+        {
+            id: gItems
+            width: parent.width
+            height: parent.height
+            opacity: 0
+            z: 0
+            model:ListModel
+            {
+                ListElement{
+                    name: "Granola Cookie"
+                    cal: 200
+                    pro: 10
+                    f: 15
+                    c: 2
+                }
+                ListElement{
+                    name: "Goose"
+                    cal: 200
+                    pro: 10
+                    f: 5
+                    c: 2
+                }
+                ListElement{
+                    name: "Gravy"
+                    calories: 200
+                    protein: 10
+                    f: 5
+                    c: 2
+                }
+                ListElement{
+                    name: "Gyro"
+                    cal: 200
+                    pro: 10
+                    f: 10
+                    c: 2
+                }
+            }
+            delegate: itemListDelegate
+        }
+        ListView
+        {
+            id: noItems
+            width: parent.width
+            height: parent.height
+            opacity: 0
+            z: 0
+            model:ListModel
+            {
+                ListElement{name: ""}
+            }
+            delegate:  Component{
+            Rectangle
+            {
+                width:parent.width
+                height: 50
+                color: "white"
+                border.color: "grey"
+                border.width: 5
+                Text
                 {
-                    width:parent.width
-                    height: 50
-                    color: "white"
-                    border.color: "grey"
-                    border.width: 5
-                    Text
-                    {
-                        text: name
-                        font.pixelSize: 20
-                        font.bold: true
+                    id: delegateText
+                    text: "No recipes under " + ltr
+                    font.pixelSize: 20
+                    font.bold: true
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked:{
+                        recipeTitleText.text = delegateText.text
                     }
                 }
             }
         }
-    }
-    Rectangle
-    {
-        id:recentItem
-        width: 300
-        height: 50
-        anchors.left: parent.left
-        anchors.leftMargin: 150
-        color: "#D0D0D0"
-        border.color: "#CACACA"
-        border.width: 5
+        }
     }
     ListView
     {
+        id: alphabetList
         width: 150
         height: 1080
+        snapMode: ListView.SnapToItem
+
         model:ListModel
         {
-            ListElement{letter: "~"}
-            ListElement{letter: "A"}
-            ListElement{letter: "B"}
-            ListElement{letter: "C"}
-            ListElement{letter: "D"}
-            ListElement{letter: "E"}
-            ListElement{letter: "F"}
-            ListElement{letter: "G"}
-            ListElement{letter: "H"}
-            ListElement{letter: "I"}
-            ListElement{letter: "J"}
-            ListElement{letter: "K"}
-            ListElement{letter: "L"}
-            ListElement{letter: "M"}
-            ListElement{letter: "N"}
-            ListElement{letter: "O"}
-            ListElement{letter: "P"}
-            ListElement{letter: "Q"}
-            ListElement{letter: "R"}
-            ListElement{letter: "S"}
-            ListElement{letter: "T"}
-            ListElement{letter: "U"}
-            ListElement{letter: "V"}
-            ListElement{letter: "W"}
-            ListElement{letter: "X"}
-            ListElement{letter: "Y"}
-            ListElement{letter: "Z"}
+            ListElement{letter: "A"; clr: "black"}
+            ListElement{letter: "B"; clr: "grey"}
+            ListElement{letter: "C"; clr: "grey"}
+            ListElement{letter: "D"; clr: "grey"}
+            ListElement{letter: "E"; clr: "grey"}
+            ListElement{letter: "F"; clr: "grey"}
+            ListElement{letter: "G"; clr: "black"}
+            ListElement{letter: "H"; clr: "grey"}
+            ListElement{letter: "I"; clr: "grey"}
+            ListElement{letter: "J"; clr: "grey"}
+            ListElement{letter: "K"; clr: "grey"}
+            ListElement{letter: "L"; clr: "grey"}
+            ListElement{letter: "M"; clr: "grey"}
+            ListElement{letter: "N"; clr: "grey"}
+            ListElement{letter: "O"; clr: "grey"}
+            ListElement{letter: "P"; clr: "grey"}
+            ListElement{letter: "Q"; clr: "grey"}
+            ListElement{letter: "R"; clr: "grey"}
+            ListElement{letter: "S"; clr: "grey"}
+            ListElement{letter: "T"; clr: "grey"}
+            ListElement{letter: "U"; clr: "grey"}
+            ListElement{letter: "V"; clr: "grey"}
+            ListElement{letter: "W"; clr: "grey"}
+            ListElement{letter: "X"; clr: "grey"}
+            ListElement{letter: "Y"; clr: "grey"}
+            ListElement{letter: "Z"; clr: "grey"}
         }
         delegate:Component
         {
@@ -116,7 +407,7 @@ Rectangle
                 id: alphabetRect
                 width: 150
                 height:75
-                color: "black"
+                color: clr
                 Text
                 {
                     text: letter
@@ -129,7 +420,78 @@ Rectangle
                 MouseArea
                 {
                     anchors.fill: parent
-                    onClicked:{grow.start()}
+                    onClicked:{
+                    ltr = letter
+                    hideLists.start()
+                    shrinkLetters()
+                    if(letter == "A")
+                    {aAnimation.start()
+                     aItems.z = 1
+                     gItems.z = 0
+                     noItems.z = 0}
+                    else if(letter == "G")
+                    {gAnimation.start()
+                        aItems.z = 0
+                        gItems.z = 1
+                        noItems.z = 0}
+                    else
+                    {noAnimation.start()
+                        aItems.z = 0
+                        gItems.z = 0
+                        noItems.z = 1}
+                     grow.start()}
+                }
+                PropertyAnimation
+                {
+                    id:aAnimation
+                    target: aItems
+                    properties: "opacity"
+                    to: 1
+                    duration: 400
+                }
+                PropertyAnimation
+                {
+                    id:gAnimation
+                    target: gItems
+                    properties: "opacity"
+                    to: 1
+                    duration: 400
+                }
+                PropertyAnimation
+                {
+                    id: noAnimation
+                    target: noItems
+                    properties: "opacity"
+                    to: 1
+                    duration: 400
+                }
+                ParallelAnimation
+                {
+                    id: hideLists
+                    PropertyAnimation
+                    {
+
+                        target: aItems
+                        properties: "opacity"
+                        to: 0
+                        duration: 0
+                    }
+                    PropertyAnimation
+                    {
+
+                        target: gItems
+                        properties: "opacity"
+                        to: 0
+                        duration: 0
+                    }
+                    PropertyAnimation
+                    {
+
+                        target: noItems
+                        properties: "opacity"
+                        to: 0
+                        duration: 0
+                    }
                 }
                 SequentialAnimation
                 {
@@ -140,7 +502,7 @@ Rectangle
                         {
                             target: alphabetRect
                             properties: "width"
-                            to: 200
+                            to: 175
                             duration: 100
                         }
                         PropertyAnimation
@@ -160,422 +522,338 @@ Rectangle
                     }
                 }
             }
+        }    
+    }
+    Rectangle
+    {
+        id: recipeTitle
+        opacity: 0
+        width: parent.width*(.6)
+        height: 100
+        anchors{top: parent.top; left: parent.left; topMargin: 25; leftMargin: recipeTitle.width/2}
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+        Text
+        {
+                id: recipeTitleText
+                text: "ASDASd"
+                font.pixelSize: 30
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                color: "white"
         }
     }
-  /* Rectangle
-   {
-       x: 0;
-       y: 0;
-       width: 100
-       height: 1080
-       color: "transparent"
-       z: 2
-       Flickable
+    Rectangle
+    {
+        id: recipeInstructions
+        opacity: 0
+        width: parent.width*(.25)
+        height: 300
+        anchors{top: parent.top; left: parent.left; topMargin: 150; leftMargin: recipeTitle.width/2}
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+        ListView
         {
+            id: almondInstructions
+            opacity: 0
+            clip: true
             anchors.fill: parent
-            contentHeight: cookingIndex.height
-            contentWidth: cookingIndex.width
-            flickableDirection: Flickable.VerticalFlick
-            Column
+                z: 0
+            model: ListModel{
+                ListElement{
+                    name: "This is a test"
+                }
+                ListElement{
+                    name: "This is a test"
+                }
+                ListElement{
+                    name: "This is a test"
+                }
+            }
+            delegate: instructionDelegate
+        }
+            ListView
             {
-                id:cookingIndex
-                Repeater
-                {
-                    model: 26
-                    Rectangle
-                    {
-                        id: letterRect
-                        width: 100
-                        height: 43
-                        color: "black"
-                        Text
-                        {
-                            id: letter
-                            anchors.centerIn: parent
-                            text: alphabet.charAt(index)
-                            font.pointSize: 15
-                            color: "white"
-                        }
-                        MouseArea
-                        {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            onEntered: {
-                                letterRect.width += 25
-                                letterRect.height += 25
-                            }
-                            onExited: {
-                                letterRect.width -= 25
-                                letterRect.height -= 25
-                            }
-
-                            onClicked: {    showandgrow.start()
-                                            createList(letter.text)}
-                        }
-                   }
-               }
-           }
-       }
-   }
-
-    Rectangle
-    {
-        id:recipeNameList
-        x: 80;
-        color: "#5D442B"
-        width: 0
-        height: 1080
-        radius: 5
-        z: 1
-
-        border.color: "#3D250E"
-        border.width: 5
-
-        Flickable
-        {
-            x: 20
-            contentHeight: recipeList.height
-            contentWidth: recipeList.width
-            flickableDirection: Flickable.VerticalFlick
-            Column
-            {
-                id:recipeList
+                id:applePieInstructions
                 opacity: 0
-                spacing: 3
-                Repeater
-                {
-                    id: recipeWidget
-                    model: 10
-                    Text
-                    {
-                        id:recipeName
-                        text: ""
-                        font.pixelSize: 20
-
-                        MouseArea
-                        {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            onEntered: {if(recipeName.text != ""){recipeName.color = "#AE8B68"}}
-                            onExited: {recipeName.color = "black"}
-                            onClicked: {if(recipeName.text != ""){
-                                        showPanes.start();
-                                        loadRecipe(recipeName.text)}}
-                        }
+                clip: true
+                anchors.fill: parent
+                z:0
+                model: ListModel{
+                    ListElement{
+                        name: "This is a test2"
+                    }
+                    ListElement{
+                        name: "This is a test2"
+                    }
+                    ListElement{
+                        name: "This is a test2"
                     }
                 }
+                delegate: instructionDelegate
             }
-        }
-        SequentialAnimation
-        {
-            id:showandgrow
-            PropertyAnimation
+            ListView
             {
-                target:recipeNameList
-                properties: "width"
-                to: 300
-                duration: 750
-            }
-            PropertyAnimation
-            {
-                target:recipeList
-                properties:"opacity"
-                to: 1
-                duration: 1000
-            }
-        }
-    }
-
-    Rectangle
-    {
-        id: titlePane
-        opacity: 0
-        width: 1280; height: 100
-        x: 450; y: 100
-        color: "#5D442B"
-        radius: 5
-
-        border.color: "#3D250E"
-        border.width: 5
-
-
-        Text
-        {
-            id: titlePaneText
-            text: ""
-            anchors.centerIn: parent
-            font.pixelSize: 80
-            font.bold: true
-        }
-    }
-
-    Rectangle
-    {
-        id: instructionPane
-        opacity: 0
-        width: 400; height: 700
-        x: parent.width - 600; y: parent.height - 750
-        color: "#5D442B"
-        radius: 5
-
-        border.color: "#3D250E"
-        border.width: 5
-
-
-        Text
-        {
-            id:instructionPaneText
-            text: ""
-            font.pixelSize: 20
-        }
-
-        ParallelAnimation
-        {
-            id: showPanes
-
-            PropertyAnimation
-            {
-                target: titlePane
-                properties: "opacity"
-                to: 1
-                duration: 1000
-            }
-
-            PropertyAnimation
-            {
-                target: instructionPane
-                properties: "opacity"
-                to: 1
-                duration: 1000
-            }
-            PropertyAnimation
-            {
-                target: ingRect
-                properties: "opacity"
-                to: 1
-                duration: 1000
-            }
-            PropertyAnimation
-            {
-                target: potRect
-                properties: "opacity"
-                to: 1
-                duration: 1000
-            }
-        }
-    }
-
-    Rectangle
-    {
-        id:ingRect
-        width: 200; height: 400;
-        x: 450; y: 400;
-        color: "#5D442B"
-        radius: 5
-        opacity: 0
-
-        border.color: "#3D250E"
-        border.width: 5
-    }
-
-    Flickable
-    {
-        x: 460
-        y: 410
-        contentHeight: ingCol.height
-        contentWidth: ingCol.width
-        flickableDirection: Flickable.VerticalFlick
-        Column
-        {
-            id:ingCol
-            spacing: 3
-            Repeater
-            {
-                id:ingredientList
-                model:10
-                Text
-                {
-                    id: ingText
-                    text: ""
-                    font.pixelSize: 20
-
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onEntered: {ingText.color = "#AE8B68"; ingText.color = "#AE8B68"}
-                        onExited: {ingText.color = "black"; ingText.color = "black"}
-                        onClicked:{haveIngredient(ingText.text)
-                                   spriteTimer.start()}
+                id: granolaCookieInstructions
+                opacity: 0
+                clip: true
+                z:0
+                anchors.fill: parent
+                model: ListModel{
+                    ListElement{
+                        name: "This is a test3"
+                    }
+                    ListElement{
+                        name: "This is a test3"
+                    }
+                    ListElement{
+                        name: "This is a test3"
                     }
                 }
+                delegate: instructionDelegate
             }
-        }
     }
-
     Rectangle
     {
-        id:potRect
-        x: 675; y: 300;
-        width: 600; height: 800;
-        color: "transparent"
+        id: recipeIngrediantsHave
         opacity: 0
-        AnimatedSprite
+        width: parent.width*(.25)
+        height:200
+        anchors{top: parent.top; left: parent.left; topMargin: 475; leftMargin: recipeTitle.width/2}
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+        ListView
         {
-            id: sprite
+            id: almondCookieHave
             width: parent.width
             height: parent.height
-            source: "qrc:/images/Cook/potSprite.png"
-            frameCount: 6
-            frameSync: true
-            frameWidth: parent.width
-            frameHeight: parent.height
-            paused: true
-            Timer
+            clip: true
+            z: 0
+            opacity: 0
+            model:ListModel
             {
-                id: spriteTimer
-                interval: 150
-                running: false
-                repeat: true
-                onTriggered: {
-                    sprite.advance()
+                ListElement
+                {
+                        name: "Almonds"
+                        amount: "1 Cup"
+                }
+                ListElement
+                {
+                        name: "Sugar"
+                        amount: "3/4 Cup"
+                }
+                ListElement
+                {
+                        name: "Egg White"
+                        amount: "1"
                 }
             }
+            delegate: ingDelegate
+        }
+        ListView
+        {
+            id: applePieHave
+            width: parent.width
+            height: parent.height
+            clip: true
+            z: 0
+            opacity: 0
+            model:ListModel
+            {
+                ListElement
+                {
+                        name: "Apples"
+                        amount: "A Dozen"
+                }
+                ListElement
+                {
+                        name: "Sugar"
+                        amount: "3/4 Cup"
+                }
+                ListElement
+                {
+                        name: "Pie Crust"
+                        amount: "1"
+                }
+            }
+            delegate: ingDelegate
+        }
+        ListView
+        {
+            id: granolaCookieHave
+            width: parent.width
+            height: parent.height
+            clip: true
+            z: 0
+            opacity: 0
+            model:ListModel
+            {
+                ListElement
+                {
+                        name: "granola"
+                        amount: "1 Cup"
+                }
+                ListElement
+                {
+                        name: "Sugar"
+                        amount: "3/4 Cup"
+                }
+                ListElement
+                {
+                        name: "Butter"
+                        amount: "1/2 Stick"
+                }
+            }
+            delegate: ingDelegate
+        }
+    }
+    Rectangle
+    {
+        id: recipeIngrediantsNeed
+        opacity: 0
+        width: parent.width*(.25)
+        height:200
+        anchors{top: parent.top; left: parent.left; topMargin: 700; leftMargin: recipeTitle.width/2}
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+
+        ListView
+        {
+            id: almondCookieNeed
+            width: parent.width
+            height: parent.height
+            clip: true
+            opacity: 0
+            z: 0
+            model:ListModel
+            {
+                ListElement
+                {
+                        name: "Butter"
+                        amount: "1/2 Cup"
+                }
+                ListElement
+                {
+                        name: "Flour"
+                        amount: "1 Cup"
+                }
+            }
+            delegate: ingDelegate
+        }
+        ListView
+        {
+            id: applePieNeed
+            width: parent.width
+            height: parent.height
+            clip: true
+            z: 0
+            opacity: 0
+            model:ListModel
+            {
+            ListElement
+            {
+                    name: "Butter"
+                    amount: "1/2 Cup"
+            }
+            ListElement
+            {
+                    name: "Flour"
+                    amount: "1 Cup"
+            }
+            }
+            delegate: ingDelegate
+        }
+        ListView
+        {
+                id: granolaCookieNeed
+                width: parent.width
+                height: parent.height
+                clip: true
+                z: 0
+                opacity: 0
+                model:ListModel
+                {
+                ListElement
+                {
+                        name: "Butter"
+                        amount: "1/2 Cup"
+                }
+                ListElement
+                {
+                        name: "Flour"
+                        amount: "1 Cup"
+                }
+                }
+                delegate: ingDelegate
+            }
+    }
+    Rectangle
+    {
+        id: nutritionalGraph
+        opacity: 0
+        width: parent.width*(.3)
+        height:750
+        anchors{top: parent.top; left: parent.left; topMargin: 150; leftMargin: parent.width*.6}
+        color: "#D0D0D0"
+        border.color: "#CACACA"
+        border.width: 5
+        Image
+        {
+                source: "qrc:/images/Cook/graph.png"
+                anchors{fill: parent; topMargin: 5; bottomMargin: 5; leftMargin: 5; rightMargin: 5}
         }
         Rectangle
         {
-            height: 600
-            width: 550
-            x:50; y: 150
-            color: "transparent"
-            Flickable
-            {
-                anchors.fill: parent
-                contentHeight: parent.height
-                contentWidth: parent.width
-                flickableDirection: Flickable.VerticalFlick
-                Column
-                {
-                    spacing: 3
-                    Repeater
-                    {
-                        id:potList
-                        model:10
-                        Text
-                        {
-                            id: potText
-                            text: ""
-                            font.pixelSize: 20
-                            MouseArea
-                            {
-                                anchors.fill: parent
-                                hoverEnabled: true
-                                onEntered: {potText.color = "#AE8B68"; potText.color = "#AE8B68"}
-                                onExited: {potText.color = "black"; potText.color = "black"}
-                                onClicked:{dontHaveIngredient(potText.text)
-                                           if(index == 0)
-                                           {
-                                               spriteTimer.stop()
-                                               sprite.currentFrame = 0
-                                           }}
-                            }
-                        }
-                    }
-                }
-            }
+            id: caloriesBar
+            color: "red"
+            width: 100
+            height: 0
+            opacity: .75
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 47
+            anchors.left: parent.left
+            anchors.leftMargin: 75
+        }
+        Rectangle
+        {
+            id:fatBar
+            color: "blue"
+            width: 100
+            height: 0
+            opacity: .75
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 47
+            anchors.left: parent.left
+            anchors.leftMargin: 200
+        }
+        Rectangle
+        {
+            id:proteinBar
+            color: "green"
+            width: 100
+            height: 0
+            opacity: .75
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 47
+            anchors.left: parent.left
+            anchors.leftMargin: 325
+        }
+        Rectangle
+        {
+            id:carbsBar
+            color: "orange"
+            width: 100
+            height: 0
+            opacity: .75
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 47
+            anchors.left: parent.left
+            anchors.leftMargin: 450
         }
     }
-    function createList(letter)
-    {
-
-        var numRec
-        var dictionary
-
-        if(letter == "A")
-        {
-            dictionary = ["Apple Pie", "Angel Food Cake"]
-        }
-
-        else if(letter == "G")
-            dictionary = ["Garden Dip", "Grilled Salmon","Groundnut Stew", "Guacamole", "Gumbo", "Gyro"]
-
-        else
-        {
-            var empty = "Recipe List for " + letter + " is empty...";
-            dictionary = [empty]
-        }
-
-        numRec = dictionary.length
-
-        for(var i = 0; i < 10; i++)
-        {
-            if(i < numRec)
-                recipeWidget.itemAt(i).text = dictionary[i]
-            else
-                recipeWidget.itemAt(i).text = ""
-        }
-    }
-
-    function loadRecipe(rName)
-    {
-        var numIng
-        var ingredients
-        titlePaneText.text = rName
-        if(rName == "Apple Pie")
-        {
-            instructionPaneText.text = "Back that shit"
-            ingredients = ["Apples 10", "Pie Crust 1", "Cinnomin 1 TBSP"]
-            numIng = ingredients.length
-        }
-        else
-        {
-            ingredients =[""];
-        }
-
-        for(var i = 0; i < 10; i++)
-        {
-            if(i < numIng)
-                ingredientList.itemAt(i).text = ingredients[i]
-            else
-                ingredientList.itemAt(i).text = ""
-        }
-    }
-
-    function haveIngredient(hIng)
-    {
-        for(var i = 0; i < 10; i++)
-        {
-            if(ingredientList.itemAt(i).text == hIng && i == 9)
-                ingredientList.itemAt(i).text = ""
-            else if(ingredientList.itemAt(i).text == hIng)
-            {
-                while(i < 9)
-                {
-                    ingredientList.itemAt(i).text = ingredientList.itemAt(i+1).text
-                    i++;
-                }
-            }
-        }
-        potList.itemAt(index).text = hIng
-        index++
-    }
-    function dontHaveIngredient(hIng)
-    {
-        for(var i = 0; i < 10; i++)
-        {
-            if(potList.itemAt(i).text == hIng && i == 9)
-                potList.itemAt(i).text = ""
-            else if(potList.itemAt(i).text == hIng)
-            {
-                while(i < 9)
-                {
-                    potList.itemAt(i).text = potList.itemAt(i+1).text
-                    i++;
-                }
-            }
-        }
-        index--
-        ingredientList.itemAt(index).text = hIng
-    }*/
 }
 

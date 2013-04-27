@@ -5,6 +5,8 @@ Item {
     width: 1920
     height: 1080
 
+    property int indicator: 0
+
     // Temporary navigation panels until we get swipe action to work...
     Rectangle{ id: move_to_fridge_btn
         width: 100
@@ -38,27 +40,451 @@ Item {
     }
 
     // The blinds
-    ListView { id: users_list_view
+    Rectangle {
+        id: user_one
+        width: 1900
+        height: 200
+        y: 25
+        anchors.horizontalCenter: parent.horizontalCenter
+                color: "transparent"
 
-        width: 1890
-        height: 1000
-        model: UserModel{}
-        delegate: UserDelegate{}
-        clip: true
+        Image { id: aBg
+            source: "qrc:/images/main/wood_plank.png"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {open(userScreen)}
+            }
+        }
 
-        states: [
-        State { name: "down"
-                PropertyChanges {
-                    target: users_list_view; x: 0; y:0
-                }
-        },
-        State { name: "up"
-                PropertyChanges {
-                    target: users_list_view; x: 0; y:-1080
-                }
-        }]
-        transitions: Transition {
-            PropertyAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
+        Text { id: avinash
+            text: "Avinash"
+            font.pixelSize: 60
+            color: "black"
+            anchors { verticalCenter: parent.verticalCenter; left: aBg.left; leftMargin: 180}
+        }
+
+        Text { id: avinash_email_value_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
+            text: "9"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: avinash_email_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
+            text: " Emails"
+            font.pixelSize: 50
+            color: "grey"
+        }
+
+        Text { id: avinash_events_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
+            text: "54"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: avinash_event_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
+            text: " Events"
+            font.pixelSize: 50
+            color: "grey"
+        }
+        Text { id: avinash_feeds_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
+            text: "3"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+        Text { id: avinash_feeds_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
+            text: " Feeds"
+            font.pixelSize: 50
+            color: "grey"
+        }
+    }
+
+    Rectangle {
+        id: user_two
+        width: 1900
+        height: 200
+        y: 225
+        anchors.horizontalCenter: parent.horizontalCenter
+                color: "transparent"
+
+        Image {id:nBg
+            source: "qrc:/images/main/wood_plank.png"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {open(userScreen)}
+            }
+        }
+
+        Text { id: nisarg
+            text: "Nisarg"
+            font.pixelSize: 60
+            color: "black"
+            anchors { verticalCenter: parent.verticalCenter; left: nBg.left; leftMargin: 180}
+        }
+
+        Text { id: nisarg_email_value_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
+            text: "9"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: nisarg_email_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
+            text: " Emails"
+            font.pixelSize: 50
+            color: "grey"
+        }
+
+        Text { id: nisarg_events_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
+            text: "54"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: nisarg_event_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
+            text: " Events"
+            font.pixelSize: 50
+            color: "grey"
+        }
+        Text { id: nisarg_feeds_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
+            text: "3"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+        Text { id: nisarg_feeds_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
+            text: " Feeds"
+            font.pixelSize: 50
+            color: "grey"
+        }
+    }
+
+    Rectangle {
+        id: user_three
+        width: 1900
+        height: 200
+        y: 425
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "transparent"
+
+        Image {id: miBg
+            source: "qrc:/images/main/wood_plank.png"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {open(userScreen)}
+            }
+        }
+
+        Text { id: mike
+            text: "Matthew Pfister"
+            font.pixelSize: 60
+            color: "black"
+            anchors { verticalCenter: parent.verticalCenter; left: miBg.left; leftMargin: 180}
+        }
+
+        Text { id: mike_email_value_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
+            text: "9"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: mike_email_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
+            text: " Emails"
+            font.pixelSize: 50
+            color: "grey"
+        }
+
+        Text { id: mike_events_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
+            text: "54"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: mike_event_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
+            text: " Events"
+            font.pixelSize: 50
+            color: "grey"
+        }
+        Text { id: mike_feeds_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
+            text: "3"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+        Text { id: mike_feeds_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
+            text: " Feeds"
+            font.pixelSize: 50
+            color: "grey"
+        }
+    }
+
+    Rectangle {
+        id: user_four
+        width: 1900
+        height: 200
+        y: 625
+        anchors.horizontalCenter: parent.horizontalCenter
+        color: "transparent"
+
+        Image { id: maBg
+            source: "qrc:/images/main/wood_plank.png"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {open(userScreen)}
+            }
+        }
+
+        Text { id: matt
+            text: "Matthew Pfister"
+            font.pixelSize: 60
+            color: "black"
+            anchors { verticalCenter: parent.verticalCenter; left: maBg.left; leftMargin: 180}
+        }
+
+        Text { id: matt_email_value_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
+            text: "9"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: matt_email_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
+            text: " Emails"
+            font.pixelSize: 50
+            color: "grey"
+        }
+
+        Text { id: matt_events_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
+            text: "54"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+
+        Text { id: matt_event_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
+            text: " Events"
+            font.pixelSize: 50
+            color: "grey"
+        }
+        Text { id: matt_feeds_value
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
+            text: "3"
+            font.pixelSize: 50
+            color: "lightsteelblue"
+        }
+        Text { id: matt_feeds_text
+            // Positioning
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
+            text: " Feeds"
+            font.pixelSize: 50
+            color: "grey"
+        }
+    }
+
+    SequentialAnimation
+    {
+        id: pull_up_blinds
+        PropertyAnimation
+        {
+            target: user_four
+            properties: "y"
+            to: 435
+            duration: 500
+        }
+        ParallelAnimation
+        {
+            PropertyAnimation
+            {
+                target: user_three
+                properties: "y"
+                to: 235
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_four
+                properties: "y"
+                to: 245
+                duration: 500
+            }
+        }
+        ParallelAnimation
+        {
+            PropertyAnimation
+            {
+                target: user_two
+                properties: "y"
+                to: 35
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_three
+                properties: "y"
+                to: 45
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_four
+                properties: "y"
+                to: 55
+                duration: 500
+            }
+        }
+        ParallelAnimation
+        {
+            PropertyAnimation
+            {
+                target: user_one
+                properties: "y"
+                to: -200
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_two
+                properties: "y"
+                to: -200
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_three
+                properties: "y"
+                to: -200
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_four
+                properties: "y"
+                to: -200
+                duration: 500
+            }
+        }
+    }
+
+    SequentialAnimation
+    {
+        id: pull_down_blinds
+        PropertyAnimation
+        {
+            target: user_four
+            properties: "y"
+            to: 25
+            duration: 500
+        }
+        ParallelAnimation
+        {
+            PropertyAnimation
+            {
+                target: user_three
+                properties: "y"
+                to: 25
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_four
+                properties: "y"
+                to: 225
+                duration: 500
+            }
+        }
+        ParallelAnimation
+        {
+            PropertyAnimation
+            {
+                target: user_two
+                properties: "y"
+                to: 25
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_three
+                properties: "y"
+                to: 225
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_four
+                properties: "y"
+                to: 425
+                duration: 500
+            }
+        }
+        ParallelAnimation
+        {
+            PropertyAnimation
+            {
+                target: user_one
+                properties: "y"
+                to: 25
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_two
+                properties: "y"
+                to: 225
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_three
+                properties: "y"
+                to: 425
+                duration: 500
+            }
+            PropertyAnimation
+            {
+                target: user_four
+                properties: "y"
+                to: 625
+                duration: 500
+            }
         }
     }
 
@@ -66,11 +492,11 @@ Item {
     // Weather Icon
     Image { id: home_icon
         source: "qrc:/images/main/icons/homeIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 100; }
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 115; }
         MouseArea {
             anchors.fill: parent
             onPressed: {homePressed.start()}
-            onReleased: {homeUnpressed.start(); move_to(mainWindow) }  // Function defined in main.qml
+            onReleased: {homeUnpressed.start(); open(screenSaver) }  // Function defined in main.qml
         }
         ParallelAnimation{
             id: homePressed
@@ -302,8 +728,17 @@ Item {
     // Debugging tool
     function test(){console.log("Hey Yo");}
 
-    // state parmeter must be either "up" or "down"
-    function pull_blinds(state){
-        users_list_view.state = state;
+    function pull_blinds(direction)
+    {
+        if(direction == "up")
+        {
+            pull_up_blinds.start()
+            indicator = 1
+        }
+        else
+        {
+            pull_down_blinds.start()
+            indicator = 0
+        }
     }
 }

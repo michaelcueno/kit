@@ -27,6 +27,7 @@ Item {
     ClockApp { id: clockApp;}
     Calculator{id: calc;}
     UserScreen{id: userScreen;}
+    ScreenSaver{id: screenSaver;}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -65,7 +66,8 @@ Item {
     function open( app ){
         close_apps();
         move_to(mainWindow)
-        mainWindow.pull_blinds("up");
+        if(mainWindow.indicator == 0)
+            mainWindow.pull_blinds("up");
         app.state = "focused";
     }
 
@@ -84,6 +86,9 @@ Item {
     function close_apps(){
         weatherApp.state = "hidden"
         clockApp.state = "hidden"
+        screenSaver.state = "hidden"
+        calc.state = "hidden"
+        userScreen.state = "hidden"
         // add apps in here as you add them to the project
     }
 }

@@ -46,9 +46,24 @@
             <file>images/calc/button.png</file>
             <file>images/calc/buttonPushed.png</file>
             <file>images/userMenu/fb.png</file>
+            <file>images/userMenu/friendrequest.png</file>
+            <file>images/userMenu/likepost.png</file>
+            <file>images/userMenu/wallpost.png</file>
             <file>images/userMenu/Rss.png</file>
+            <file>images/userMenu/bbcrss.png</file>
+            <file>images/userMenu/gamespotrss.png</file>
+            <file>images/userMenu/onionrss.png</file>
             <file>images/userMenu/Twitter.png</file>
+            <file>images/userMenu/tweet1.png</file>
+            <file>images/userMenu/tweet2.png</file>
+            <file>images/userMenu/tweet3.png</file>
             <file>images/userMenu/email.png</file>
+            <file>images/userMenu/email1.png</file>
+            <file>images/userMenu/email2.png</file>
+            <file>images/userMenu/email3.png</file>
+            <file>images/screensaver/photo1.JPG</file>
+            <file>images/screensaver/photo2.JPG</file>
+            <file>images/Cook/graph.png</file>
     </qresource>
     <qresource prefix="/clock">
         <file>qml/src/clock/images/second.png</file>
