@@ -66,12 +66,5 @@ Item {
         color: "grey"
     }
     // Default mouse area -> brings to the main user view
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            open(cur_user);
-            cur_user.user = name_text.text;
-        }
-    }
 }
 

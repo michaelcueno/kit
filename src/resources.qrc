@@ -13,6 +13,12 @@
         <file>images/main/icons/automationIcon.png</file>
         <file>images/main/icons/homeIcon.png</file>
         <file>images/Cook/potSprite.png</file>
+        <file>images/calc/button.png</file>
+        <file>images/calc/buttonPushed.png</file>
+        <file>images/userMenu/fb.png</file>
+        <file>images/userMenu/Rss.png</file>
+        <file>images/userMenu/Twitter.png</file>
+        <file>images/userMenu/email.png</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
@@ -43,14 +49,6 @@
         <file>images/weather/swipe_bg2.png</file>
         <file>images/weather/bgs/night-sky.png</file>
     </qresource>
-    <qresource>
-            <file>images/calc/button.png</file>
-            <file>images/calc/buttonPushed.png</file>
-            <file>images/userMenu/fb.png</file>
-            <file>images/userMenu/Rss.png</file>
-            <file>images/userMenu/Twitter.png</file>
-            <file>images/userMenu/email.png</file>
-    </qresource>
     <qresource prefix="/clock">
         <file>qml/src/clock/images/second.png</file>
         <file>qml/src/clock/images/quit.png</file>
@@ -69,5 +67,17 @@
         <file>images/music/pause.png</file>
         <file>images/music/next_track.png</file>
         <file>images/music/back_track.png</file>
+    </qresource>
+    <qresource prefix="/homeauto">
+        <file>images/homeauto/web_cams_bg.gif</file>
+        <file>images/homeauto/speaker.gif</file>
+        <file>images/homeauto/leave_btn_pressed.gif</file>
+        <file>images/homeauto/leave_btn.gif</file>
+        <file>images/homeauto/garage_door.gif</file>
+        <file>images/homeauto/garage_btn_pressed.gif</file>
+        <file>images/homeauto/garage_btn.gif</file>
+        <file>images/homeauto/garage_bg.gif</file>
+        <file>images/homeauto/front_door_bg.gif</file>
+        <file>images/homeauto/front_door.gif</file>
     </qresource>
 </RCC>

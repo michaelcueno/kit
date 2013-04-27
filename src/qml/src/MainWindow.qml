@@ -187,7 +187,7 @@ Item {
             anchors.fill: parent
             onPressed: {musicPressed.start()}
 
-            onReleased: {musicUnpressed.start(); }  // Function defined in main.qml
+            onReleased: {musicUnpressed.start(); open(music)}  // Function defined in main.qml
         }
         ParallelAnimation{
             id: musicPressed
@@ -212,7 +212,7 @@ Item {
             anchors.fill: parent
             onPressed: {homeAutoPressed.start()}
 
-            onReleased: {homeAutoUnpressed.start();}  // Function defined in main.qml
+            onReleased: {homeAutoUnpressed.start(); open(homeauto)}  // Function defined in main.qml
         }
         ParallelAnimation{
             id: homeAutoPressed
@@ -254,21 +254,12 @@ Item {
             PropertyAnimation{target: settings_icon; properties: "y"; to: settings_icon.y - 20; duration:0}
         }
     }
-    Rectangle { id: music_icon
-        color: "black"
-        width: 100; height: 100;
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 700; }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: open(music)   // Function defined in main.qml
-        }
-    }
 
     // Pull string (logout thingy)
     Image { id: pullstring
         source: "qrc:/images/main/pullstring.png"
         anchors { top: parent.top; right: parent.right; rightMargin: 20}
-        MouseArea {
+       MouseArea {
             anchors.fill: parent
             onClicked: main.logout();
         }

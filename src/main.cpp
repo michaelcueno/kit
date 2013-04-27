@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("calendar", &calendar);
     viewer.rootContext()->setContextProperty("music", &music);
 
-    //viewer.showFullScreen();
-    viewer.showExpanded();
+    viewer.showFullScreen();
+    //viewer.showExpanded();
 
     return app.exec();
 }

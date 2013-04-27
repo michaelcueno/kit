@@ -10,6 +10,7 @@ import "clock"
 import "user"
 import "main"
 import "music"
+import "homeauto"
 import QtMultimedia 5.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
@@ -29,12 +30,16 @@ Item {
 
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
+
+    UserScreen{id: userScreen; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
+
     Shade {id: shade }  // not really an app, but must be placed under weather for layering reasons
-    ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
-    User { id: cur_user; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
+
+    //User { id: cur_user; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
     Calculator{ id: calc; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
-    UserScreen{id: userScreen;}
+    ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
+    HomeAutoApp { id: homeauto; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -73,8 +78,6 @@ Item {
         close_apps();
         move_to(mainWindow);
         mainWindow.pull_blinds("up");
-        if(app === cur_user)
-            pull_down_shade();
 
         app.state = "focused";
     }
@@ -95,7 +98,7 @@ Item {
         pull_up_shade();
         weatherApp.state = "hidden"
         clockApp.state = "hidden"
-        cur_user.state = "hidden"
+        userScreen.state = "hidden"
         calc.state = "hidden"
         music.state = "hidden"
         // add apps in here as you add them to the project
