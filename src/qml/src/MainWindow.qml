@@ -668,7 +668,7 @@ Item {
             anchors.fill: parent
             onPressed: {settingsPressed.start()}
 
-            onReleased: {settingsUnpressed.start(); }  // Function defined in main.qml
+            onReleased: {settingsUnpressed.start(); open(settings) }  // Function defined in main.qml
         }
         ParallelAnimation{
             id: settingsPressed

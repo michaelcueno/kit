@@ -28,6 +28,7 @@ Item {
     Calculator{id: calc;}
     UserScreen{id: userScreen;}
     ScreenSaver{id: screenSaver;}
+    Settings{id: settings}
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}

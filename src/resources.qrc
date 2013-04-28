@@ -64,6 +64,11 @@
             <file>images/screensaver/photo1.JPG</file>
             <file>images/screensaver/photo2.JPG</file>
             <file>images/Cook/graph.png</file>
+            <file>images/settings/english.png</file>
+            <file>images/settings/spanish.png</file>
+            <file>images/settings/french.png</file>
+            <file>images/settings/german.png</file>
+            <file>images/settings/swedish.png</file>
     </qresource>
     <qresource prefix="/clock">
         <file>qml/src/clock/images/second.png</file>
