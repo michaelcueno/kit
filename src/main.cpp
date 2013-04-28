@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("homeAuto", &homeAuto);
     viewer.rootContext()->setContextProperty("calendar", &calendar);
 
-    //viewer.showFullScreen();
+   // viewer.showFullScreen();
     viewer.showExpanded();
 
     return app.exec();

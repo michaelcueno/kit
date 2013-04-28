@@ -1,4 +1,4 @@
-    import QtQuick 2.0
+import QtQuick 2.0
 
 Rectangle
 {
@@ -16,8 +16,8 @@ Rectangle
         var max = alphabetList.count
         for(var i = 0, j = 0; i < max; i++, j = j + 75)
         {
-            if(alphabetList.itemAt(a_x, a_y+j) != null)
-                alphabetList.itemAt(a_x, a_y+j).width = 150
+            if(alphabetList.itemAt(a_x, (a_y+j)) != null)
+                alphabetList.itemAt(a_x, (a_y+j)).width = 150
         }
     }
     Component
@@ -53,7 +53,6 @@ Rectangle
             MouseArea{
                 anchors.fill: parent
                 onClicked:{
-
                 }
             }
         }
@@ -63,8 +62,9 @@ Rectangle
         id: instructionDelegate
         Rectangle
         {
+            id: instructionRect
             width:parent.width
-            height: 50
+            height: name.length
             color: "white"
             border.color: "grey"
             border.width: 5
@@ -74,11 +74,16 @@ Rectangle
                 text: name
                 font.pixelSize: 20
                 font.bold: true
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+                wrapMode: Text.WordWrap
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.topMargin: 10
+                clip: true
             }
             MouseArea{
                 anchors.fill: parent
+                onPressed:{
+                }
             }
         }
     }
@@ -128,6 +133,14 @@ Rectangle
                     granolaCookieNeed.z = 0
                     granolaCookieInstructions.opacity = 0
                     granolaCookieInstructions.z = 0
+                    gravyHave.z = 0
+                    gravyHave.opacity = 0
+                    gravyInstructions.z = 0
+                    gravyInstructions.opacity = 0
+                    gyroHave.z = 0
+                    gyroHave.opacity = 0
+                    gyroInstructions.z = 0
+                    gyroInstructions.opacity = 0
                     if(delegateText.text == "Almond Cookie")
                     {
                         almondCookieHave.opacity = 1
@@ -161,6 +174,23 @@ Rectangle
                         granolaCookieInstructions.opacity = 1
                         granolaCookieInstructions.z = 1
                     }
+                    else if(delegateText.text == "Gravy")
+                    {
+                        gravyHave.opacity = 1
+                        gravyHave.z = 1
+
+                        gravyInstructions.opacity = 1
+                        gravyInstructions.z = 1
+                    }
+                    else if(delegateText.text == "Gyro")
+                    {
+                        gyroHave.opacity = 1
+                        gyroHave.z = 1
+
+                        gyroInstructions.opacity = 1
+                        gyroInstructions.z = 1
+                    }
+
                 }
                 SequentialAnimation
                 {
@@ -299,29 +329,22 @@ Rectangle
                     name: "Granola Cookie"
                     cal: 200
                     pro: 10
-                    f: 15
-                    c: 2
-                }
-                ListElement{
-                    name: "Goose"
-                    cal: 200
-                    pro: 10
-                    f: 5
-                    c: 2
+                    f: 150
+                    c: 200
                 }
                 ListElement{
                     name: "Gravy"
                     calories: 200
-                    protein: 10
-                    f: 5
-                    c: 2
+                    protein: 100
+                    f: 500
+                    c: 300
                 }
                 ListElement{
                     name: "Gyro"
                     cal: 200
-                    pro: 10
-                    f: 10
-                    c: 2
+                    pro: 100
+                    f: 100
+                    c: 200
                 }
             }
             delegate: itemListDelegate
@@ -537,8 +560,9 @@ Rectangle
         Text
         {
                 id: recipeTitleText
-                text: "ASDASd"
-                font.pixelSize: 30
+                text: ""
+                font.pixelSize: 50
+
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 color: "white"
@@ -563,57 +587,114 @@ Rectangle
                 z: 0
             model: ListModel{
                 ListElement{
-                    name: "This is a test"
+                    name: "Stir together flour, ground almonds, baking powder, and salt; set aside."
                 }
                 ListElement{
-                    name: "This is a test"
+                    name: "In a mixing bowl cream butter and sugar at medium speed of electric hand held mixer. Beat in egg white and almond extract."
                 }
                 ListElement{
-                    name: "This is a test"
+                    name: "Stir flour and ground almond mixture into the creamed mixture. Cover with plastic wrap; chill for about 2 hours."
+                }
+                ListElement{
+                    name: "Shape dough into small balls, about 3/4-inch. Place balls 2 inches apart; flatten slightly with the bottom of a glass. Press an almond into the center of each cookie. Bake at 350° for about 12 minutes, or until set but not browned."
                 }
             }
             delegate: instructionDelegate
         }
-            ListView
-            {
-                id:applePieInstructions
-                opacity: 0
-                clip: true
-                anchors.fill: parent
-                z:0
-                model: ListModel{
-                    ListElement{
-                        name: "This is a test2"
-                    }
-                    ListElement{
-                        name: "This is a test2"
-                    }
-                    ListElement{
-                        name: "This is a test2"
-                    }
+        ListView
+        {
+            id:applePieInstructions
+            opacity: 0
+            clip: true
+            anchors.fill: parent
+            z:0
+            model: ListModel{
+                ListElement{
+                    name: "Preheat oven to 425 degrees F (220 degrees C). Melt the butter in a saucepan. Stir in flour to form a paste. Add water, white sugar and brown sugar, and bring to a boil. Reduce temperature and let simmer."
                 }
-                delegate: instructionDelegate
-            }
-            ListView
-            {
-                id: granolaCookieInstructions
-                opacity: 0
-                clip: true
-                z:0
-                anchors.fill: parent
-                model: ListModel{
-                    ListElement{
-                        name: "This is a test3"
-                    }
-                    ListElement{
-                        name: "This is a test3"
-                    }
-                    ListElement{
-                        name: "This is a test3"
-                    }
+                ListElement{
+                    name: "Place the bottom crust in your pan. Fill with apples, mounded slightly. Cover with a lattice work crust. Gently pour the sugar and butter liquid over the crust. Pour slowly so that it does not run off."
                 }
-                delegate: instructionDelegate
+                ListElement{
+                    name: "Bake 15 minutes in the preheated oven. Reduce the temperature to 350 degrees F (175 degrees C). Continue baking for 35 to 45 minutes, until apples are soft."
+                }
             }
+            delegate: instructionDelegate
+        }
+        ListView
+        {
+            id: granolaCookieInstructions
+            opacity: 0
+            clip: true
+            z:0
+            anchors.fill: parent
+            model: ListModel{
+                ListElement{
+                    name: " Preheat oven to 375 degrees F. Line baking sheets with parchment paper or silicone mats; set aside."
+                }
+                ListElement{
+                    name: "Put the granola in a large bowl and break up any clumps with your fingers. Add the raisins, peanuts, almonds, coconut and wheat germ and mix together."
+                }
+                ListElement{
+                    name: "With an electric mixer, beat the butter at medium speed until smooth, about 2 minutes. Add the sugars and beat for another 3 minutes, or until creamy. Add the egg and salt and beat until well blended. Reduce the mixer speed to low and add the flour, mixing only until it is incorporated, then steadily add the granola mixture. Stop the mixer when most of the granola mixture is blended into the batter and finish the job with a sturdy rubber spatula, making sure to get up any bits of dry ingredients left in the bottom of the bowl."
+                }
+                ListElement{
+                    name: "Scoop out about two tablespoonfuls of dough, pack the scoops between your palms and arrange the mounds on the baking sheets. Flatten the mounds lightly with your fingertips."
+                }
+                ListElement{
+                    name: "Bake for 10 to 12 minutes. The cookies should be golden brown but not firm. Allow them to rest on the sheets for 1 to 2 minutes before transferring them to racks to cool to room temperature. Store cookies in an airtight container at room temperature."
+                }
+            }
+            delegate: instructionDelegate
+        }
+        ListView
+        {
+            id: gravyInstructions
+            opacity: 0
+            clip: true
+            z:0
+            anchors.fill: parent
+            model: ListModel{
+                ListElement{
+                    name: " Remove the roast from the pan. Place pan on stove on medium high heat. Pour off all but 2 Tbsp of the drippings in the pan."
+                }
+                ListElement{
+                        name: "Dissolve 2 Tbsp of corn starch in the minimum amount of water needed to make a thin paste - about 1/4 cup. Pour into pan with drippings and use a wire whisk or spatula (as pictured) to blend into the drippings"
+                }
+                ListElement{
+                    name: "Stir with a wire whisk until the gravy begins to thicken. As it thickens, slowly add water, stock, milk, or cream, or some combination to the pan. Alternate stirring and adding liquid, maintaining the consistency you want, for several minutes (about 5). You will probably add about 2 cups of liquid all together. Taking into consideration the evaporation that is occurring while you are cooking, you will end up with about 2 cups of gravy. Season with salt."
+                }
+            }
+            delegate: instructionDelegate
+
+        }
+        ListView
+        {
+            id: gyroInstructions
+            opacity: 0
+            clip: true
+            z:0
+            anchors.fill: parent
+            model: ListModel{
+                ListElement{
+                    name: "Combine all ingredients in a bowl, and mix well."
+                }
+                ListElement{
+                    name: "Knead the mixture on the counter for 10 minutes - just like you're kneading bread. You may want to use a dough-scraper to help keep the counter clean. (I do). Pick that meat up and SLAM it into the counter, continuing to do so for the 10 minutes. This is key to getting the correct texture. I'm no Alton Brown, but I think the thing we're doing here is melting the fat so that we get a nice smooth texture in the end."
+                }
+                ListElement{
+                        name: "Form into a flat loaf - I like to put the meat onto a piece of wax paper, and flattening it into a 3 in. high slab rectangle. I cover it with another piece of wax and use a rolling pin to flatten it out, just make sure you straighten out the edges to form a rectangle so that when it comes time to slice, they are nice and even."
+                }
+                ListElement{
+                    name: "Bake the loaf on a broiler pan (or pan with raised edges, because it will leak grease!) at 350 for about an hour. Alternatively, you can grill it over coals, that's my favorite way, just be sure to turn often so as to distribute the juices."
+                }
+                ListElement{
+                    name: "Allow to cool for at least 10 minutes before slicing thin."
+                }
+            }
+            delegate: instructionDelegate
+
+        }
     }
     Rectangle
     {
@@ -709,6 +790,67 @@ Rectangle
             }
             delegate: ingDelegate
         }
+        ListView
+            {
+                id: gravyHave
+                width: parent.width
+                height: parent.height
+                clip: true
+                z: 0
+                opacity: 0
+                model:ListModel
+                {
+                    ListElement
+                    {
+                            name: "Roast Drippings"
+                            amount: "2 Tablespoons"
+                    }
+                    ListElement
+                    {
+                            name: "Corn Starch"
+                            amount: "1/4 Cup"
+                    }
+                    ListElement
+                    {
+                            name: "Milk"
+                            amount: "2 Cups"
+                    }
+                }
+                delegate: ingDelegate
+            }
+            ListView
+            {
+                    id: gyroHave
+                    width: parent.width
+                    height: parent.height
+                    clip: true
+                    z: 0
+                    opacity: 0
+                    model:ListModel
+                    {
+                        ListElement
+                        {
+                                name: "Ground Beef"
+                                amount: "1 lb"
+                        }
+                        ListElement
+                        {
+                                name: "Breadcrumbs"
+                                amount: "1/2 Cup"
+                        }
+                        ListElement
+                        {
+                                name: "Garlic"
+                                amount: "2 Cloves"
+                        }
+                        ListElement
+                        {
+                                name: "Oregano"
+                                amount: "3 Teaspoons"
+                        }
+                    }
+                    delegate: ingDelegate
+           }
     }
     Rectangle
     {
@@ -856,4 +998,3 @@ Rectangle
         }
     }
 }
-

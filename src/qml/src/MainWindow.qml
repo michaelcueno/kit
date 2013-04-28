@@ -328,7 +328,7 @@ Item {
             target: user_four
             properties: "y"
             to: 435
-            duration: 500
+            duration: 300
         }
         ParallelAnimation
         {
@@ -337,14 +337,14 @@ Item {
                 target: user_three
                 properties: "y"
                 to: 235
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_four
                 properties: "y"
                 to: 245
-                duration: 500
+                duration: 300
             }
         }
         ParallelAnimation
@@ -354,21 +354,21 @@ Item {
                 target: user_two
                 properties: "y"
                 to: 35
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_three
                 properties: "y"
                 to: 45
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_four
                 properties: "y"
                 to: 55
-                duration: 500
+                duration: 300
             }
         }
         ParallelAnimation
@@ -378,28 +378,28 @@ Item {
                 target: user_one
                 properties: "y"
                 to: -200
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_two
                 properties: "y"
                 to: -200
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_three
                 properties: "y"
                 to: -200
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_four
                 properties: "y"
                 to: -200
-                duration: 500
+                duration: 300
             }
         }
     }
@@ -412,7 +412,7 @@ Item {
             target: user_four
             properties: "y"
             to: 25
-            duration: 500
+            duration: 300
         }
         ParallelAnimation
         {
@@ -421,14 +421,14 @@ Item {
                 target: user_three
                 properties: "y"
                 to: 25
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_four
                 properties: "y"
                 to: 225
-                duration: 500
+                duration: 300
             }
         }
         ParallelAnimation
@@ -438,21 +438,21 @@ Item {
                 target: user_two
                 properties: "y"
                 to: 25
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_three
                 properties: "y"
                 to: 225
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_four
                 properties: "y"
                 to: 425
-                duration: 500
+                duration: 300
             }
         }
         ParallelAnimation
@@ -462,28 +462,28 @@ Item {
                 target: user_one
                 properties: "y"
                 to: 25
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_two
                 properties: "y"
                 to: 225
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_three
                 properties: "y"
                 to: 425
-                duration: 500
+                duration: 300
             }
             PropertyAnimation
             {
                 target: user_four
                 properties: "y"
                 to: 625
-                duration: 500
+                duration: 300
             }
         }
     }
