@@ -29,16 +29,17 @@ Item {
 
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
-
     UserScreen{id: userScreen; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
-
     Shade {id: shade }  // not really an app, but must be placed under weather for layering reasons
 
-    //User { id: cur_user; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
     Calculator{ id: calc; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
     HomeAutoApp { id: homeauto; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
+    
+    ScreenSaver{id: screenSaver;}
+    Settings{id: settings}
+
 
     // Will contain the blinds and the window-sill
     MainWindow {id: mainWindow; x:0; y:0}
@@ -75,10 +76,11 @@ Item {
     // Use this function to open a focused view of a widget, pass in the widget id in string form
     function open( app ){
         close_apps();
-        move_to(mainWindow);
-        mainWindow.pull_blinds("up");
-
+        move_to(mainWindow)
+        if(mainWindow.indicator == 0)
+            mainWindow.pull_blinds("up");
         app.state = "focused";
+	app.z = 10
     }
 
     // Login a user, calls a c++ method that loads users settings from a QSettings object
@@ -101,6 +103,17 @@ Item {
         calc.state = "hidden"
         music.state = "hidden"
         homeauto.state = "hidden"
+	screenSaver.state = "hidden"
+	settings.state = "hidden"
+
+	weatherApp.z = 0
+	clockApp.z = 0
+	userScreen.z = 0
+	calc.z = 0
+	music.z = 0
+	homeauto.z = 0
+	settings.z = 0
+	screenSaver.z = 0
         // add apps in here as you add them to the project
     }
 
