@@ -20,7 +20,6 @@ Item {
     width: 1920
     height: 1080
 
-
     // This is the backround depicting the current weather, it is changed by
     // the weather app
     Image { id: weather_bg
@@ -101,6 +100,7 @@ Item {
         userScreen.state = "hidden"
         calc.state = "hidden"
         music.state = "hidden"
+        homeauto.state = "hidden"
         // add apps in here as you add them to the project
     }
 

@@ -13,62 +13,54 @@ import QtQuick 2.0
 
 Item { id: container
 
+
     height: 1280;
     width: 1920;
 
-    Component.onCompleted: container.state = "hidden"
+    Component.onCompleted: {container.state = "hidden"; }
+    Garage { id: garage; }
 
-    Garage { id: alarms }
+    FrontDoor { id: frontdoor;}
 
-    FrontDoor { id: myTimer;}
+    Webcams { id: webcams; }
 
-    Webcams { id: countdown }
-
-    Thermostat { id: clock; x: 685; y: 207;}
-
+    Thermostat { id: thermo; x: 685; y: 207;}
 
     states: [
     State { name: "focused"
 
             PropertyChanges {
-                target: myTimer; x: 100; y: 0
+                target: garage; x: 100; y: 0
             }
             PropertyChanges {
-                target: countdown; x: 965; y: 0
+                target: frontdoor; x: 960; y: 0
             }
             PropertyChanges {
-                target: alarms; x: 100; y: 485
+                target: webcams; x: 101; y:735
             }
             PropertyChanges {
-                target: stopwatch; x: 965; y:485
-            }
-            PropertyChanges {
-                target: clock;  opacity: 1
+                target: thermo;  opacity: 1
             }
     },
     State { name: "hidden"
 
             PropertyChanges {
-                target: myTimer; x: -600; y: -600
+                target: garage; x: -900; y: 0
             }
             PropertyChanges {
-                target: countdown; x:1900; y: -600
+                target: frontdoor; x: 2000; y:0
             }
             PropertyChanges {
-                target: alarms; x: -600; y: 1800
+                target: webcams; x: 100; y:1080
             }
             PropertyChanges {
-                target: stopwatch; x: 1900; y:1800
-            }
-            PropertyChanges {
-                target: clock; opacity: 0
+                target: thermo;  opacity: 0
             }
     }
     ]
     transitions: Transition {
         PropertyAnimation { properties: "x,y"; easing.type: Easing.Linear }
-        PropertyAnimation { target: clock; property: "opacity"; easing.type: Easing.Linear}
+        PropertyAnimation { target: thermo; property: "opacity"; easing.type: Easing.Linear}
     }
-
 
 }
