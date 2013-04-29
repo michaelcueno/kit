@@ -166,9 +166,7 @@ Rectangle
                                                 output.text = accum
                                                 accum = 0
                                             }
-
-                                            clearBit = 1;
-                                    }}
+                                    }clearBit = 1;}
                             }
                         }
                     }

@@ -42,7 +42,7 @@ Item {
 
 
     // Will contain the blinds and the window-sill
-    MainWindow {id: mainWindow; x:0; y:0}
+    MainWindow {id: mainWindow; x:0; y:0; z: 20}
 
     // Swipe from right to left
     Fridge {id: fridge; anchors {top: mainWindow.top; left: mainWindow.right } }
@@ -114,6 +114,7 @@ Item {
 	homeauto.z = 0
 	settings.z = 0
 	screenSaver.z = 0
+
         // add apps in here as you add them to the project
     }
 
