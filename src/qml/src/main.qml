@@ -11,6 +11,7 @@ import "user"
 import "main"
 import "music"
 import "homeauto"
+import "fridge"
 import QtMultimedia 5.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
