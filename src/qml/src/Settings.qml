@@ -199,7 +199,7 @@ Rectangle {
     }
     Text
     {
->>>>>>> pfister_final
+
         id: addUserText
         anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 200}
         text: "Add New User:"

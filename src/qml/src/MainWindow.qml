@@ -7,7 +7,6 @@ Item {
 
     property int indicator: 0
 
-    property int indicator: 0
 
     // Temporary navigation panels until we get swipe action to work...
 
