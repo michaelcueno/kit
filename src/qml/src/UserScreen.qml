@@ -21,6 +21,7 @@ Rectangle {
                 width: 500; height: 200
                 scale: PathView.iconScale
                 opacity: PathView.iconOpacity
+                z: PathView.zIndex
                 Column {
                     Image { anchors.horizontalCenter: parent.horizontalCenter; width: 500; height: 200; source: icon }
                 }
@@ -52,33 +53,41 @@ Rectangle {
                     anchors.fill: parent
                     model: ListModel{
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/likepost.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/friendrequest.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/wallpost.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/likepost.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/friendrequest.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/wallpost.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/likepost.png"
+                        }
+                        ListElement{
+                            icon: "qrc:/images/userMenu/friendrequest.png"
+                        }
+                        ListElement{
+                            icon: "qrc:/images/userMenu/wallpost.png"
                         }
                     }
                     delegate: delegate
                     path: Path {
                         startX: 0; startY: 100
+                        PathAttribute {name: "zIndex"; value: 9}
                         PathAttribute { name: "iconScale"; value: 1.0 }
                         PathAttribute { name: "iconOpacity"; value: 1.0 }
                         PathQuad { x: 0; y: 25; controlX: 1500; controlY: 45 }
+                        PathAttribute { name: "zIndex"; value: 0}
                         PathAttribute { name: "iconScale"; value: 0.3 }
                         PathAttribute { name: "iconOpacity"; value: 0.5 }
                         PathQuad { x: 0; y: 100; controlX: -20; controlY: 45 }
@@ -112,36 +121,41 @@ Rectangle {
                     anchors.fill: parent
                     model: ListModel{
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/gamespotrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/onionrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/bbcrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/gamespotrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/onionrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/bbcrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/gamespotrss.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/onionrss.png"
+                        }
+                        ListElement{
+                            icon: "qrc:/images/userMenu/bbcrss.png"
                         }
                     }
                     delegate: delegate
                     path: Path {
                         startX: 0; startY: 100
+                        PathAttribute {name: "zIndex"; value: 9}
                         PathAttribute { name: "iconScale"; value: 1.0 }
                         PathAttribute { name: "iconOpacity"; value: 1.0 }
                         PathQuad { x: 0; y: 25; controlX: 1500; controlY: 45 }
+                        PathAttribute { name: "zIndex"; value: 0}
                         PathAttribute { name: "iconScale"; value: 0.3 }
                         PathAttribute { name: "iconOpacity"; value: 0.5 }
                         PathQuad { x: 0; y: 100; controlX: -20; controlY: 45 }
@@ -175,36 +189,41 @@ Rectangle {
                     anchors.fill: parent
                     model: ListModel{
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet1.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet2.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet3.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet1.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet2.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet3.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet1.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/tweet2.png"
+                        }
+                        ListElement{
+                            icon: "qrc:/images/userMenu/tweet3.png"
                         }
                     }
                     delegate: delegate
                     path: Path {
                         startX: 0; startY: 100
+                        PathAttribute {name: "zIndex"; value: 9}
                         PathAttribute { name: "iconScale"; value: 1.0 }
                         PathAttribute { name: "iconOpacity"; value: 1.0 }
                         PathQuad { x: 0; y: 25; controlX: 1500; controlY: 45 }
+                        PathAttribute { name: "zIndex"; value: 0}
                         PathAttribute { name: "iconScale"; value: 0.3 }
                         PathAttribute { name: "iconOpacity"; value: 0.5 }
                         PathQuad { x: 0; y: 100; controlX: -20; controlY: 45 }
@@ -237,36 +256,41 @@ Rectangle {
                     anchors.fill: parent
                     model: ListModel{
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email1.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email2.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email3.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email1.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email2.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email3.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email1.png"
                         }
                         ListElement{
-                            icon: "qrc:/images/calc/button.png"
+                            icon: "qrc:/images/userMenu/email2.png"
+                        }
+                        ListElement{
+                            icon: "qrc:/images/userMenu/email3.png"
                         }
                     }
                     delegate: delegate
                     path: Path {
                         startX: 0; startY: 100
+                        PathAttribute {name: "zIndex"; value: 9}
                         PathAttribute { name: "iconScale"; value: 1.0 }
                         PathAttribute { name: "iconOpacity"; value: 1.0 }
                         PathQuad { x: 0; y: 25; controlX: 1500; controlY: 45 }
+                        PathAttribute { name: "zIndex"; value: 0}
                         PathAttribute { name: "iconScale"; value: 0.3 }
                         PathAttribute { name: "iconOpacity"; value: 0.5 }
                         PathQuad { x: 0; y: 100; controlX: -20; controlY: 45 }

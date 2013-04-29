@@ -12,13 +12,6 @@
         <file>images/main/icons/settingsIcon.png</file>
         <file>images/main/icons/automationIcon.png</file>
         <file>images/main/icons/homeIcon.png</file>
-        <file>images/Cook/potSprite.png</file>
-        <file>images/calc/button.png</file>
-        <file>images/calc/buttonPushed.png</file>
-        <file>images/userMenu/fb.png</file>
-        <file>images/userMenu/Rss.png</file>
-        <file>images/userMenu/Twitter.png</file>
-        <file>images/userMenu/email.png</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
@@ -48,6 +41,36 @@
         <file>images/weather/swipe_bg.png</file>
         <file>images/weather/swipe_bg2.png</file>
         <file>images/weather/bgs/night-sky.png</file>
+    </qresource>
+    <qresource>
+        <file>images/calc/button.png</file>
+        <file>images/calc/buttonPushed.png</file>
+        <file>images/userMenu/fb.png</file>
+        <file>images/userMenu/friendrequest.png</file>
+        <file>images/userMenu/likepost.png</file>
+        <file>images/userMenu/wallpost.png</file>
+        <file>images/userMenu/Rss.png</file>
+        <file>images/userMenu/bbcrss.png</file>
+        <file>images/userMenu/gamespotrss.png</file>
+        <file>images/userMenu/onionrss.png</file>
+        <file>images/userMenu/Twitter.png</file>
+        <file>images/userMenu/tweet1.png</file>
+        <file>images/userMenu/tweet2.png</file>
+        <file>images/userMenu/tweet3.png</file>
+        <file>images/userMenu/email.png</file>
+        <file>images/userMenu/email1.png</file>
+        <file>images/userMenu/email2.png</file>
+        <file>images/userMenu/email3.png</file>
+        <file>images/screensaver/photo1.JPG</file>
+        <file>images/screensaver/photo2.JPG</file>
+        <file>images/Cook/graph.png</file>
+        <file>images/settings/english.png</file>
+        <file>images/settings/spanish.png</file>
+        <file>images/settings/french.png</file>
+        <file>images/settings/german.png</file>
+        <file>images/settings/swedish.png</file>
+        <file>images/settings/un-flag.png</file>
+        <file>images/settings/us-flag.png</file>
     </qresource>
     <qresource prefix="/clock">
         <file>qml/src/clock/images/second.png</file>
