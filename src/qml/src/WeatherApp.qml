@@ -75,7 +75,6 @@ Item { id: container
     Swiper {id: swiper;
         y:1300
         x:0
-
     }
 
     Text { id: indoor

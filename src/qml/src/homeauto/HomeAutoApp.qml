@@ -36,7 +36,7 @@ Item { id: container
                 target: frontdoor; x: 960; y: 0
             }
             PropertyChanges {
-                target: webcams; x: 101; y:735
+                target: webcams; x: 101; y:720
             }
             PropertyChanges {
                 target: thermo;  opacity: 1
@@ -61,6 +61,17 @@ Item { id: container
     transitions: Transition {
         PropertyAnimation { properties: "x,y"; easing.type: Easing.Linear }
         PropertyAnimation { target: thermo; property: "opacity"; easing.type: Easing.Linear}
+    }
+
+    function lockup(){
+        frontdoor.lock()
+        garage.close()
+        garage.countdown = 10
+        thermo.temp_down()
+    }
+
+    function unlock(){
+        frontdoor.unlock()
     }
 
 }

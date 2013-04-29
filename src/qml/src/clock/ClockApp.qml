@@ -26,7 +26,7 @@ Item { id: container
 
     Stopwatch { id: stopwatch }
 
-    Clock { id: clock; x: 685; y: 207; shift: 6}
+    Clock { id: clock; x: 685; y: 207; shift: 2}
 
 
     states: [

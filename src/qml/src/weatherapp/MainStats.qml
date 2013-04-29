@@ -98,7 +98,7 @@ Item {
         var doc = new XMLHttpRequest();
         doc.open("GET", path);
         doc.onreadystatechange = function(){
-            if ( doc.readyState == XMLHttpRequest.DONE)
+            if ( doc.readyState === XMLHttpRequest.DONE)
             {
                 jsonObject = JSON.parse(doc.responseText);
                 setVars(index)

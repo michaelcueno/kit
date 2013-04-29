@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtMultimedia 5.0
 
 Image {
     width: 855
@@ -9,7 +10,7 @@ Image {
 
     Text {
         text: "Timer"
-        color: "white"
+        color: "lightgrey"
         font.pixelSize: 40
         anchors {left: parent.left; top: parent.top; topMargin: 10; leftMargin: 20 }
     }
@@ -20,6 +21,11 @@ Image {
     }
 
     // Scroll Hours
+    Text { x: 127; y: 67;
+        text: "Hours"
+        color: "white"
+        font.pixelSize: 20
+    }
     Spinner { id: hours_spinner
         x: 120; y: 112;
         width: 80; height: 200;
@@ -28,6 +34,11 @@ Image {
         itemHeight: 37
     }
 
+    Text { x: 240; y: 67
+        text: "Minutes"
+        color: "white"
+        font.pixelSize: 20
+    }
     Spinner { id: min_spinner
         x:240; y: 112;
         width: 80; height: 200;
@@ -36,6 +47,11 @@ Image {
         itemHeight: 37
     }
 
+    Text { x: 366; y: 67
+        text: "Seconds"
+        color: "white"
+        font.pixelSize: 20
+    }
     Spinner { id: sec_spinner
         x:360; y: 112;
         width: 80; height: 200;
@@ -54,7 +70,7 @@ Image {
         font.pixelSize: 50;
         MouseArea {
             anchors.fill: parent
-            onClicked: {countdown(); start_btn.state = "pause" }
+            onClicked: {toggle_countdown();}
         }
         states: [State{
                 name: "start"
@@ -74,7 +90,7 @@ Image {
 
     Text { id: clear_btn
         x: 570; y: 200
-        text: "Pause"
+        text: "Clear"
         rotation: -45
         font.pixelSize: 50;
         MouseArea {
@@ -84,7 +100,11 @@ Image {
 
     }
 
-    Timer {id: wait; onTriggered: countdown(); }
+    MediaPlayer {id: timer_sound
+        source: "qrc:/sounds/timer.mp3"   // shouldn't be in home auto, i dont feel like recompilinng though
+    }
+
+    Timer {id: wait; onTriggered: tick(); }
 
     function populate_models(){
         for(var i = 0; i < 10; i++){
@@ -98,8 +118,21 @@ Image {
         }
     }
 
-    function countdown(){
+    function toggle_countdown(){
+        if(start_btn.state == "pause"){
+            start_btn.state = "";
+            wait.stop();
+        }else{
+            start_btn.state = "pause"
+            wait.start();
+        }
+    }
+
+    function tick(){
         if(hours_spinner.currentIndex + min_spinner.currentIndex + sec_spinner.currentIndex == 0){
+            console.log(timer_sound.source)
+            timer_sound.play();
+            start_btn.state = ""
             return
         }
         if(sec_spinner.currentIndex == 0){

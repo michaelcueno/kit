@@ -29,19 +29,18 @@ Item {
 
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
-
     UserScreen{id: userScreen; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
-
     Shade {id: shade }  // not really an app, but must be placed under weather for layering reasons
-
-    //User { id: cur_user; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
     Calculator{ id: calc; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
     HomeAutoApp { id: homeauto; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
 
+    ScreenSaver{id: screenSaver; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
+    Settings{id: settings; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
+    
     // Will contain the blinds and the window-sill
-    MainWindow {id: mainWindow; x:0; y:0}
+    MainWindow {id: mainWindow; x:0; y:0; z: 10000}
 
     // Swipe from right to left
     Fridge {id: fridge; anchors {top: mainWindow.top; left: mainWindow.right } }
@@ -75,10 +74,11 @@ Item {
     // Use this function to open a focused view of a widget, pass in the widget id in string form
     function open( app ){
         close_apps();
-        move_to(mainWindow);
-        mainWindow.pull_blinds("up");
-
+        move_to(mainWindow)
+        if(mainWindow.indicator == 0)
+            mainWindow.pull_blinds("up");
         app.state = "focused";
+        app.z = 1000;
     }
 
     // Login a user, calls a c++ method that loads users settings from a QSettings object
@@ -96,11 +96,24 @@ Item {
     function close_apps(){
         pull_up_shade();
         weatherApp.state = "hidden"
+        weatherApp.z = 0;
         clockApp.state = "hidden"
+        clockApp.z = 0;
         userScreen.state = "hidden"
+        userScreen.z = 0;
         calc.state = "hidden"
+        calc.z = 0;
         music.state = "hidden"
+        music.z = 0;
         homeauto.state = "hidden"
+        homeauto.z = 0;
+        screenSaver.state = "hidden"
+        screenSaver.z = 0;
+        settings.state = "hidden"
+        settings.z = 0;
+	screenSaver.state = "hidden"
+	screenSaver.z = 0; 
+
         // add apps in here as you add them to the project
     }
 

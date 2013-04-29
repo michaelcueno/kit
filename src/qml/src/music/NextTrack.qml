@@ -45,6 +45,7 @@ Rectangle {
     }
 
     ListModel { id: queue
+
     }
 
     ListView { id: song_queue
@@ -56,12 +57,14 @@ Rectangle {
         delegate: NextSongDelegate{}
         clip: true
     }
+
     Rectangle {
         anchors.bottom: parent.bottom
         width: parent.width
         color: "#252525"
         height: 9
     }
+
     Rectangle {
         anchors.top: parent.top
         width: parent.width
