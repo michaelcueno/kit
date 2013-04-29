@@ -26,7 +26,6 @@ Item {
         source: "qrc:/weather/images/weather/clear_blue_sky.jpg"
     }
 
-
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
     UserScreen{id: userScreen; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
@@ -35,6 +34,7 @@ Item {
     MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
     HomeAutoApp { id: homeauto; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
+    
 
     ScreenSaver{id: screenSaver; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
     Settings{id: settings; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
@@ -113,6 +113,8 @@ Item {
         settings.z = 0;
 	screenSaver.state = "hidden"
 	screenSaver.z = 0; 
+	screenSaver.state = "hidden"
+	settings.state = "hidden"
 
         // add apps in here as you add them to the project
     }

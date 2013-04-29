@@ -76,7 +76,7 @@ Rectangle {
                         anchors.fill: parent
                         onClicked:{
                             languageList.currentIndex = index
-                            translate()
+                            translate(index)
                         }
                     }
                 }
@@ -132,6 +132,74 @@ Rectangle {
 
     Text
     {
+        id: changeMethodText
+        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 200}
+        text: "Measurement System:"
+        font.pixelSize: 50
+
+    }
+    Text
+    {
+        id: clickMethodText
+        anchors {top: parent.top; topMargin: 715; left: parent.left; leftMargin: 210}
+        text: "Click on icons to change"
+        font.pixelSize: 15
+    }
+    Rectangle
+    {
+        width: 360
+        height: 180
+        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 800}
+        color: "#C0C0C0"
+        border.color: "teal"
+        border.width: 5
+        radius: 5
+        ListView{
+            id: measurementMethodList
+            highlight: Rectangle{color: "teal" ;width: 175; height: 175}
+            orientation: ListView.Horizontal
+            anchors.fill: parent
+            anchors.rightMargin: 5
+            anchors.leftMargin: 5
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            snapMode: ListView.SnapOneItem
+            model:ListModel{
+                ListElement{
+                    src: "qrc:/images/settings/us-flag.png"
+                }
+                ListElement{
+                    src: "qrc:/images/settings/un-flag.png"
+                }
+            }
+            delegate: Component{
+                Rectangle{
+                    height: 175
+                    width: 175
+                    color: "transparent"
+                    Image{
+                        width: parent.width
+                        height: parent.height
+                        source: src
+                        anchors.top: parent.top
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked:{
+                            measurementMethodList.currentIndex = index
+                            translate(index)
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    Text
+    {
+>>>>>>> pfister_final
         id: addUserText
         anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 200}
         text: "Add New User:"
@@ -167,7 +235,7 @@ Rectangle {
         color: "#C0C0C0"
         border.color: "teal"
         border.width: 5
-        anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 800}
+        anchors {top: parent.top; topMargin: 450; left: parent.left; leftMargin: 800}
         height: 0
         width: 800
         opacity: 0
@@ -334,74 +402,6 @@ Rectangle {
         }
     }
 
-    Text
-    {
-        id: changeMethodText
-        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 200}
-        text: "Measurement System:"
-        font.pixelSize: 50
-
-    }
-    Text
-    {
-        id: clickMethodText
-        anchors {top: parent.top; topMargin: 715; left: parent.left; leftMargin: 210}
-        text: "Click on icons to change"
-        font.pixelSize: 15
-    }
-    Rectangle
-    {
-        width: 360
-        height: 180
-        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 800}
-        color: "#C0C0C0"
-        border.color: "teal"
-        border.width: 5
-        radius: 5
-        ListView{
-            id: measurementMethodList
-            highlight: Rectangle{color: "teal" ;width: 175; height: 175}
-            orientation: ListView.Horizontal
-            anchors.fill: parent
-            anchors.rightMargin: 5
-            anchors.leftMargin: 5
-            clip: true
-            boundsBehavior: Flickable.StopAtBounds
-            snapMode: ListView.SnapOneItem
-            model:ListModel{
-                ListElement{
-                    src: "qrc:/images/settings/us-flag.png"
-                }
-                ListElement{
-                    src: "qrc:/images/settings/un-flag.png"
-                }
-            }
-            delegate: Component{
-                Rectangle{
-                    height: 175
-                    width: 175
-                    color: "transparent"
-                    Image{
-                        width: parent.width
-                        height: parent.height
-                        source: src
-                        anchors.top: parent.top
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    MouseArea
-                    {
-                        anchors.fill: parent
-                        onClicked:{
-                            measurementMethodList.currentIndex = index
-                            translate()
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
     states: [
     State { name: "focused"
             PropertyChanges {
@@ -426,20 +426,22 @@ Rectangle {
         {
 
             case 0:
-                changeAPIText.text = "Cambiar API:"
-                changeLanguagesText.text = "Cambiar el Idomia:"
-                changeMethodText.text = "Cambiar el Sistema:"
-                clickLanguageText.text = "Clic en el icono para cambiar"
-                clickMethodText.text = "Clic en el icono para cambiar"
-                break;
-            case 1:
                 changeAPIText.text = "Change Cooking API:"
                 changeLanguagesText.text = "Change Language:"
                 changeMethodText.text = "Measurement System:"
                 clickLanguageText.text = "Click on icons to change"
                 clickMethodText.text = "Click on icons to change"
                 break;
+            case 1:
+                addUserText.text ="Agregar Usuario Nuevo:"
+                changeAPIText.text = "Cambiar API:"
+                changeLanguagesText.text = "Cambiar el Idomia:"
+                changeMethodText.text = "Cambiar el Sistema:"
+                clickLanguageText.text = "Clic en el icono para cambiar"
+                clickMethodText.text = "Clic en el icono para cambiar"
+                break;
             case 2:
+                addUserText.text = "Lägg till Användare:"
                 changeAPIText.text = "Ändra API:"
                 changeLanguagesText.text = "Ändra Språk:"
                 changeMethodText.text = "Mätsystem:"
@@ -447,6 +449,7 @@ Rectangle {
                 clickMethodText.text = "Klicka på ikonen för att ändra"
                 break;
             case 3:
+                addUserText.text = "Ajouter un Utilisateur:"
                 changeAPIText.text = "Changer API:"
                 changeLanguagesText.text = "Changer la Langue:"
                 changeMethodText.text = "Système de Mesure:"
@@ -454,6 +457,7 @@ Rectangle {
                 clickMethodText.text = "Cliquez sur l'icône pour changer"
                 break;
             case 4:
+                addUserText.text = "Benutzer Hinzufügen:"
                 changeAPIText.text = "Ändern API:"
                 changeLanguagesText.text = "Ändern Sprache:"
                 changeMethodText.text = "Messsystem:"
