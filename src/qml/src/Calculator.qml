@@ -144,6 +144,12 @@ Rectangle
                                 onExited: parent.opacity = 1
                                 onPressed:{parent.source = "qrc:/images/calc/buttonPushed.png"}
                                 onReleased:{parent.source = "qrc:/images/calc/button.png";
+                                    if(calcType.currentIndex > 0)
+                                    {
+                                        conversion()
+                                    }
+                                    else
+                                    {
                                             if(accum == 0)
                                             {
                                                 accum = parseInt(output.text)
@@ -161,7 +167,8 @@ Rectangle
                                                 accum = 0
                                             }
 
-                                            clearBit = 1;}
+                                            clearBit = 1;
+                                    }}
                             }
                         }
                     }
@@ -191,6 +198,65 @@ Rectangle
         }
     }
 
+    Rectangle
+    {
+        width: 550
+        height: 244
+        color: "#C0C0C0"
+        border.color: "teal"
+        border.width: 5
+        radius: 5
+        anchors{top: parent.top; topMargin: numberGrid.y + 490; left: parent.left; leftMargin: numberGrid.x + 550}
+        ListView
+        {
+            id: calcType
+            width: parent.width
+            height: parent.height
+            highlight: Rectangle{color: "teal" ;width: 550; height: 50}
+            model:ListModel
+            {
+                ListElement{
+                    name: "Calculator"
+                }
+                ListElement{
+                    name: "lbs -> oz"
+                }
+                ListElement{
+                    name: "oz -> lbs"
+                }
+                ListElement{
+                    name: "l -> gal"
+                }
+                ListElement{
+                    name: "gal -> l"
+                }
+            }
+            delegate: Component
+            {
+                Rectangle
+                {
+                    width:parent.width
+                    height: 50
+                    color: "transparent"
+                    radius: 5
+                    Text
+                    {
+                        id: delegateText
+                        text: name
+                        font.pixelSize: 20
+                        font.bold: true
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked:{calcType.currentIndex = index; type = delegateText.text}
+                    }
+                }
+            }
+        }
+    }
+
     states: [
     State { name: "focused"
             PropertyChanges {
@@ -207,6 +273,7 @@ Rectangle
     property int clearBit: 0;
     property int accum: 0;
     property string opr: "";
+    property string type: "";
 
     function init()
     {
@@ -239,19 +306,27 @@ Rectangle
     function conversion()
     {
         var result
+        accum = parseInt(output.text)
         switch(type)
         {
             case "lbs -> oz":
                 result = accum * 16;
+                output.text = result + " oz."
                 break;
             case "oz -> lbs":
                 result = accum * (0.0625);
+                output.text = result + " lbs."
                 break;
             case "l -> gal":
                 result = accum * (0.264)
+                output.text = result + " gal."
                 break;
             case "gal -> l":
                 result = accum * (3.785)
+                output.text = result + " l."
+                break;
+            default:
+                result = -1
                 break;
         }
     }

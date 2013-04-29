@@ -8,21 +8,21 @@ Rectangle {
 
     Component.onCompleted: init()
 
-
     Text
     {
-        anchors {top: parent.top; topMargin: 150; left: parent.left; leftMargin: 200}
-        text: "Change Language"
+        id: changeLanguagesText
+        anchors {top: parent.top; topMargin: 100; left: parent.left; leftMargin: 200}
+        text: "Change Language:"
         font.pixelSize: 50
 
     }
     Text
     {
-        anchors {top: parent.top; topMargin: 210; left: parent.left; leftMargin: 310}
+        id: clickLanguageText
+        anchors {top: parent.top; topMargin: 165; left: parent.left; leftMargin: 210}
         text: "Click on icons to change"
-        font.pixelSize: 20
+        font.pixelSize: 15
     }
-
     Rectangle
     {
         width: 750
@@ -31,6 +31,7 @@ Rectangle {
         color: "#C0C0C0"
         border.color: "teal"
         border.width: 5
+        radius: 5
         ListView{
             id: languageList
             highlight: Rectangle{color: "teal" ;width: 200; height: 200}
@@ -39,26 +40,22 @@ Rectangle {
             anchors.rightMargin: 5
             anchors.leftMargin: 5
             clip: true
+            boundsBehavior: Flickable.StopAtBounds
             snapMode: ListView.SnapOneItem
             model:ListModel{
                 ListElement{
-                    name: "English"
                     src: "qrc:/images/settings/english.png"
                 }
                 ListElement{
-                    name: "Spanish"
                     src: "qrc:/images/settings/spanish.png"
                 }
                 ListElement{
-                    name: "Swedish"
                     src: "qrc:/images/settings/swedish.png"
                 }
                 ListElement{
-                    name: "French"
                     src: "qrc:/images/settings/french.png"
                 }
                 ListElement{
-                    name: "German"
                     src: "qrc:/images/settings/german.png"
                 }
             }
@@ -69,16 +66,9 @@ Rectangle {
                     color: "transparent"
                     Image{
                         width: parent.width
-                        height: 150
+                        height: parent.height
                         source: src
                         anchors.top: parent.top
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    Text
-                    {
-                        text: name
-                        font.pixelSize: 20
-                        anchors.bottom: parent.bottom
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                     MouseArea
@@ -86,6 +76,7 @@ Rectangle {
                         anchors.fill: parent
                         onClicked:{
                             languageList.currentIndex = index
+                            translate()
                         }
                     }
                 }
@@ -95,17 +86,88 @@ Rectangle {
 
     Text
     {
-        anchors {top: parent.top; topMargin: 500; left: parent.left; leftMargin: 200}
-        text: "Add New User"
+        id: changeAPIText
+        anchors {top: parent.top; topMargin: 525; left: parent.left; leftMargin: 200}
+        text: "Change Cooking API: "
         font.pixelSize: 50
 
     }
     Rectangle
     {
+        id: changeCookingApi
+        width: 800
+        height: 50
         color: "#C0C0C0"
         border.color: "teal"
         border.width: 5
-        anchors {top: parent.top; topMargin: 550; left: parent.left; leftMargin: 800}
+        anchors {top: parent.top; topMargin: 525; left: parent.left; leftMargin: 800}
+        Text
+        {
+            id: apiLbl
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.top: parent.top
+            anchors.topMargin: 5
+            height: parent.height
+            text: "API Key: "
+            font.pixelSize: 35
+        }
+        Rectangle
+        {
+            width: 550
+            height: addUser.height
+            anchors.left: parent.left
+            anchors.leftMargin: 215
+            color: "transparent"
+            TextInput
+            {
+                anchors.fill: parent
+                font.pixelSize: 35
+                anchors.top: parent.top
+                anchors.topMargin: 5
+                onFocusChanged: show_user_profiles.start()
+            }
+        }
+    }
+
+    Text
+    {
+        id: addUserText
+        anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 200}
+        text: "Add New User:"
+        font.pixelSize: 50
+
+    }
+    Image
+    {
+        id: submit_button
+        source: "qrc:/images/calc/button.png"
+        anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 1600}
+        width: 100
+        height: 50
+        Text
+        {
+            id: submit_text
+            anchors.centerIn: parent
+            text: "submit"
+            color: "white"
+            font.pixelSize: 20
+            font.bold: true
+        }
+        MouseArea
+        {
+            anchors.fill: parent
+            onPressed: {parent.source = "qrc:/images/calc/buttonPushed.png"; submit_text.font.pixelSize = 15}
+            onReleased: {parent.source = "qrc:/images/calc/button.png"; submit_text.font.pixelSize = 20; hide_user_profiles.start()}
+        }
+    }
+    Rectangle
+    {
+        id: user_profiles
+        color: "#C0C0C0"
+        border.color: "teal"
+        border.width: 5
+        anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 800}
         height: 0
         width: 800
         opacity: 0
@@ -114,6 +176,8 @@ Rectangle {
             anchors.fill: parent
             anchors.rightMargin: 5
             anchors.leftMargin: 5
+            anchors.bottomMargin: 5
+            clip: true
             model:ListModel
             {
                 ListElement
@@ -126,32 +190,112 @@ Rectangle {
                 }
                 ListElement
                 {
-                    src: "qrc:/images/userMenu/gmail.png"
+                    src: "qrc:/images/userMenu/email.png"
                 }
             }
             delegate:Component{
                     Rectangle
                     {
                         width: parent.width
-                        height: 75
+                        height: 100
+                        color: "#C0C0C0"
                         Image
                         {
                             width: 100
-                            height: 75
+                            height: 100
                             source: src
                             anchors.left: parent.left
                             anchors.leftMargin: 5
                         }
+                        Text
+                        {
+                            text: "Username"
+                            font.bold: true
+                            font.underline: true
+                            font.pixelSize: 25
+                            anchors.top: parent.top
+                            anchors.topMargin: 5
+                            anchors.left: parent.left
+                            anchors.leftMargin: 115
+                        }
+                        Text
+                        {
+                            text: "Username"
+                            font.bold: true
+                            font.underline: true
+                            font.pixelSize: 25
+                            anchors.top: parent.top
+                            anchors.topMargin: 5
+                            anchors.left: parent.left
+                            anchors.leftMargin: 470
+                        }
                         TextInput
                         {
+                            id: user_profile_username
+                            width: 350
                             anchors.left: parent.left
-                            anchors.leftMargin: 100
+                            anchors.leftMargin: 115
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 5
+                            font.pixelSize: 50
+                        }
+                        TextInput
+                        {
+                            id: user_profile_password
+                            width: 350
+                            anchors.left: parent.left
+                            anchors.leftMargin: 470
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 5
+                            font.pixelSize: 50
+                        }
+                        MouseArea
+                        {
+                            anchors.fill: user_profile_username
+                            onClicked:{
+                                user_profile_username.forceActiveFocus()
+                            }
                         }
                 }
             }
         }
+        ParallelAnimation
+        {
+            id: show_user_profiles
+            PropertyAnimation
+            {
+                target: user_profiles
+                properties: "height"
+                to: 305
+                duration: 300
+            }
+            PropertyAnimation
+            {
+                target: user_profiles
+                properties: "opacity"
+                to: 1
+                duration: 300
+            }
+        }
+        ParallelAnimation
+        {
+            id: hide_user_profiles
+            PropertyAnimation
+            {
+                target: user_profiles
+                properties: "height"
+                to: 0
+                duration: 300
+            }
+            PropertyAnimation
+            {
+                target: user_profiles
+                properties: "opacity"
+                to: 0
+                duration: 150
+            }
+        }
     }
-
     Rectangle
     {
         id: addUser
@@ -160,7 +304,7 @@ Rectangle {
         color: "#C0C0C0"
         border.color: "teal"
         border.width: 5
-        anchors {top: parent.top; topMargin: 500; left: parent.left; leftMargin: 800}
+        anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 800}
         Text
         {
             id: userLbl
@@ -177,7 +321,7 @@ Rectangle {
             width: 550
             height: addUser.height
             anchors.left: parent.left
-            anchors.leftMargin: 215
+            anchors.leftMargin: 210
             color: "transparent"
             TextInput
             {
@@ -185,9 +329,78 @@ Rectangle {
                 font.pixelSize: 35
                 anchors.top: parent.top
                 anchors.topMargin: 5
+                onFocusChanged: show_user_profiles.start()
             }
         }
     }
+
+    Text
+    {
+        id: changeMethodText
+        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 200}
+        text: "Measurement System:"
+        font.pixelSize: 50
+
+    }
+    Text
+    {
+        id: clickMethodText
+        anchors {top: parent.top; topMargin: 715; left: parent.left; leftMargin: 210}
+        text: "Click on icons to change"
+        font.pixelSize: 15
+    }
+    Rectangle
+    {
+        width: 360
+        height: 180
+        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 800}
+        color: "#C0C0C0"
+        border.color: "teal"
+        border.width: 5
+        radius: 5
+        ListView{
+            id: measurementMethodList
+            highlight: Rectangle{color: "teal" ;width: 175; height: 175}
+            orientation: ListView.Horizontal
+            anchors.fill: parent
+            anchors.rightMargin: 5
+            anchors.leftMargin: 5
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            snapMode: ListView.SnapOneItem
+            model:ListModel{
+                ListElement{
+                    src: "qrc:/images/settings/us-flag.png"
+                }
+                ListElement{
+                    src: "qrc:/images/settings/un-flag.png"
+                }
+            }
+            delegate: Component{
+                Rectangle{
+                    height: 175
+                    width: 175
+                    color: "transparent"
+                    Image{
+                        width: parent.width
+                        height: parent.height
+                        source: src
+                        anchors.top: parent.top
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    MouseArea
+                    {
+                        anchors.fill: parent
+                        onClicked:{
+                            measurementMethodList.currentIndex = index
+                            translate()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     states: [
     State { name: "focused"
@@ -205,5 +418,48 @@ Rectangle {
     function init()
     {
         container.state = "hidden"
+    }
+
+    function translate(number)
+    {
+        switch(number)
+        {
+
+            case 0:
+                changeAPIText.text = "Cambiar API:"
+                changeLanguagesText.text = "Cambiar el Idomia:"
+                changeMethodText.text = "Cambiar el Sistema:"
+                clickLanguageText.text = "Clic en el icono para cambiar"
+                clickMethodText.text = "Clic en el icono para cambiar"
+                break;
+            case 1:
+                changeAPIText.text = "Change Cooking API:"
+                changeLanguagesText.text = "Change Language:"
+                changeMethodText.text = "Measurement System:"
+                clickLanguageText.text = "Click on icons to change"
+                clickMethodText.text = "Click on icons to change"
+                break;
+            case 2:
+                changeAPIText.text = "Ändra API:"
+                changeLanguagesText.text = "Ändra Språk:"
+                changeMethodText.text = "Mätsystem:"
+                clickLanguageText.text = "Klicka på ikonen för att ändra"
+                clickMethodText.text = "Klicka på ikonen för att ändra"
+                break;
+            case 3:
+                changeAPIText.text = "Changer API:"
+                changeLanguagesText.text = "Changer la Langue:"
+                changeMethodText.text = "Système de Mesure:"
+                clickLanguageText.text = "Cliquez sur l'icône pour changer"
+                clickMethodText.text = "Cliquez sur l'icône pour changer"
+                break;
+            case 4:
+                changeAPIText.text = "Ändern API:"
+                changeLanguagesText.text = "Ändern Sprache:"
+                changeMethodText.text = "Messsystem:"
+                clickLanguageText.text = "Klicken Sie das Symbol ändern"
+                clickMethodText.text = "Klicken Sie das Symbol ändern"
+                break;
+        }
     }
 }

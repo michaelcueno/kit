@@ -7,7 +7,7 @@ Rectangle
     id: cookingMain
     width: 1920
     height: 1080
-    color: "#C0C0C0"
+    color: "#DCDCDC"
 
     function shrinkLetters()
     {
@@ -141,6 +141,10 @@ Rectangle
                     gyroHave.opacity = 0
                     gyroInstructions.z = 0
                     gyroInstructions.opacity = 0
+                    needText.opacity = 1
+                    haveText.opacity = 1
+                    instructionText.opacity =1
+                    graphText.opacity = 1
                     if(delegateText.text == "Almond Cookie")
                     {
                         almondCookieHave.opacity = 1
@@ -288,7 +292,7 @@ Rectangle
         anchors.left: parent.left
         anchors.leftMargin: 150
         color: "#D0D0D0"
-        border.color: "#CACACA"
+        border.color: "#8A8A8A"
         border.width: 5
         ListView
         {
@@ -555,7 +559,7 @@ Rectangle
         height: 100
         anchors{top: parent.top; left: parent.left; topMargin: 25; leftMargin: recipeTitle.width/2}
         color: "#D0D0D0"
-        border.color: "#CACACA"
+        border.color: "#8A8A8A"
         border.width: 5
         Text
         {
@@ -568,15 +572,26 @@ Rectangle
                 color: "white"
         }
     }
+    Text
+    {
+            id: instructionText
+            opacity: 0
+        text: "Instructions"
+        font.pixelSize: 40
+        font.bold: true
+        font.underline: true
+        anchors{top: parent.top; left: parent.left; topMargin: 150; leftMargin: recipeTitle.width/2}
+    }
+
     Rectangle
     {
         id: recipeInstructions
         opacity: 0
         width: parent.width*(.25)
         height: 300
-        anchors{top: parent.top; left: parent.left; topMargin: 150; leftMargin: recipeTitle.width/2}
+        anchors{top: parent.top; left: parent.left; topMargin: 200; leftMargin: recipeTitle.width/2}
         color: "#D0D0D0"
-        border.color: "#CACACA"
+        border.color: "#8A8A8A"
         border.width: 5
         ListView
         {
@@ -696,15 +711,25 @@ Rectangle
 
         }
     }
+    Text
+    {
+            id: haveText
+            opacity: 0
+        text: "Ingrediants in Pantry"
+        font.pixelSize: 40
+        font.bold: true
+        font.underline: true
+        anchors{top: parent.top; left: parent.left; topMargin: 500; leftMargin: recipeTitle.width/2}
+    }
     Rectangle
     {
         id: recipeIngrediantsHave
         opacity: 0
         width: parent.width*(.25)
         height:200
-        anchors{top: parent.top; left: parent.left; topMargin: 475; leftMargin: recipeTitle.width/2}
+        anchors{top: parent.top; left: parent.left; topMargin: 550; leftMargin: recipeTitle.width/2}
         color: "#D0D0D0"
-        border.color: "#CACACA"
+        border.color: "#8A8A8A"
         border.width: 5
         ListView
         {
@@ -852,15 +877,25 @@ Rectangle
                     delegate: ingDelegate
            }
     }
+    Text
+    {
+        id: needText
+        opacity: 0
+        text: "Ingrediants not in pantry"
+        font.pixelSize: 40
+        font.bold: true
+        font.underline: true
+        anchors{top: parent.top; left: parent.left; topMargin: 750; leftMargin: recipeTitle.width/2}
+    }
     Rectangle
     {
         id: recipeIngrediantsNeed
         opacity: 0
         width: parent.width*(.25)
         height:200
-        anchors{top: parent.top; left: parent.left; topMargin: 700; leftMargin: recipeTitle.width/2}
+        anchors{top: parent.top; left: parent.left; topMargin: 800; leftMargin: recipeTitle.width/2}
         color: "#D0D0D0"
-        border.color: "#CACACA"
+        border.color: "#8A8A8A"
         border.width: 5
 
         ListView
@@ -933,15 +968,25 @@ Rectangle
                 delegate: ingDelegate
             }
     }
+    Text
+    {
+            id: graphText
+            opacity: 0
+        text: "Nutritional Value"
+        font.pixelSize: 40
+        font.bold: true
+        font.underline: true
+        anchors{top: parent.top; left: parent.left; topMargin: 150; leftMargin: parent.width*.6}
+    }
     Rectangle
     {
         id: nutritionalGraph
         opacity: 0
         width: parent.width*(.3)
         height:750
-        anchors{top: parent.top; left: parent.left; topMargin: 150; leftMargin: parent.width*.6}
+        anchors{top: parent.top; left: parent.left; topMargin: 200; leftMargin: parent.width*.6}
         color: "#D0D0D0"
-        border.color: "#CACACA"
+        border.color: "#8A8A8A"
         border.width: 5
         Image
         {
