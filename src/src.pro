@@ -43,4 +43,5 @@ OTHER_FILES += \
     qml/src/Commuting.qml \
     qml/src/UserScreen.qml \
     qml/src/ScreenSaver.qml \
-    qml/src/Settings.qml
+    qml/src/Settings.qml \
+    qml/src/CabinetPanel/CabinetPanel

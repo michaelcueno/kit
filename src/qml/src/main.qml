@@ -12,6 +12,7 @@ import "main"
 import "music"
 import "homeauto"
 import "fridge"
+import "CabinetPanel"
 import QtMultimedia 5.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
@@ -44,13 +45,13 @@ Item {
     MainWindow {id: mainWindow; x:0; y:0; z: 10000}
 
     // Swipe from right to left
-    Fridge {id: fridge; anchors {top: mainWindow.top; left: mainWindow.right } }
+    Fridge {id: fridge; z: 10000; anchors {top: mainWindow.top; left: mainWindow.right } }
 
     // Swipe from left to right
-    Cabinets {id: cabinets; anchors {top: mainWindow.bottom; left: mainWindow.left } }
+    CabinetPanel {id: cabinets; z: 10000;  anchors {top: mainWindow.bottom; left: mainWindow.left } }
 
     // Swipe from down to up
-    Cooking {id: cooking; anchors {right: mainWindow.left; top: mainWindow.top } }
+    Cooking {id: cooking; z: 10000; anchors {right: mainWindow.left; top: mainWindow.top } }
 
     // Animation Function (Switching between the four different kitchen views
     function move_to( screen )
@@ -112,10 +113,10 @@ Item {
         screenSaver.z = 0;
         settings.state = "hidden"
         settings.z = 0;
-	screenSaver.state = "hidden"
-	screenSaver.z = 0; 
-	screenSaver.state = "hidden"
-	settings.state = "hidden"
+        screenSaver.state = "hidden"
+        screenSaver.z = 0;
+        screenSaver.state = "hidden"
+        settings.state = "hidden"
 
         // add apps in here as you add them to the project
     }
