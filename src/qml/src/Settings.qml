@@ -14,6 +14,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 100; left: parent.left; leftMargin: 200}
         text: "Change Language:"
         font.pixelSize: 50
+        color: (main.daytime==0)?"white":"black"
 
     }
     Text
@@ -22,6 +23,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 165; left: parent.left; leftMargin: 210}
         text: "Click on icons to change"
         font.pixelSize: 15
+        color: (main.daytime==0)?"white":"black"
     }
     Rectangle
     {
@@ -90,6 +92,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 525; left: parent.left; leftMargin: 200}
         text: "Change Cooking API: "
         font.pixelSize: 50
+        color: (main.daytime==0)?"white":"black"
 
     }
     Rectangle
@@ -111,6 +114,7 @@ Rectangle {
             height: parent.height
             text: "API Key: "
             font.pixelSize: 35
+            color: (main.daytime==0)?"white":"black"
         }
         Rectangle
         {
@@ -128,6 +132,7 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.topMargin: 5
                 onFocusChanged: { changeApiInput.text = ""; changeApiInput.text = ""; vk.state = "open";}
+                color: (main.daytime==0)?"white":"black"
                 Connections {
                     target: vk
                     onSigButtonPressed: changeApiInput.text = changeApiInput.text + key;
@@ -143,6 +148,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 625; left: parent.left; leftMargin: 200}
         text: "Change City: "
         font.pixelSize: 50
+        color: (main.daytime==0)?"white":"black"
 
     }
     Text
@@ -151,6 +157,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 685; left: parent.left; leftMargin: 200}
         text: "Type in new ciy to the right for the weather and commute applications"
         font.pixelSize: 15
+        color: (main.daytime==0)?"white":"black"
 
     }
     Rectangle
@@ -172,6 +179,7 @@ Rectangle {
             height: parent.height
             text: "City: "
             font.pixelSize: 35
+            color: (main.daytime==0)?"white":"black"
         }
         Rectangle
         {
@@ -194,6 +202,7 @@ Rectangle {
                     onSigButtonPressed: cityChangeInput.text = cityChangeInput.text + key;
 
                 }
+                color: (main.daytime==0)?"white":"black"
             }
         }
     }
@@ -204,6 +213,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 725; left: parent.left; leftMargin: 200}
         text: "Measurement System:"
         font.pixelSize: 50
+        color: (main.daytime==0)?"white":"black"
 
     }
     Text
@@ -212,6 +222,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 785; left: parent.left; leftMargin: 210}
         text: "Click on icons to change"
         font.pixelSize: 15
+        color: (main.daytime==0)?"white":"black"
     }
     Rectangle
     {

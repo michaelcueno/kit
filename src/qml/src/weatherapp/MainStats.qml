@@ -36,7 +36,7 @@ Item {
         radius: 10
         smooth: true
         opacity: .2
-        color: (container.daytime==0)?"black":"white"
+        color: (main.daytime==0)?"black":"white"
     }
 
     Text { id: weekday
@@ -47,14 +47,14 @@ Item {
     }
 
     Text { id: outdoor_temp
-        text: (container.metric===0)? temp_f:temp_c
+        text: (main.metric===0)? temp_f:temp_c
         font.pixelSize:80
         anchors.horizontalCenter: parent.horizontalCenter; anchors.top: weekday.top; anchors.topMargin: 30;
         color: colour
     }
     Text { id: c_f;
         anchors.left: outdoor_temp.right; anchors.verticalCenter: outdoor_temp.verticalCenter
-        text: (container.metric===0)? "\u00b0f":"\u00b0c"
+        text: (main.metric===0)? "\u00b0f":"\u00b0c"
         font.pixelSize: 60
         color: colour
     }
@@ -78,13 +78,13 @@ Item {
         anchors { top: line_break.bottom; horizontalCenter: parent.horizontalCenter; topMargin: 20 }
     }
     Text { id: high_low
-        text: (container.metric==0)?high_f+"\u00b0f / "+low_f+"\u00b0f":temp_c+"\u00b0c /"+low_c+"\u00b0c"
+        text: (main.metric==0)?high_f+"\u00b0f / "+low_f+"\u00b0f":temp_c+"\u00b0c /"+low_c+"\u00b0c"
         anchors { top: today.bottom; horizontalCenter: parent.horizontalCenter; topMargin: 20 }
         font.pixelSize: 30
         color: colour
     }
     Text { id: wind_speed
-        text: (container.metric==0)?"Wind: "+windspeedMiles+"mph":"wind: "+windspeedKmph+"kph"
+        text: (main.metric==0)?"Wind: "+windspeedMiles+"mph":"wind: "+windspeedKmph+"kph"
         anchors { top: high_low.bottom; horizontalCenter: parent.horizontalCenter; topMargin: 20 }
         font.pixelSize: 30
         color: colour
@@ -132,10 +132,10 @@ Item {
         //console.log("setColor: " + hour + " | <- thats the hour in military time")
         if(hour < 7 || hour > 19) { // Night
             colour = "white"
-            container.daytime = 0
+            main.daytime = 0
         }else{
             colour = "black"
-            container.daytime = 1
+            main.daytime = 1
         }
         container.reDraw()
 

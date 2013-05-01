@@ -25,13 +25,13 @@ Image {
     ListModel { id: webcams_model
 
         ListElement {
-            src: "/home/mike/School/ui-CS422/kit/src/images/homeauto/fall.gif"
+            src: "qrc:/homeauto/images/homeauto/fall.gif"
         }
         ListElement {
-            src: "/home/mike/School/ui-CS422/kit/src/images/homeauto/shower.gif"
+            src: "qrc:/homeauto/images/homeauto/shower.gif"
         }
         ListElement {
-            src: "/home/mike/School/ui-CS422/kit/src/images/homeauto/glass.gif"
+            src: "qrc:/homeauto/images/homeauto/glass.gif"
         }
 
     }

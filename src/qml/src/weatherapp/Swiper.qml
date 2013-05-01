@@ -46,12 +46,12 @@ Item {
     }
 
     //--------------------------------- DAY BUTTONS -------------------------------------//
-    Text { id: monday
-        text: (container.language==1)?"Monday":"Måndag"
-        font.pixelSize: 25;
+    Text { id: today
+        text: (container.language==1)?"Today":"Måndag"
+        font.pixelSize:25;
         color: (current_day == 0)?"#1afffc":"white"
-        anchors { left: parent.left; leftMargin: 125; bottom: parent.bottom; bottomMargin: 20 }
-        rotation: -17;
+        x: 710; y:110
+        rotation: -9;
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -59,12 +59,12 @@ Item {
             }
         }
     }
-    Text { id: tuesday
-        text: (container.language==1)?"Tuesday":"Tisdag"
+    Text { id: tomorrow
+        text: (container.language==1)?"Tomorrow":"Tisdag"
         font.pixelSize: 25;
         color: (current_day == 1)?"#1afffc":"white"
-        anchors { left: monday.left; leftMargin: 140; bottom: parent.bottom; bottomMargin: 50 }
-        rotation: -10;
+        x:900; y:97
+        rotation: 0;
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -72,12 +72,12 @@ Item {
             }
         }
     }
-    Text { id: wednesday
-        text: (container.language==1)?"Wednesday":"Onsdag"
+    Text { id: day_after
+        text: (container.language==1)?"Day After":"Onsdag"
         font.pixelSize: 25;
         color: (current_day == 2)?"#1afffc":"white"
-        anchors { left: tuesday.left; leftMargin: 140; bottom: parent.bottom; bottomMargin: 68 }
-        rotation: -4;
+        x:1120; y: 110
+        rotation: 8;
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -85,68 +85,12 @@ Item {
             }
         }
     }
-    Text { id: thursday
-        text: (container.language==1)?"Thursday":"Torsdag"
-        font.pixelSize: 25;
-        color: (current_day == 3)?"#1afffc":"white"
-        anchors { left: wednesday.left; leftMargin: 180; bottom: parent.bottom; bottomMargin: 72 }
-        rotation: 1;
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                set_day(3);
-            }
-        }
-    }
-    Text { id: friday
-        text: (container.language==1)?"Friday":"​​Fredag"
-        font.pixelSize: 25;
-        color: (current_day == 4)?"#1afffc":"white"
-        anchors { left: thursday.left; leftMargin: 150; bottom: parent.bottom; bottomMargin: 65 }
-        rotation: 4.5;
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                set_day(4);
-            }
-        }
-    }
-    Text { id: saturday
-        text: (container.language==1)?"Saturday":"Lördag"
-        font.pixelSize: 25;
-        color: (current_day == 5)?"#1afffc":"white"
-        anchors { left: friday.left; leftMargin: 110; bottom: parent.bottom; bottomMargin: 49 }
-        rotation: 8.5;
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                set_day(5);
-            }
-        }
-    }
 
-    Text { id: sunday
-        text: (container.language==1)?"Sunday":"Söndag"
-        font.pixelSize: 25;
-        color: (current_day == 6)?"#1afffc":"white"
-        anchors { left: saturday.left; leftMargin: 140; bottom: parent.bottom; bottomMargin: 22 }
-        rotation: 15;
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                set_day(6);
-            }
-        }
-    }
 
     // Used for placement of the cosmic unit
     function set_day(day){
 
-        var multiplier = day - static_cur_day
-        if(multiplier<0){
-            multiplier = multiplier + 7;
-        }
-        hours.currentIndex = 24*multiplier;
+        hours.currentIndex = 24*day;
     }
 
     // Loads the hours into the swiper after downloading hourly data set

@@ -37,6 +37,7 @@ Item {
     // The blinds
     Rectangle {
         id: user_one
+        z:4
         width: 1900
         height: 200
         y: 25
@@ -107,6 +108,7 @@ Item {
 
     Rectangle {
         id: user_two
+        z: 3
         width: 1900
         height: 200
         y: 225
@@ -177,6 +179,7 @@ Item {
 
     Rectangle {
         id: user_three
+        z:2
         width: 1900
         height: 200
         y: 425
@@ -247,6 +250,7 @@ Item {
 
     Rectangle {
         id: user_four
+        z: 1
         width: 1900
         height: 200
         y: 625

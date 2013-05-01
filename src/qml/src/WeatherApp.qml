@@ -18,7 +18,6 @@ Item { id: container
     property int language: 1             // 1 = English / 2 = Swedish
     property string bg_source: ""        // Source image for background
     property string current_city: ""     // contains the name of the current city
-    property int daytime: 0              // 0 = nighttime / 1 = Daytime
     property int cur_time                // Hour 1-24 (constant)
     property int cosmo_constant          // Used for positioning the sun/moon (Based off the cur_time)
 
@@ -31,7 +30,7 @@ Item { id: container
         text: current_city
         font.pixelSize: 30
         x: 180; y: -100;
-        color: (daytime==0)? "white":"black"
+        color: (main.daytime==0)? "white":"black"
     }
 
     // Includes Temp, day, condition.. etc. Center of the screen in the main view
@@ -45,7 +44,7 @@ Item { id: container
     }
 
     Image { id: cosmic_object   // either the sun or the moon
-        source: (daytime==0)?"qrc:/weather/images/weather//moon_unit.png":"qrc:/weather/images/weather/sun.png"
+        source: (main.daytime==0)?"qrc:/weather/images/weather//moon_unit.png":"qrc:/weather/images/weather/sun.png"
         y: {var time = (swiper.index%12);
             var offset = time-7;
             if(offset==0){return mainWindow.height+500;}
@@ -79,7 +78,7 @@ Item { id: container
 
     Text { id: indoor
         text: (metric == 0)?"Indoor Temp: 72\u00b0f":"Indoor Temp: 22\u00b0c"
-        color: (daytime==0)?"white":"black"
+        color: (main.daytime==0)?"white":"black"
         font.pixelSize: 25
         anchors {bottom: parent.bottom; bottomMargin: 20; horizontalCenter: parent.horizontalCenter }
     }
@@ -134,6 +133,10 @@ Item { id: container
     }
 
     function reDraw(){
-        weather_bg.source = (daytime==0)?"qrc:/weather/images/weather/bgs/night-sky.png":"qrc:/weather/images/weather/clear_blue_sky.jpg"
+        weather_bg.source = (main.daytime==0)?"qrc:/weather/images/weather/bgs/night-sky.png":"qrc:/weather/images/weather/clear_blue_sky.jpg"
+    }
+
+    function reset(){
+        swiper.set_day(0);
     }
 }

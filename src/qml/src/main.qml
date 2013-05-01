@@ -14,6 +14,7 @@ import "homeauto"
 import "fridge"
 import "CabinetPanel"
 import "keyboard"
+import "intro"
 import QtMultimedia 5.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
@@ -28,6 +29,13 @@ Item {
     Image { id: weather_bg
         source: "qrc:/weather/images/weather/clear_blue_sky.jpg"
     }
+
+    /** Gobal Level Variables */
+    property int daytime;   // Day theme (0) vs. Night Theme (1)
+    property int metric: 0; // us (0) vs. metric (1)
+
+    // Intro animation
+    KitIntro {z: 1000}
 
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
@@ -44,21 +52,21 @@ Item {
     Settings{id: settings; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
     
     // Will contain the blinds and the window-sill
-    MainWindow {id: mainWindow; x:0; y:0; z: 10000}
+    MainWindow {id: mainWindow; x:0; y:0; z: 100}
 
     // Swipe from right to left
-    Fridge {id: fridge; z: 10000; anchors {top: mainWindow.top; left: mainWindow.right } }
+    Fridge {id: fridge; z: 10; anchors {top: mainWindow.top; left: mainWindow.right } }
 
     // Swipe from left to right
-    CabinetPanel {id: cabinets; z: 10000;  anchors {top: mainWindow.bottom; left: mainWindow.left } }
+    CabinetPanel {id: cabinets; z: 10;  anchors {top: mainWindow.bottom; left: mainWindow.left } }
 
     // Swipe from down to up
-    Cooking {id: cooking; z: 10000; anchors {right: mainWindow.left; top: mainWindow.top } }
+    Cooking {id: cooking; z: 10; anchors {right: mainWindow.left; top: mainWindow.top } }
 
     VirtualKeyboard {id: vk; x: 200; y : 1080
         states: State { name: "open"; PropertyChanges {
                 target: vk
-                y: 700; z:10000
+                y: 700; z:10
             }}
         transitions: Transition {
             PropertyAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
@@ -93,7 +101,7 @@ Item {
         if(mainWindow.indicator == 0)
             mainWindow.pull_blinds("up");
         app.state = "focused";
-        app.z = 1000;
+        app.z = 10;
     }
 
     // Login a user, calls a c++ method that loads users settings from a QSettings object
@@ -105,6 +113,7 @@ Item {
     function logout(){
         close_apps();
         mainWindow.pull_blinds("down");
+        weatherApp.reset();
     }
 
     // Closes view of app in the mainwindow,

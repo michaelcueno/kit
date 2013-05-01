@@ -15,7 +15,7 @@ Image {
     Image { id: stopwatch
         source: "qrc:/clock/images/clock/stopwatch.png"
         x: 400; y: 60;
-        height: 430
+        height: 390
         fillMode: Image.PreserveAspectFit
     }
 }

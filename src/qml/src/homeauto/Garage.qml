@@ -6,14 +6,14 @@ Item {
     property int countdown: 8
 
     Image { id: garage
-        source: "/home/mike/School/ui-CS422/kit/src/images/homeauto/garage.png"
+        source: "qrc:/homeauto/images/homeauto/garage.png"
         x: 50; y:130
         width: 400; height: 300
         visible: true
     }
     Image { id: garage_door
         smooth: true
-        source: "/home/mike/School/ui-CS422/kit/src/images/homeauto/garage_door.jpg"
+        source: "qrc:/homeauto/images/homeauto/garage_door.jpg"
         x: 50; y:-157
         width: 400; height: 300
         visible: true
