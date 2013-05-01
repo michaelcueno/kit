@@ -55,7 +55,7 @@ Item {
     // Swipe from down to up
     Cooking {id: cooking; z: 10000; anchors {right: mainWindow.left; top: mainWindow.top } }
 
-    VirtualKeyboard {id: vk; x: 400; y : 1080
+    VirtualKeyboard {id: vk; x: 200; y : 1080
         states: State { name: "open"; PropertyChanges {
                 target: vk
                 y: 700; z:10000
@@ -63,6 +63,7 @@ Item {
         transitions: Transition {
             PropertyAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
         }
+        onClose: state = ""
     }
 
     // Animation Function (Switching between the four different kitchen views
@@ -130,6 +131,7 @@ Item {
         screenSaver.state = "hidden"
         settings.state = "hidden"
         commute.state = "hidden"
+        commute.z = 0;
 
         // add apps in here as you add them to the project
     }

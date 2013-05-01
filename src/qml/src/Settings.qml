@@ -127,7 +127,12 @@ Rectangle {
                 font.pixelSize: 35
                 anchors.top: parent.top
                 anchors.topMargin: 5
-                onFocusChanged: changeApiInput.text = ""
+                onFocusChanged: { changeApiInput.text = ""; changeApiInput.text = ""; vk.state = "open";}
+                Connections {
+                    target: vk
+                    onSigButtonPressed: changeApiInput.text = changeApiInput.text + key;
+                }
+
             }
         }
     }
@@ -183,7 +188,12 @@ Rectangle {
                 font.pixelSize: 35
                 anchors.top: parent.top
                 anchors.topMargin: 5
-                onFocusChanged: cityChangeInput.text = ""
+                onFocusChanged: {cityChangeInput.text = ""; vk.state = "open";}
+                Connections {
+                    target: vk
+                    onSigButtonPressed: cityChangeInput.text = cityChangeInput.text + key;
+
+                }
             }
         }
     }
@@ -363,6 +373,11 @@ Rectangle {
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 5
                             font.pixelSize: 50
+                            onFocusChanged: {user_profile_username.text = ""; vk.state = "open";}
+                            Connections {
+                                target: vk
+                                onSigButtonPressed: user_profile_username.text = user_profile_username.text + key;
+                            }
                         }
                         TextInput
                         {
@@ -373,6 +388,11 @@ Rectangle {
                             anchors.bottom: parent.bottom
                             anchors.bottomMargin: 5
                             font.pixelSize: 50
+                            onFocusChanged: {user_profile_password.text = ""; vk.state = "open";}
+                            Connections {
+                                target: vk
+                                onSigButtonPressed: user_profile_password.text = user_profile_password.text + key;
+                            }
                         }
                         MouseArea
                         {
@@ -454,7 +474,11 @@ Rectangle {
                 font.pixelSize: 35
                 anchors.top: parent.top
                 anchors.topMargin: 5
-                onFocusChanged: show_user_profiles.start()
+                onFocusChanged: { show_user_profiles.start(); show_user_profiles.text = ""; vk.state = "open";}
+                Connections {
+                    target: vk
+                    onSigButtonPressed: show_user_profiles.text = show_user_profiles.text + key;
+                }
             }
         }
     }

@@ -18,6 +18,7 @@ Rectangle {
     signal sigButtonPressed (string key) // signal what key was pressed for outside use, just connect it
     signal sigStickedButtonLatched (string special_key) // special(sticked) key latched event (ctrl,shift,alt,capslock etc)
     signal sigStickedButtonUnlatched (string special_key) // special(sticked) key unlatched event (ctrl,shift,alt,capslock etc)
+    signal close
 
     onWidthChanged: checkOutSizes()
     onHeightChanged: checkOutSizes()
@@ -148,6 +149,9 @@ Rectangle {
     function buttonPressed (key)
     {
         console.log (key)
+        if(key === "esc"){
+            close()
+        }
     }
 
     function stickedButtonClicked (key, is_checked)
