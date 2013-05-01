@@ -247,7 +247,6 @@ Rectangle {
                         anchors.fill: parent
                         onClicked:{
                             measurementMethodList.currentIndex = index
-                            translate(index)
                         }
                     }
                 }

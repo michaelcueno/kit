@@ -3,9 +3,19 @@ import QtQuick 2.0
 Rectangle {
     id: container
     width: 1980
-    height: 1280
+    height: 1080
     opacity: 0
     color: "#C0C0C0"
+
+    MouseArea
+    {
+        anchors.fill: parent;
+        onClicked: {
+            fadeInOut.start()
+            switchPhoto()
+            ssTimer.restart()
+        }
+    }
 
     property int index: 1;
     Component.onCompleted: init()
@@ -59,6 +69,7 @@ Rectangle {
 
     Timer
     {
+        id: ssTimer
         interval: 10000
         running: true
         repeat: true
