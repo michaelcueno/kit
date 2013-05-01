@@ -72,7 +72,7 @@ Rectangle {
         id: mouseRegion
         anchors.fill: container
         hoverEnabled: true
-        onClicked: { container.clicked(); }
+        onClicked: { container.clicked(); vk.state = "open" }
     }
     Text {
         id: buttonText

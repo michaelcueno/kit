@@ -25,19 +25,14 @@ Image {
     ListModel { id: webcams_model
 
         ListElement {
-            src: "qrc:/homeauto/images/homeauto/robber.gif"
+            src: "/home/mike/School/ui-CS422/kit/src/images/homeauto/fall.gif"
         }
         ListElement {
-            src: "qrc:/homeauto/images/homeauto/shower.gif"
+            src: "/home/mike/School/ui-CS422/kit/src/images/homeauto/shower.gif"
         }
         ListElement {
-            src: "qrc:/homeauto/images/homeauto/shower2.gif"
+            src: "/home/mike/School/ui-CS422/kit/src/images/homeauto/glass.gif"
         }
-        ListElement {
-            src: "qrc:/homeauto/images/homeauto/fall.gif"
-        }
-        ListElement {
-            src: "qrc:/homeauto/images/homeauto/glass.gif"
-        }
+
     }
 }

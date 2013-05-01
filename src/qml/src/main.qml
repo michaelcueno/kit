@@ -13,6 +13,7 @@ import "music"
 import "homeauto"
 import "fridge"
 import "CabinetPanel"
+import "keyboard"
 import QtMultimedia 5.0
 
 /** Container for the main application. All main animations and navigation should be specified by functions in
@@ -52,6 +53,16 @@ Item {
 
     // Swipe from down to up
     Cooking {id: cooking; z: 10000; anchors {right: mainWindow.left; top: mainWindow.top } }
+
+    VirtualKeyboard {id: vk; x: 400; y : 1080
+        states: State { name: "open"; PropertyChanges {
+                target: vk
+                y: 700; z:10000
+            }}
+        transitions: Transition {
+            PropertyAnimation { properties: "x,y"; easing.type: Easing.InOutQuad }
+        }
+    }
 
     // Animation Function (Switching between the four different kitchen views
     function move_to( screen )

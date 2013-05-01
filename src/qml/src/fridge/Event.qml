@@ -150,6 +150,7 @@ Rectangle {
             font.bold: true
             font.pixelSize: 16
             wrapMode: Text.Wrap
+            onActiveFocusChanged: {vk.state = "open"; console.log("opening");  }
         }
     }
 

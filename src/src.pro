@@ -44,4 +44,5 @@ OTHER_FILES += \
     qml/src/UserScreen.qml \
     qml/src/ScreenSaver.qml \
     qml/src/Settings.qml \
-    qml/src/CabinetPanel/CabinetPanel
+    qml/src/CabinetPanel/CabinetPanel \
+    qml/src/keyboard/VirtualKeyboard.qml
