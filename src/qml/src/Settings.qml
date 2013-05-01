@@ -117,15 +117,73 @@ Rectangle {
             width: 550
             height: addUser.height
             anchors.left: parent.left
-            anchors.leftMargin: 215
+            anchors.leftMargin: 150
             color: "transparent"
             TextInput
             {
+                id: changeApiInput
+                text: "AKS87JS3UI34N"
                 anchors.fill: parent
                 font.pixelSize: 35
                 anchors.top: parent.top
                 anchors.topMargin: 5
-                onFocusChanged: show_user_profiles.start()
+                onFocusChanged: changeApiInput.text = ""
+            }
+        }
+    }
+
+    Text
+    {
+        id: changeCityText
+        anchors {top: parent.top; topMargin: 625; left: parent.left; leftMargin: 200}
+        text: "Change City: "
+        font.pixelSize: 50
+
+    }
+    Text
+    {
+        id: changeCitySubText
+        anchors {top: parent.top; topMargin: 685; left: parent.left; leftMargin: 200}
+        text: "Type in new ciy to the right for the weather and commute applications"
+        font.pixelSize: 15
+
+    }
+    Rectangle
+    {
+        id: changeCity
+        width: 800
+        height: 50
+        color: "#C0C0C0"
+        border.color: "teal"
+        border.width: 5
+        anchors {top: parent.top; topMargin: 625; left: parent.left; leftMargin: 800}
+        Text
+        {
+            id: cityLbl
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.top: parent.top
+            anchors.topMargin: 5
+            height: parent.height
+            text: "City: "
+            font.pixelSize: 35
+        }
+        Rectangle
+        {
+            width: 550
+            height: addUser.height
+            anchors.left: parent.left
+            anchors.leftMargin: 95
+            color: "transparent"
+            TextInput
+            {
+                id:cityChangeInput
+                text: "Chicago"
+                anchors.fill: parent
+                font.pixelSize: 35
+                anchors.top: parent.top
+                anchors.topMargin: 5
+                onFocusChanged: cityChangeInput.text = ""
             }
         }
     }
@@ -133,7 +191,7 @@ Rectangle {
     Text
     {
         id: changeMethodText
-        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 200}
+        anchors {top: parent.top; topMargin: 725; left: parent.left; leftMargin: 200}
         text: "Measurement System:"
         font.pixelSize: 50
 
@@ -141,7 +199,7 @@ Rectangle {
     Text
     {
         id: clickMethodText
-        anchors {top: parent.top; topMargin: 715; left: parent.left; leftMargin: 210}
+        anchors {top: parent.top; topMargin: 785; left: parent.left; leftMargin: 210}
         text: "Click on icons to change"
         font.pixelSize: 15
     }
@@ -149,7 +207,7 @@ Rectangle {
     {
         width: 360
         height: 180
-        anchors {top: parent.top; topMargin: 650; left: parent.left; leftMargin: 800}
+        anchors {top: parent.top; topMargin: 725; left: parent.left; leftMargin: 800}
         color: "#C0C0C0"
         border.color: "teal"
         border.width: 5
@@ -288,7 +346,7 @@ Rectangle {
                         }
                         Text
                         {
-                            text: "Username"
+                            text: "Password"
                             font.bold: true
                             font.underline: true
                             font.pixelSize: 25
@@ -426,14 +484,19 @@ Rectangle {
         {
 
             case 0:
+                addUserText.text = "Add New User: "
                 changeAPIText.text = "Change Cooking API:"
+                changeCityText.text = "Change City:"
+                changeCitySubText.text = "Type in new ciy to the right for the weather and commute applications"
                 changeLanguagesText.text = "Change Language:"
                 changeMethodText.text = "Measurement System:"
                 clickLanguageText.text = "Click on icons to change"
                 clickMethodText.text = "Click on icons to change"
                 break;
             case 1:
-                addUserText.text ="Agregar Usuario Nuevo:"
+                addUserText.text ="Agrega Usuario Nuevo:"
+                changeCityText.text = "Cambiar Ciudad:"
+                changeCitySubText.text = "Escriba ciudad nueva a la derecha"
                 changeAPIText.text = "Cambiar API:"
                 changeLanguagesText.text = "Cambiar el Idomia:"
                 changeMethodText.text = "Cambiar el Sistema:"
@@ -442,6 +505,8 @@ Rectangle {
                 break;
             case 2:
                 addUserText.text = "Lägg till Användare:"
+                changeCityText.text = "Ändra Stad:"
+                changeCitySubText.text = "Skriv in ny stad till höger för vädret och pendla applikationer"
                 changeAPIText.text = "Ändra API:"
                 changeLanguagesText.text = "Ändra Språk:"
                 changeMethodText.text = "Mätsystem:"
@@ -450,6 +515,8 @@ Rectangle {
                 break;
             case 3:
                 addUserText.text = "Ajouter un Utilisateur:"
+                changeCityText = "Changer ville:"
+                changeCitySubText = "Tapez nouveau ciy vers la droite"
                 changeAPIText.text = "Changer API:"
                 changeLanguagesText.text = "Changer la Langue:"
                 changeMethodText.text = "Système de Mesure:"
@@ -458,6 +525,8 @@ Rectangle {
                 break;
             case 4:
                 addUserText.text = "Benutzer Hinzufügen:"
+                changeCityText.text = "Ändern Stadt:"
+                changeCitySubText.text = "Type in neue Stadt auf der rechten Seite"
                 changeAPIText.text = "Ändern API:"
                 changeLanguagesText.text = "Ändern Sprache:"
                 changeMethodText.text = "Messsystem:"
