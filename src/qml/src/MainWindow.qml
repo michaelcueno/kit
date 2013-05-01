@@ -487,7 +487,7 @@ Item {
     // Weather Icon
     Image { id: home_icon
         source: "qrc:/images/main/icons/homeIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 115; }
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 110; }
         MouseArea {
             anchors.fill: parent
             onPressed: {homePressed.start()}
@@ -508,10 +508,9 @@ Item {
             PropertyAnimation{target: home_icon; properties: "y"; to: home_icon.y - 20; duration:0}
         }
     }
-
     Image { id: weather_icon
         source: "qrc:/images/main/icons/weatherIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 345; }
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 315; }
         MouseArea {
             anchors.fill: parent
             onPressed: {weatherPressed.start()}
@@ -534,7 +533,7 @@ Item {
     }
     Image { id: clock_icon
         source: "qrc:/images/main/icons/clockIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:5; left: parent.left; leftMargin: 525; }
+        anchors {bottom: parent.bottom; bottomMargin:5; left: parent.left; leftMargin: 475; }
         MouseArea {
             anchors.fill: parent
             MouseArea {
@@ -560,7 +559,7 @@ Item {
     }
     Image { id: calc_icon
         source: "qrc:/images/main/icons/calcIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 800; }
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 735; }
         MouseArea {
             anchors.fill: parent
             onPressed: {calcPressed.start()}
@@ -584,7 +583,7 @@ Item {
     }
     Image { id: cooking_icon
         source: "qrc:/images/main/icons/cookingIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 1000; }
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 910; }
         MouseArea {
             anchors.fill: parent
             onPressed: {cookingPressed.start()}
@@ -608,7 +607,7 @@ Item {
     }
     Image { id: music_icon
         source: "qrc:/images/main/icons/musicIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 1200; }
+        anchors {bottom: parent.bottom; bottomMargin:15; left: parent.left; leftMargin: 1100; }
         MouseArea {
             anchors.fill: parent
             onPressed: {musicPressed.start()}
@@ -630,10 +629,9 @@ Item {
             PropertyAnimation{target: music_icon; properties: "y"; to: music_icon.y - 20; duration:0}
         }
     }
-
     Image { id: homeAuto_icon
         source: "qrc:/images/main/icons/automationIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 1450; }
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 1350; }
         MouseArea {
             anchors.fill: parent
             onPressed: {homeAutoPressed.start()}
@@ -655,10 +653,33 @@ Item {
             PropertyAnimation{target: homeAuto_icon; properties: "y"; to: homeAuto_icon.y - 20; duration:0}
         }
     }
+    Image { id: commute_icon
+        source: "qrc:/images/main/icons/commuteIcon.png"
+        anchors {bottom: parent.bottom; bottomMargin:20; left: parent.left; leftMargin: 1555; }
+        MouseArea {
+            anchors.fill: parent
+            onPressed: {commutePressed.start()}
 
+            onReleased: {commuteUnpressed.start(); open(commute) }  // Function defined in main.qml
+        }
+        ParallelAnimation{
+            id: commutePressed
+            PropertyAnimation{target: commute_icon; properties: "width"; to: commute_icon.width - 10; duration:0}
+            PropertyAnimation{target: commute_icon; properties: "height"; to: commute_icon.height - 10; duration:0}
+            PropertyAnimation{target: commute_icon; properties: "x"; to: commute_icon.x + 20; duration:0}
+            PropertyAnimation{target: commute_icon; properties: "y"; to: commute_icon.y + 20; duration:0}
+        }
+        ParallelAnimation{
+            id: commuteUnpressed
+            PropertyAnimation{target: commute_icon; properties: "width"; to: commute_icon.width + 10; duration:0}
+            PropertyAnimation{target: commute_icon; properties: "height"; to: commute_icon.height + 10; duration:0}
+            PropertyAnimation{target: commute_icon; properties: "x"; to: commute_icon.x - 20; duration:0}
+            PropertyAnimation{target: commute_icon; properties: "y"; to: commute_icon.y - 20; duration:0}
+        }
+    }
     Image { id: settings_icon
         source: "qrc:/images/main/icons/settingsIcon.png"
-        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 1650; }
+        anchors {bottom: parent.bottom; bottomMargin:10; left: parent.left; leftMargin: 1700; }
         MouseArea {
             anchors.fill: parent
             onPressed: {settingsPressed.start()}

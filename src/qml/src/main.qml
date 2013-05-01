@@ -37,6 +37,7 @@ Item {
     MusicApp { id: music; anchors.top:mainWindow.top; anchors.left: mainWindow.left }
     ClockApp { id: clockApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
     HomeAutoApp { id: homeauto; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
+    Commuting { id: commute; anchors.top: mainWindow.top; anchors.left: mainWindow.left}
     
 
     ScreenSaver{id: screenSaver; anchors.top:mainWindow.top; anchors.left: mainWindow.left}
@@ -128,6 +129,7 @@ Item {
         screenSaver.z = 0;
         screenSaver.state = "hidden"
         settings.state = "hidden"
+        commute.state = "hidden"
 
         // add apps in here as you add them to the project
     }

@@ -1,12 +1,28 @@
 import QtQuick 2.0
+import QtWebKit 3.0
 
 Rectangle {
     id: container
     width: 1920
-    height: 1280
+    height: 1080
     color:"transparent"
 
     Component.onCompleted: init()
+
+    WebView
+    {
+        id: webview
+        width: parent.width
+        height: parent.height
+        opacity: 0
+        z: 0
+        MouseArea
+        {
+            anchors.fill: parent
+            onClicked:{webview.opacity = 0; webview.z = 0}
+        }
+    }
+
 
     Flickable
     {
@@ -23,7 +39,12 @@ Rectangle {
                 opacity: PathView.iconOpacity
                 z: PathView.zIndex
                 Column {
-                    Image { anchors.horizontalCenter: parent.horizontalCenter; width: 500; height: 200; source: icon }
+                    Image { anchors.horizontalCenter: parent.horizontalCenter; width: 500; height: 200; source: icon
+                            MouseArea{anchors.fill: parent; onClicked:{
+                                webview.url = site
+                                webview.opacity = 1
+                                webview.z = 100
+                                }}}
                 }
             }
         }
@@ -54,30 +75,39 @@ Rectangle {
                     model: ListModel{
                         ListElement{
                             icon: "qrc:/images/userMenu/likepost.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/friendrequest.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/wallpost.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/likepost.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/friendrequest.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/wallpost.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/likepost.png"
+                            site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/friendrequest.png"
+                             site: "http://www.facebook.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/wallpost.png"
+                            site: "http://www.facebook.com"
                         }
                     }
                     delegate: delegate
@@ -122,30 +152,39 @@ Rectangle {
                     model: ListModel{
                         ListElement{
                             icon: "qrc:/images/userMenu/gamespotrss.png"
+                            site: "http://www.gamespot.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/onionrss.png"
+                            site: "http://www.onion.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/bbcrss.png"
+                            site: "http://www.bbc.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/gamespotrss.png"
+                            site: "http://www.gamespot.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/onionrss.png"
+                            site: "http://www.onion.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/bbcrss.png"
+                            site: "http://www.bbc.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/gamespotrss.png"
+                            site: "http://www.gamespot.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/onionrss.png"
+                            site: "http://www.onion.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/bbcrss.png"
+                            site: "http://www.bbc.com"
                         }
                     }
                     delegate: delegate
@@ -190,30 +229,39 @@ Rectangle {
                     model: ListModel{
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet1.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet2.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet3.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet1.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet2.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet3.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet1.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet2.png"
+                            site: "http://www.twitter.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/tweet3.png"
+                            site: "http://www.twitter.com"
                         }
                     }
                     delegate: delegate
@@ -257,30 +305,39 @@ Rectangle {
                     model: ListModel{
                         ListElement{
                             icon: "qrc:/images/userMenu/email1.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email2.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email3.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email1.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email2.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email3.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email1.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email2.png"
+                            site: "http://www.gmail.com"
                         }
                         ListElement{
                             icon: "qrc:/images/userMenu/email3.png"
+                            site: "http://www.gmail.com"
                         }
                     }
                     delegate: delegate

@@ -12,6 +12,7 @@
         <file>images/main/icons/settingsIcon.png</file>
         <file>images/main/icons/automationIcon.png</file>
         <file>images/main/icons/homeIcon.png</file>
+        <file>images/main/icons/commuteIcon.png</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
