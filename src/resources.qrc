@@ -41,7 +41,6 @@
         <file>images/settings/swedish.png</file>
         <file>images/settings/un-flag.png</file>
         <file>images/settings/us-flag.png</file>
-        <file>images/Kitchen-Window-Views.jpg</file>
     </qresource>
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>

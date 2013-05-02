@@ -708,12 +708,20 @@ Item {
 
     // Pull string (logout thingy)
     Image { id: pullstring
-        source: "qrc:/images/main/pullstring.png"
-        anchors { top: parent.top; right: parent.right; rightMargin: 20}
+        z:5
+        source: "/home/mike/School/ui-CS422/kit/src/images/main/pullstring2.png"
+        x: 1840
+        y: -200;
+        width: 70; height: 600
        MouseArea {
             anchors.fill: parent
-            onClicked: main.logout();
+            onClicked: { main.logout(); pullstring_ani.start() }
         }
+    }
+
+    SequentialAnimation { id: pullstring_ani
+        PropertyAnimation { target: pullstring; property: "y"; duration: 500; easing.type: Easing.InOutQuad; to: -80 }
+        PropertyAnimation { target: pullstring; property: "y"; duration: 500; easing.type: Easing.InOutQuad; to: -200 }
     }
 
     // The states the app can be in

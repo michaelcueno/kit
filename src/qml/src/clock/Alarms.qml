@@ -41,59 +41,59 @@ Image {
     }
 
     Image {
-        x: 420; y: 87
-        source: "qrc:/clock/images/clock/alarm_off.png"
+        x: 420; y: 97
+        source: "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
 
         MouseArea {
             anchors {left: parent.left; right: parent.horizontalCenter; top:parent.top; bottom:parent.bottom}
             onClicked: {
-                parent.source = "qrc:/clock/images/clock/alarm_off.png"
+                parent.source = "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_on.png"
 
             }
         }
         MouseArea {
             anchors {left: parent.horizontalCenter; right: parent.right;  top:parent.top; bottom:parent.bottom}
             onClicked: {
-                parent.source = "qrc:/clock/images/clock/alarm_on.png"
+                parent.source = "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
             }
         }
     }
 
     Image {
-        x: 450; y: 162
-        source: "qrc:/clock/images/clock/alarm_off.png"
+        x: 450; y: 172
+        source: "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
 
         MouseArea {
             anchors {left: parent.left; right: parent.horizontalCenter; top:parent.top; bottom:parent.bottom}
             onClicked: {
-                parent.source = "qrc:/clock/images/clock/alarm_off.png"
+                parent.source = "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_on.png"
 
             }
         }
         MouseArea {
             anchors {left: parent.horizontalCenter; right: parent.right;  top:parent.top; bottom:parent.bottom}
             onClicked: {
-                parent.source = "qrc:/clock/images/clock/alarm_on.png"
+                parent.source = "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
             }
         }
     }
 
 
     Image {
-        x: 520; y: 237
-        source: "qrc:/clock/images/clock/alarm_off.png"
+        x: 520; y: 247
+        source: "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
 
         MouseArea {
             anchors {left: parent.left; right: parent.horizontalCenter; top:parent.top; bottom:parent.bottom}
             onClicked: {
-                parent.source = "qrc:/clock/images/clock/alarm_off.png"
+                parent.source = "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_on.png"
 
             }
         }
         MouseArea {
             anchors {left: parent.horizontalCenter; right: parent.right;  top:parent.top; bottom:parent.bottom}
             onClicked: {
-                parent.source = "qrc:/clock/images/clock/alarm_on.png"
+                parent.source = "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
             }
         }
     }
