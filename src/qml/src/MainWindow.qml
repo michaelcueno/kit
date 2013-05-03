@@ -71,7 +71,7 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
             text: " Emails"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
 
         Text { id: avinash_events_value
@@ -87,7 +87,7 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
             text: " Events"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
         Text { id: avinash_feeds_value
             // Positioning
@@ -101,7 +101,7 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
             text: " Feeds"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
     }
 
@@ -132,7 +132,7 @@ Item {
         Text { id: nisarg_email_value_text
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
-            text: "9"
+            text: "2"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -142,13 +142,13 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
             text: " Emails"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
 
         Text { id: nisarg_events_value
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
-            text: "54"
+            text: "2"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -158,12 +158,12 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
             text: " Events"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
         Text { id: nisarg_feeds_value
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
-            text: "3"
+            text: "0"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -172,7 +172,7 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
             text: " Feeds"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
     }
 
@@ -203,7 +203,7 @@ Item {
         Text { id: mike_email_value_text
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
-            text: "9"
+            text: "0"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -213,13 +213,13 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
             text: " Emails"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
 
         Text { id: mike_events_value
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
-            text: "54"
+            text: "3"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -229,12 +229,12 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
             text: " Events"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
         Text { id: mike_feeds_value
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
-            text: "3"
+            text: "6"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -243,7 +243,7 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
             text: " Feeds"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
     }
 
@@ -274,7 +274,7 @@ Item {
         Text { id: matt_email_value_text
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 670; }
-            text: "9"
+            text: "4"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -284,13 +284,13 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 740; }
             text: " Emails"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
 
         Text { id: matt_events_value
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1040; }
-            text: "54"
+            text: "0"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -300,12 +300,12 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1100; }
             text: " Events"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
         Text { id: matt_feeds_value
             // Positioning
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1400; }
-            text: "3"
+            text: "1"
             font.pixelSize: 50
             color: "lightsteelblue"
         }
@@ -314,7 +314,7 @@ Item {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: 1460; }
             text: " Feeds"
             font.pixelSize: 50
-            color: "grey"
+            color: "white"
         }
     }
 

@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
     width: 200
     height: 150
-    color: "lightgrey"
+    color: (song_queue.currentItem === this)? "grey" : "lightgrey"
 
     Text{
         id: artist_text
@@ -83,5 +83,9 @@ Rectangle {
 
     function yep(){
         queue.remove(this)
+    }
+
+    function load(){
+        load_song(path, img_path);
     }
 }

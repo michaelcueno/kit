@@ -6,9 +6,9 @@ Rectangle { id: songs_delegate
     width: 200
     height: 25
     color: "#d1d1d1"
-
+    x: 80
     Text{
-        text: artist
+        text: name
         font.pixelSize: 15
         anchors {left: parent.left; leftMargin: 20 ; topMargin: 10; verticalCenter: parent.verticalCenter}
     }

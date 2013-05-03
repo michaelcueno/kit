@@ -121,12 +121,12 @@ Item { id: container
     }
 
     function init(){
-        //main_stats.load("60607",0)  // Downloads json and sets environment variables
+       // main_stats.load("60607",0)  // Downloads json and sets environment variables
         current_city = "Chicago"
 
         //Uncomment for populated hours and data when not connected to api
-        swiper.populate_hours(240, 1)
-        main_stats.synthData()
+        //swiper.populate_hours(240, 1)
+        //main_stats.synthData()
         container.state = "hidden"
         main.weather_src = "qrc:/weather/images/weather/clear_blue_sky.jpg"
 

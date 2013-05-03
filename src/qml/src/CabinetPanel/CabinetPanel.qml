@@ -7,12 +7,13 @@ Rectangle {
     id: cabinetPane
 
 
-    /*
+
     Component.onCompleted: {cabinetPane.state = "moved"}
 
     MouseArea {
         id: mouseArea
         anchors.fill: parent
+        onClicked: move_to(mainWindow)
     }
     Rectangle{
         id: rectangle1
@@ -1020,7 +1021,7 @@ Rectangle {
             }
         }
     }
-    */
+
 
 }
 

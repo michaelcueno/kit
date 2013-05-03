@@ -45,7 +45,7 @@ Rectangle {
     }
 
     ListModel { id: queue
-
+            // This is where the songs will be added
     }
 
     ListView { id: song_queue
@@ -76,11 +76,16 @@ Rectangle {
     function add(path){
         queue.append(path)
         clear_btn.state = "on"
-        console.log(clear_btn.state)
+        if(queue.count == 1){
+            load_song(path.path, path.img_path);
+            player.play();
+        }
     }
 
     function next_song(){
-
+        queue.remove(0);
+        song_queue.currentIndex = 0;
+        song_queue.currentItem.load();
     }
 
     function clear_queue(){

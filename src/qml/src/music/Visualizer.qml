@@ -1,7 +1,7 @@
 import QtQuick 2.0
 
 Item {
-
+    y: 0
     property string img_source
     width: 1520
     height: 600

@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtMultimedia 5.0
 
 Rectangle {
-    property string music_source
+    property string track_name
     width: 1450
     height: 200
 
@@ -21,14 +21,21 @@ Rectangle {
 
     MediaPlayer {
         id: media_player
+        onPlaybackStateChanged: { if(media_player.status == MediaPlayer.EndOfMedia){
+                go_next();
+            }
+        }
     }
 
     Image { id: back_btn
         anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -30
         anchors.left: parent.left;
         anchors.leftMargin: 400;
         source: "qrc:/music/images/music/back_track.png"
+        opacity: .5
         MouseArea {
+            enabled: (back_btn.opacity == .5)? false:true;
             anchors.fill: parent
             onClicked: go_back();
         }
@@ -36,9 +43,11 @@ Rectangle {
 
     Image { id: play_btn
         anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
         anchors.left: back_btn.right;
         anchors.leftMargin: 40;
         source: "qrc:/music/images/music/play.png"
+        visible: !pause_btn.visible
         MouseArea {
             anchors.fill: parent
             onClicked: play_pause();
@@ -47,9 +56,10 @@ Rectangle {
 
     Image { id: pause_btn
         anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
         anchors.left: back_btn.right;
         anchors.leftMargin: 40;
-        visible: false
+        visible: !play_btn.visible
         source: "qrc:/music/images/music/pause.png"
         MouseArea {
             anchors.fill: parent
@@ -60,6 +70,7 @@ Rectangle {
     }
     Image { id: stop_btn
         anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
         anchors.left: play_btn.right;
         anchors.leftMargin: 40;
         source: "qrc:/music/images/music/stop.png"
@@ -71,6 +82,7 @@ Rectangle {
 
     Image { id: next_btn
         anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
         anchors.left: stop_btn.right;
         anchors.leftMargin: 40;
         source: "qrc:/music/images/music/next_track.png"
@@ -78,6 +90,16 @@ Rectangle {
             anchors.fill: parent
             onClicked: go_next();
         }
+    }
+
+    Text {
+        text: track_name
+        anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
+        anchors.left: next_btn.right;
+        anchors.leftMargin: 40;
+        font.pixelSize: 20
+        color: "black"
     }
 
  //=====------------
@@ -125,22 +147,33 @@ Rectangle {
         if(pause_btn.visible){
             media_player.pause()
             pause_btn.visible = false;
+            play_btn.visible = true;
         } else {
             media_player.play()
             pause_btn.visible = true;
+            play_btn.visible = false;
         }
     }
 
     function stop(){
         media_player.stop();
-        pause_btn.visible = false;
+        pause_btn.visible = false
+        play_btn.visible = true;
     }
 
     function go_next(){
-        console.log("going forward")
+        next.next_song()
     }
 
-    function load_song(path){
+    function load_song(path, name){
+        console.log(path)
         media_player.source = path
+        play()
+
+    }
+    function play(){
+        media_player.play()
+        pause_btn.visible = true
+        play_btn.visible = false
     }
 }

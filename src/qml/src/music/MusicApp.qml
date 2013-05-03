@@ -19,7 +19,7 @@ Item { id: container
     Component.onCompleted: container.state = "hidden"
 
     Songs { id: songs; x: 100; y: 0}
-    Visualizer {id: viz; x: 300; y: 200 }
+    Visualizer {id: viz; x: 300; y: 100 }
     NextTrack { id: next; x: 400; y: 00 }
     Player { id: player; x: 385; y: 800 }
 
