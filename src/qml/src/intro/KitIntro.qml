@@ -9,11 +9,6 @@ Item {
 
     Component.onCompleted: kit_intro_animation.start()
 
-    Image { id: real_kitchen
-        source: "qrc:/images/Kitchen-Window-Views.jpg"
-        visible: true;
-    }
-
     Rectangle { id: splash
         anchors.fill: parent
         color: "White"
@@ -35,22 +30,57 @@ Item {
             anchors.top: kit_text.bottom
             opacity: 0
         }
+        SequentialAnimation { id: kit_intro_animation
+            running: false;
+            PropertyAnimation { target: kit_text; property: "opacity"; duration: 1000; easing.type: Easing.linear; to: 1 }
+            PropertyAnimation { target: kit_detail_txt; property: "opacity"; duration: 1000; easing.type: Easing.linear; to: 1 }
+        }
     }
 
 
-
-    SequentialAnimation { id: kit_intro_animation
-        running: false;
-        NumberAnimation { target: kit_text; property: "opacity"; duration: 1000; easing.type: Easing.linear; to: 1 }
-        NumberAnimation { target: kit_detail_txt; property: "opacity"; duration: 1000; easing.type: Easing.linear; to: 1 }
-    }
-
-    SequentialAnimation { id: real_kitchen_zoom
-        NumberAnimation { target: splash; property: "opacity"; duration: 1000; easing.type: Easing.Linear; to: 0 }
-    }
-
-    MouseArea {
+    MouseArea { id: bring_to_help
         anchors.fill: parent
-        onClicked: { intro_container.z = 0; intro_container.visible = false; }
+        enabled: true;
+        onClicked: { splash.z = 0; splash.visible = false; go_to_help.running = true; }
     }
+
+    SequentialAnimation { id: go_to_help
+        PropertyAnimation { target: mainwindow_help; property: "opacity"; duration: 500; }
+        PropertyAnimation { target: mainwindow_help; property: "opacity"; duration: 500; easing.type: Easing.Linear; to: 1 }
+    }
+
+
+    Image { id: mainwindow_help
+        source: "/home/mike/School/ui-CS422/kit/src/images/intro/mainwindow.png"
+        width: parent.width
+        height: parent.height
+        opacity: 0;
+
+        MouseArea {
+            id: got_it
+            x: 1600; y: 0;
+            width: 320; height: 200;
+            onClicked: {bring_to_help.enabled = false; got_it.enabled = false; next_help.start(); navigation_help.visible = true}
+        }
+    }
+
+
+    Image { id: navigation_help
+        source: "/home/mike/School/ui-CS422/kit/src/images/intro/nav_help.png"
+        opacity: 0;
+        visible: false
+
+        MouseArea {
+            id: ok_ok
+            anchors.fill: parent
+            enabled: parent.visible
+            onClicked: {ok_ok.enabled = false; intro_container.visible = false; intro_container.z = -1}
+        }
+    }
+
+    SequentialAnimation {id: next_help
+        NumberAnimation { target: mainwindow_help; property: "opacity"; duration: 300; easing.type: Easing.Linear; to: 0 }
+        NumberAnimation { target: navigation_help; property: "opacity"; duration: 300; easing.type: Easing.Linear; to: 1 }
+    }
+
 }

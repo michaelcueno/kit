@@ -89,8 +89,8 @@ Item {
 
     // Used for placement of the cosmic unit
     function set_day(day){
-
         hours.currentIndex = 24*day;
+        re_draw()
     }
 
     // Loads the hours into the swiper after downloading hourly data set

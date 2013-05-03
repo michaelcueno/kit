@@ -45,7 +45,6 @@
     <qresource prefix="/weather">
         <file>images/weather/clear_blue_sky.jpg</file>
         <file>images/weather/black_lozenge.png</file>
-        <file>images/weather/blue-sky.jpg</file>
         <file>images/weather/cancel_down.png</file>
         <file>images/weather/cancel_up.png</file>
         <file>images/weather/clear.png</file>

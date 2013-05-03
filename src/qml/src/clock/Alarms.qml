@@ -41,7 +41,7 @@ Image {
     }
 
     Image {
-        x: 420; y: 97
+        x: 420; y: 77
         source: "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
 
         MouseArea {
@@ -60,7 +60,7 @@ Image {
     }
 
     Image {
-        x: 450; y: 172
+        x: 450; y: 152
         source: "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
 
         MouseArea {
@@ -80,7 +80,7 @@ Image {
 
 
     Image {
-        x: 520; y: 247
+        x: 520; y: 227
         source: "/home/mike/School/ui-CS422/kit/src/images/clock/alarm_off.png"
 
         MouseArea {

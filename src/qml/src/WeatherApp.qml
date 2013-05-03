@@ -123,20 +123,25 @@ Item { id: container
     function init(){
         //main_stats.load("60607",0)  // Downloads json and sets environment variables
         current_city = "Chicago"
-        reDraw()
+
         //Uncomment for populated hours and data when not connected to api
         swiper.populate_hours(240, 1)
         main_stats.synthData()
         container.state = "hidden"
+        main.weather_src = "qrc:/weather/images/weather/clear_blue_sky.jpg"
 
         //Tr.tr("This is a test string", "English", "Spanish")
     }
 
-    function reDraw(){
-        weather_bg.source = (main.daytime==0)?"qrc:/weather/images/weather/bgs/night-sky.png":"qrc:/weather/images/weather/clear_blue_sky.jpg"
-    }
+//    function reDraw(){
+//        weather_bg.source = (main.daytime==0)?"qrc:/weather/images/weather/bgs/night-sky.png":"qrc:/weather/images/weather/clear_blue_sky.jpg"
+//   }
 
     function reset(){
         swiper.set_day(0);
+    }
+
+    function re_draw(){
+        main_stats.setBackground()
     }
 }

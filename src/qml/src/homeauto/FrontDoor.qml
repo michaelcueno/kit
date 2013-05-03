@@ -1,3 +1,13 @@
+/****************************************************************************
+**
+** Copyright (C) 2012 Michael Cueno.
+** Contact: mcueno2@uic.edu
+**
+** This is the main QML file for the Clock application developed for
+** User Interface Design (CS422) @ UIC
+**
+**
+****************************************************************************/
 import QtQuick 2.0
 
 Image {
@@ -37,7 +47,7 @@ Image {
     ListView { id: alerts
         x: 450; y: 70
         model: alerts_model
-        height: 150; width: 450
+        height: 100; width: 450
         clip: true
 
 

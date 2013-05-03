@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item {
 
     property bool open: false;
-    property int countdown: 8
+    property int countdown: 15
 
     Image { id: garage
         source: "qrc:/homeauto/images/homeauto/garage.png"
@@ -14,10 +14,10 @@ Item {
     Image { id: garage_door
         smooth: true
         source: "qrc:/homeauto/images/homeauto/garage_door.jpg"
-        x: 50; y:-157
-        width: 400; height: 300
+        x: 70; y:-157
+        width: 380; height: 300
         visible: true
-        states: State {name: "closed"; PropertyChanges {target: garage_door; y: 130 } }
+        states: State {name: "closed"; PropertyChanges {target: garage_door; y: 137 } }
         transitions: Transition {
             PropertyAnimation { properties: "x,y"; easing.type: Easing.Linear }
         }

@@ -101,7 +101,7 @@ Image {
     }
 
     MediaPlayer {id: timer_sound
-        source: "qrc:/sounds/timer.mp3"   // shouldn't be in home auto, i dont feel like recompilinng though
+        source: main.root_dir + "sounds/timer.mp3"   // shouldn't be in home auto, i dont feel like recompilinng though
     }
 
     Timer {id: wait; onTriggered: tick(); }
@@ -132,6 +132,7 @@ Image {
         if(hours_spinner.currentIndex + min_spinner.currentIndex + sec_spinner.currentIndex == 0){
             console.log(timer_sound.source)
             timer_sound.play();
+            create_alert("Timer Done")
             start_btn.state = ""
             return
         }

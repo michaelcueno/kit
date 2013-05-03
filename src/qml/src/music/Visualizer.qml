@@ -11,4 +11,6 @@ Item {
         height: parent.height
         fillMode: Image.PreserveAspectFit
     }
+
+
 }

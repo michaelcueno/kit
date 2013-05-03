@@ -1,3 +1,13 @@
+/****************************************************************************
+**
+** Copyright (C) 2012 Michael Cueno.
+** Contact: mcueno2@uic.edu
+**
+** This is the main QML file for the Clock application developed for
+** User Interface Design (CS422) @ UIC
+**
+**
+****************************************************************************/
 import QtQuick 2.0
 
 Image {

@@ -5,7 +5,11 @@ Rectangle {
     width: 1920
     height: 1080
     id: cabinetPane
+
+
+    /*
     Component.onCompleted: {cabinetPane.state = "moved"}
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent
@@ -18,25 +22,7 @@ Rectangle {
         width: 1425
         height: 175
         color: "#c2c1c1"
-        /*Flickable {
-            id: flickArea
-             anchors.fill: parent
-             contentWidth: data.width; contentHeight: data.height
-             flickableDirection: Flickable.VerticalFlick
-             clip: true
-        Text{
-            id: data
-            x: 15
-            y: 15
-            color: "#000000"
-            for(var i =0; i<items_model.count; ++i)
-            {
-            text: items_model.get(i).name;
-            }
-            style: Text.Outline
-            verticalAlignment: Text.AlignVCenter
-            font.pointSize: 14
-        }*/
+
 
         ListModel {
             id: items_model
@@ -348,25 +334,7 @@ Rectangle {
         width: 1425
         height: 120
         color: "#c2c1c1"
-        /*Flickable {
-            id: flickArea
-             anchors.fill: parent
-             contentWidth: data.width; contentHeight: data.height
-             flickableDirection: Flickable.VerticalFlick
-             clip: true
-        Text{
-            id: data
-            x: 15
-            y: 15
-            color: "#000000"
-            for(var i =0; i<items_model.count; ++i)
-            {
-            text: items_model.get(i).name;
-            }
-            style: Text.Outline
-            verticalAlignment: Text.AlignVCenter
-            font.pointSize: 14
-        }*/
+
 
         ListModel {
             id: npitems_model
@@ -486,21 +454,10 @@ Rectangle {
                 cabinetPane.state = "popup2"
                 npitems_model.remove(index.text)
             }
-            /*else if(changequantityselecteddata.text<5)
-            {
-                lessitems_model.insert(0, {"name1":changenameselecteddata.text, "quantity1":changequantityselecteddata.text, "dom1":changedomselecteddata.text, "doe1":changedoeselecteddata.text})            }
-        }*/
 
 
-
-
-}
+        }
     }
-
-
-
-
-
 
 
     Text{
@@ -1063,6 +1020,7 @@ Rectangle {
             }
         }
     }
+    */
 
 }
 

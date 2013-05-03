@@ -246,9 +246,11 @@ Rectangle {
             model:ListModel{
                 ListElement{
                     src: "qrc:/images/settings/us-flag.png"
+                    type: 0
                 }
                 ListElement{
                     src: "qrc:/images/settings/un-flag.png"
+                    type: 1
                 }
             }
             delegate: Component{
@@ -268,6 +270,7 @@ Rectangle {
                         anchors.fill: parent
                         onClicked:{
                             measurementMethodList.currentIndex = index
+                            main.metric = type
                         }
                     }
                 }
@@ -282,6 +285,7 @@ Rectangle {
         anchors {top: parent.top; topMargin: 400; left: parent.left; leftMargin: 200}
         text: "Add New User:"
         font.pixelSize: 50
+        color: (main.daytime==0)?"white":"black"
 
     }
     Image

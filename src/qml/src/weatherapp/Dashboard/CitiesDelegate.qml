@@ -129,7 +129,7 @@ Rectangle { id: container
             break
         case '116': // Partly Cloudy
             container.color = "#AEC5DF"
-            icon.source = "qrc:/weather/images/weather/PartlyCloudy.png"
+
             break
         case '119': // cloudy
         case '122':
@@ -137,6 +137,7 @@ Rectangle { id: container
         case '248':
             container.color = "grey"
             icon.source = "qrc:/weather/images/weather/Cloudy.png"
+            main.weather_src = "http://fc03.deviantart.net/fs11/i/2006/217/5/0/Cloudy_Sky_V_by_surczak.jpg"
             break
         case '176': // Rain
         case '182':

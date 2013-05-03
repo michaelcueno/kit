@@ -24,10 +24,14 @@ Item {
     width: 1920
     height: 1080
 
+    property string root_dir: "/home/mike/School/ui-CS422/kit/src/";   // Change this to the build directory
+
+    property string weather_src: "qrc:/weather/images/weather/clear_blue_sky.jpg";
+
     // This is the backround depicting the current weather, it is changed by
     // the weather app
     Image { id: weather_bg
-        source: "qrc:/weather/images/weather/clear_blue_sky.jpg"
+        source: weather_src;
     }
 
     /** Gobal Level Variables */
@@ -35,7 +39,7 @@ Item {
     property int metric: 0; // us (0) vs. metric (1)
 
     // Intro animation
-    KitIntro {z: 1000}
+   // KitIntro {z: 1000}
 
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }
@@ -73,6 +77,9 @@ Item {
         }
         onClose: state = ""
     }
+
+    // Alert Notification
+    Alert { id: alert; anchors.centerIn: parent; visible: false }
 
     // Animation Function (Switching between the four different kitchen views
     function move_to( screen )
@@ -151,5 +158,16 @@ Item {
 
     function pull_up_shade(){
         shade.state = "hidden"
+    }
+
+    function create_alert(text){
+        alert.content = text
+        alert.z = 1000;
+        alert.visible = true
+    }
+
+    function dismiss_alert(){
+        alert.z = 0
+        alert.visible = false
     }
 }

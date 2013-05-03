@@ -24,7 +24,9 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("music", &music);
 
     //viewer.showFullScreen();
-    viewer.showExpanded();
+    //viewer.showExpanded();
+    viewer.setFlags( Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint );
+    viewer.show();
 
     return app.exec();
 }

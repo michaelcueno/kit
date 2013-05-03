@@ -29,6 +29,7 @@ Item {
     property string low_c
     property string windspeedMiles
     property string windspeedKmph
+    property string icon
 
 
     Rectangle { id: shade
@@ -106,7 +107,7 @@ Item {
                 container.cur_time = jsonObject.hourly_forecast[0].FCTTIME.hour
                 swiper.static_cur_day = swiper.current_day
                 completed();container.cur_time = hour
-                container.reDraw()
+                setBackground()
             }
         }
         doc.send();
@@ -123,8 +124,9 @@ Item {
         hour = jsonObject.hourly_forecast[index].FCTTIME.hour
         civil = jsonObject.hourly_forecast[index].FCTTIME.civil
         condition = jsonObject.hourly_forecast[index].condition
-
+        icon = jsonObject.hourly_forecast[index].icon
         setHour(jsonObject.hourly_forecast[index].FCTTIME.hour)
+        setBackground()
     }
 
     // Sets the hour that we are currently using
@@ -137,7 +139,7 @@ Item {
             colour = "black"
             main.daytime = 1
         }
-        container.reDraw()
+       // container.reDraw()
 
         // Take care of setting the day
         if(day=="Monday") swiper.current_day = 0;
@@ -147,6 +149,7 @@ Item {
         if(day=="Friday") swiper.current_day = 4;
         if(day=="Saturday") swiper.current_day = 5;
         if(day=="Sunday") swiper.current_day = 6;
+        setBackground()
     }
 
     function synthData(){
@@ -161,6 +164,39 @@ Item {
         low_f = "55"
         windspeedMiles = "10"
         windspeedKmph = "5"
+    }
+
+    function setBackground(bg){
+
+        switch (icon){
+        case 'clear':
+            main.weather_src = (main.daytime == 1)? main.root_dir + "images/weather/bgs/clear_blue_sky.jpg" : main.root_dir + "images/weather/bgs/night-sky.png"
+            break
+        case 'partlycloudy': // Partly Cloudy
+            main.weather_src = (main.daytime == 1)? main.root_dir + "images/weather/bgs/clear_blue_sky.jpg" : main.root_dir + "images/weather/bgs/night-sky.png"
+            break
+        case 'mostlycloudy': // cloudy
+        case 'cloudy':
+        case 'fog':
+            main.weather_src = (main.daytime == 1)? main.root_dir + "images/weather/bgs/cloudy.jpg" : main.root_dir + "images/weather/bgs/cloudy_night.jpg"
+            break
+        case 'chancerain': // Rain
+        case 'rain':
+            main.weather_src = (main.daytime == 1)? main.root_dir + "images/weather/bgs/rain_day.jpg" : main.root_dir + "images/weather/bgs/rain_night.jpg"
+            break
+        case '179':  // Snow
+
+            break
+        case 'chancetstorms': // Storm
+            console.log("GOT HERE")
+            main.weather_src = (main.daytime == 1)? main.root_dir + "images/weather/bgs/storm_day.jpg" : main.root_dir + "images/weather/bgs/lightning.jpg" ;
+            break
+        default:
+            console.log(icon + " not accounted for");
+            weather_bg.source = (main.daytime==0)?"qrc:/weather/images/weather/bgs/night-sky.png":"qrc:/weather/images/weather/clear_blue_sky.jpg"
+            break
+
+        }
     }
 
 

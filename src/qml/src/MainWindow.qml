@@ -9,7 +9,6 @@ Item {
 
 
     // Temporary navigation panels until we get swipe action to work...
-
     Image { id: window_sill
         x:0; y:0;
         source: "qrc:/images/main/window-sill.png"

@@ -21,6 +21,29 @@ Rectangle {
             anchors.fill: parent
             onClicked:{webview.opacity = 0; webview.z = 0}
         }
+
+    }
+
+    Rectangle { id: loading_bg
+        visible: webview.loading
+        color: "darkgrey"
+        anchors.fill: parent
+        z: 1000
+        Rectangle { id: progress_bar_bg
+            anchors.verticalCenter: parent.verticalCenter
+            x: 200;
+            width: 1520
+            height: 20
+            color: "grey"
+        }
+        Rectangle { id: progress_bar
+            x: progress_bar_bg.x
+            y: progress_bar_bg.y
+            height: 20
+            color: "#d36600"
+            width: webview.loadProgress * 15.2
+            opacity: 1
+        }
     }
 
 
