@@ -121,7 +121,7 @@ Item { id: container
     }
 
     function init(){
-       // main_stats.load("60607",0)  // Downloads json and sets environment variables
+        main_stats.load("60607",0)  // Downloads json and sets environment variables
         current_city = "Chicago"
 
         //Uncomment for populated hours and data when not connected to api

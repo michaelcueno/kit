@@ -39,7 +39,7 @@ Item {
     property int metric: 0; // us (0) vs. metric (1)
 
     // Intro animation
-   // KitIntro {z: 1000}
+    KitIntro {z: 1000}
 
     // Initialize apps
     WeatherApp { id: weatherApp; anchors.top: mainWindow.top; anchors.left: mainWindow.left }

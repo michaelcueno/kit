@@ -486,7 +486,7 @@ Rectangle {
     TextEdit{
         id: newdata
         x:280
-        y: 825
+        y: 830
         z:2
         color: "#000000"
         text: qsTr("Enter a Name");
